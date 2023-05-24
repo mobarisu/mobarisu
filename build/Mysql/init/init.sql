@@ -67,3 +67,64 @@ create table orders_details(
     FOREIGN KEY (order_id) REFERENCES products(order_id),
     FOREIGN KEY (product_id) REFERENCES options(product_id)
 );
+
+insert into products_categories
+(category_name)
+values
+('メイン'),
+('サイド'),
+('ドリンク');
+
+insert into allergies
+(ingredient)
+values
+('卵'),
+('乳'),
+('小麦'),
+('えび'),
+('かに'),
+('そば'),
+('落花生'),
+('アーモンド'),
+('あわび'),
+('いか'),
+('いくら'),
+('オレンジ'),
+('カシューナッツ'),
+('キウイフルーツ'),
+('牛肉'),
+('くるみ'),
+('ごま'),
+('さけ'),
+('さば'),
+('大豆'),
+('鶏肉'),
+('バナナ'),
+('豚肉'),
+('まつたけ'),
+('もも'),
+('やまいも'),
+('りんご'),
+('ゼラチン');
+
+insert into stores
+(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+values (マクドナルド,世界的なファストフードチェーンで、美味しいハンバーガーやポテトなど幅広いメニューを提供。快適な空間で楽しい食事体験をお届けします。,
+mac@gmail.com,00012340123,ドナルドマクドナルド,Pass_1234_qwaszx);
+
+
+insert into stores
+(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+values (モスバーガー,新鮮な素材で作る美味しいバーガーやサイドメニューを提供。心地よい空間でお楽しみいただけます。ご家族や友人との食事に最適です。,
+mos@gmail.com,12323450123,モス,Qwerty_1234_pass);
+
+
+insert into stores
+(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+values (すき家,新鮮な食材を使った美味しいすき焼きや丼物をリーズナブルに提供。心地よい雰囲気でおくつろぎください。ご家族や友人との食事に最適です。,
+sukiya@gmail.com,12342345123,スキヤ,Qwaszx_1234_pass);
+
+insert into stores
+(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+values (松屋,美味しい牛丼や定食をリーズナブルに提供。忙しい日常に手軽でヘルシーな食事をお届けします。心地よい雰囲気でおくつろぎください。ご来店をお待ちしています！,
+matuya@gmail.com,09871234098,マツヤ,QWerasd_10293_pass);
