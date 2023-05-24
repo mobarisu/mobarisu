@@ -3,31 +3,40 @@ version: '3'
 services:
   react:
     build:
-      context: ./React/
+      context: ./build/react/
       dockerfile: Dockerfile
-    container_name: Web-Server
-    environment:
-      - CHOKIDAR_USEPOLLING=true
+    container_name: web-server
     ports:
-      - "8080:8080"
+      - "3000:3000"
+    volumes:
+      - ./react:/usr/src/app
+    command: sh -c 'cd react-app && yarn start'
+    environment:
+      - WATCHPACK_POLLING=true
     tty: true
 
   ruby:
     build:
-      context: ./Ruby/
+      context: ./build/ruby/
       dockerfile: Dockerfile
-    container_name: API-Server
+    container_name: api-server
     ports:
-      - "3000:3000"
+      - "3443:3000"
+    volumes:
+      - ./ruby:/usr/src/app
+    depends_on:
+      - db
     tty: true
 
-  DB:
+  db:
     build:
-      context: ./DB/
+      context: ./build/mysql/
       dockerfile: Dockerfile
-    container_name: DB-Server
+    container_name: db-server
     ports:
       - "3306:3306"
     volumes:
-      - 
-    tty: true
+      - ./build/mysql/init/:/docker-entrypoint-initdb.d
+      - ./mysql:/var/lib/mysql
+    env_file:
+      - ./build/mysql/.env
