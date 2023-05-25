@@ -1,15 +1,29 @@
+USE database;
+
 create table stores(
-    store_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    store_id int PRIMARY KEY AUTO_INCREMENT,
     store_name varchar(128) NOT NULL,
     store_introduction varchar(255),
     mail_address varchar(255) NOT NULL,
-    phone_number int NOT NULL,
+    phone_number long NOT NULL,
     representative_name varchar(128) NOT NULL,
     password varchar(255) NOT NULL
 );
 
+create table options(
+    option_id int PRIMARY KEY AUTO_INCREMENT,
+    option_name varchar(255) NOT NULL,
+    option_price int NOT NULL
+);
+
+create table products_categories(
+    category_id int PRIMARY KEY AUTO_INCREMENT,
+    category_name varchar(255) NOT NULL
+);
+
+
 create table products(
-    product_id int PRIMARY KEY NOT NULL,
+    product_id int PRIMARY KEY AUTO_INCREMENT,
     store_id int NOT NULL,
     category_id int NOT NULL,
     product_name varchar(128) NOT NULL,
@@ -21,51 +35,43 @@ create table products(
 );
 
 create table products_options(
-    product_id int PRIMARY KEY NOT NULL,
-    option_id int PRIMARY KEY NOT NULL,
+    product_id int,
+    option_id int,
     FOREIGN KEY (product_id) REFERENCES products(product_id),
-    FOREIGN KEY (option_id) REFERENCES options(option_id)
-);
-
-create teble options(
-    option_id int PRIMARY KEY NOT NULL,
-    option_name varchar(255) NOT NULL,
-    option_price int NOT NULL
-);
-
-create teble products_allergies(
-    product_id int PRIMARY KEY NOT NULL,
-    allergy_id int  PRIMARY KEY NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES products(product_id),
-    FOREIGN KEY (allergy_id) REFERENCES options(allergy_id)
-);
-
-create table products_categories(
-    category_id int PRIMARY KEY NOT NULL,
-    category_name varchar(255) NOT NULL
+    FOREIGN KEY (option_id) REFERENCES options(option_id),
+    PRIMARY KEY(product_id,option_id)
 );
 
 create table allergies(
-    allergy_id int PRIMARY KEY NOT NULL,
+    allergy_id int PRIMARY KEY AUTO_INCREMENT,
     ingredient varchar(64) NOT NULL
 );
 
+create table products_allergies(
+    product_id int,
+    allergy_id int,
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    FOREIGN KEY (allergy_id) REFERENCES allergies(allergy_id),
+    PRIMARY KEY(product_id,allergy_id)
+);
+
 create table orders(
-    order_id int PRIMARY KEY NOT NULL,
+    order_id int PRIMARY KEY AUTO_INCREMENT,
     store_id int  NOT NULL,
     receipt_number varchar(32) NOT NULL,
     phone_number int NOT NULL,
     orderer_name varchar(128) NOT NULL,
     order_time time NOT NULL,
-    receipt_complete boolean NOT NULL,
+    receipt_complete boolean NOT NULL
 );
 
 create table orders_details(
-    order_id int PRIMARY KEY NOT NULL,
-    product_id int PRIMARY KEY NOT NULL,
+    order_id int,
+    product_id int,
     quantity int NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES products(order_id),
-    FOREIGN KEY (product_id) REFERENCES options(product_id)
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    PRIMARY KEY(order_id,product_id)
 );
 
 insert into products_categories
@@ -109,25 +115,23 @@ values
 
 insert into stores
 (store_name,store_introduction,mail_address,phone_number,representative_name,password)
-values (マクドナルド,世界的なファストフードチェーンで、美味しいハンバーガーやポテトなど幅広いメニューを提供。快適な空間で楽しい食事体験をお届けします。,
-mac@gmail.com,00012340123,ドナルドマクドナルド,Pass_1234_qwaszx);
-
-
-insert into stores
-(store_name,store_introduction,mail_address,phone_number,representative_name,password)
-values (モスバーガー,新鮮な素材で作る美味しいバーガーやサイドメニューを提供。心地よい空間でお楽しみいただけます。ご家族や友人との食事に最適です。,
-mos@gmail.com,12323450123,モス,Qwerty_1234_pass);
-
+values ('マクドナルド','世界的なファストフードチェーンで、美味しいハンバーガーやポテトなど幅広いメニューを提供。快適な空間で楽しい食事体験をお届けします。',
+'mac@gmail.com',00012340123,'ドナルドマクドナルド','Pass_1234_qwaszx');
 
 insert into stores
 (store_name,store_introduction,mail_address,phone_number,representative_name,password)
-values (すき家,新鮮な食材を使った美味しいすき焼きや丼物をリーズナブルに提供。心地よい雰囲気でおくつろぎください。ご家族や友人との食事に最適です。,
-sukiya@gmail.com,12342345123,スキヤ,Qwaszx_1234_pass);
+values ('モスバーガー','新鮮な素材で作る美味しいバーガーやサイドメニューを提供。心地よい空間でお楽しみいただけます。ご家族や友人との食事に最適です。',
+'mos@gmail.com',02323450123,'モス','Qwerty_1234_pass');
 
 insert into stores
 (store_name,store_introduction,mail_address,phone_number,representative_name,password)
-values (松屋,美味しい牛丼や定食をリーズナブルに提供。忙しい日常に手軽でヘルシーな食事をお届けします。心地よい雰囲気でおくつろぎください。ご来店をお待ちしています！,
-matuya@gmail.com,09871234098,マツヤ,QWerasd_10293_pass);
+values ('すき家','新鮮な食材を使った美味しいすき焼きや丼物をリーズナブルに提供。心地よい雰囲気でおくつろぎください。ご家族や友人との食事に最適です。',
+'sukiya@gmail.com',02342345123,'スキヤ','Qwaszx_1234_pass');
+
+insert into stores
+(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+values ('松屋','美味しい牛丼や定食をリーズナブルに提供。忙しい日常に手軽でヘルシーな食事をお届けします。心地よい雰囲気でおくつろぎください。ご来店をお待ちしています！',
+'matuya@gmail.com',09871234098,'マツヤ','QWerasd_10293_pass');
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
@@ -202,14 +206,14 @@ insert into products
 values (1,2,'マックフライポテト','外はカリッとゴールデンブラウン。中はホクホクとベイクドポテトのような食感。こだわりぬいた、マクドナルドのベストセラー。',
 330,true);
 
-insert into products_options
-(product_id,option_id)
+insert into options
+(option_name,option_price)
 values
 ('Sサイズ',-140),
 ('Lサイズ',50);
 
-insert into options
-(option_name,option_price)
+insert into products_options
+(product_id,option_id)
 values
 (5,1),
 (5,2);
@@ -237,7 +241,7 @@ values
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
-values (2,1,'ダブルとびきりチーズ ～北海道産ゴーダチーズ使用～','国産肉（牛・豚合挽き肉）を100％使用したハンバーグに、オリジナル国産チーズとオニオンスライスをのせ、国産丸大豆醤油を使用したコクと深みのある“和風ソース”をかけました。北海道産ゴーダチーズと、国産バターを使用したオリジナルチーズの滑らかな口どけとミルキーな味わいをお楽しみください。',
+values (2,1,'ダブルとびきりチーズ ～北海道産ゴーダチーズ使用～','国産肉（牛・豚合挽き肉）を100％使用したハンバーグに、国産丸大豆醤油を使用したコクと深みのある“和風ソース”をかけました。',
 800,true);
 
 insert into products_allergies
@@ -256,7 +260,7 @@ values
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
-values (2,1,'グリーンバーガー＜テリヤキ＞ GREEN BURGER TERIYAKI','主要原材料に動物性食材を使用せず、さらに五葷（ごくん）を抜いた、野菜と穀物を主原料にしたテリヤキバーガーです。やさしい甘みのベジタブルバンズと、グリーンリーフなどの野菜と、大豆由来の原料を使用したパティを合わせたバーガーに、別添えのグリーンテリマヨソースをお好みでかけながらお召しあがりください。',
+values (2,1,'グリーンバーガー＜テリヤキ＞ GREEN BURGER TERIYAKI','やさしい甘みのベジタブルバンズと、大豆由来の原料を使用したパティを合わせたバーガーに、別添えのグリーンテリマヨソースをかけながらお召しあがりください。',
 590,true);
 
 insert into products_allergies
@@ -274,7 +278,7 @@ values
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
-values (2,1,'とびきりトマト＆レタス','国産肉（牛・豚合挽き肉）を100％使用したハンバーグに、モス自慢のトマトとレタスをのせ、モスオリジナルの“和風ソース”をかけました。ハンバーグの旨みや野菜のみずみずしさを、和風ソースが引き立てた、モスのこだわりがたっぷりつまった一品です。',
+values (2,1,'とびきりトマト＆レタス','国産肉（牛・豚合挽き肉）を100％使用したハンバーグに、モスオリジナルの“和風ソース”をかけました。和風ソースが引き立てた、モスのこだわりがたっぷりつまった一品です。',
 550,true);
 
 insert into products_allergies
@@ -296,14 +300,14 @@ insert into products
 values (2,3,'アイスコーヒー','甘くなめらかな口当たりが特長で、まろやかな苦みとすっきりとした味わいのアイスコーヒーです。',
 320,true);
 
-insert into products_options
-(product_id,option_id)
+insert into options
+(option_name,option_price)
 values
 ('Sサイズ',-70),
 ('Lサイズ',70);
 
-insert into options
-(option_name,option_price)
+insert into products_options
+(product_id,option_id)
 values
 (11,3),
 (11,4);
@@ -313,25 +317,25 @@ insert into products
 values (2,3,'ペプシコーラ','炭酸の刺激と独特な味わいが、のどの乾きを癒してくれます。',
 270,true);
 
-insert into products_options
-(product_id,option_id)
+insert into options
+(option_name,option_price)
 values
 ('Sサイズ',-70),
 ('Lサイズ',70);
 
-insert into options
-(option_name,option_price)
+insert into products_options
+(product_id,option_id)
 values
 (12,3),
 (12,4);
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
-values (3,1,'トマトチーズ牛丼','トマトソースと濃厚なチーズが調和した洋風な味わいの商品です。トマトソースはトマトの爽やかな酸味に、スパイスをきかせることでコク深い味わいに仕上げました。マイルドなチーズと絡めてお召し上がりください。',
+values (3,1,'トマトチーズ牛丼','トマトソースと濃厚なチーズが調和した洋風な味わいの商品です。マイルドなチーズと絡めてお召し上がりください。',
 580,true);
 
-insert into products_options
-(product_id,option_id)
+insert into options
+(option_name,option_price)
 values
 ('ミニ',-50),
 ('中盛',180),
@@ -339,8 +343,8 @@ values
 ('特盛',330),
 ('メガ',480);
 
-insert into options
-(option_name,option_price)
+insert into products_options
+(product_id,option_id)
 values
 (13,5),
 (13,6),
@@ -383,8 +387,8 @@ insert into products
 values (3,1,'とろ〜り3種のチーズ牛丼','ミックスチーズと、とろ〜りとろけるチーズソースが牛肉とよく絡み、一口食べればチーズのまろやかさが口いっぱいに広がる定番の商品の一つです。',
 580,true);
 
-insert into products_options
-(product_id,option_id)
+insert into options
+(option_name,option_price)
 values
 ('ミニ',-50),
 ('中盛',180),
@@ -392,14 +396,14 @@ values
 ('特盛',330),
 ('メガ',480);
 
-insert into options
-(option_name,option_price)
+insert into products_options
+(product_id,option_id)
 values
-(14,5),
-(14,6),
-(14,7),
-(14,8),
-(14,9);
+(14,10),
+(14,11),
+(14,12),
+(14,13),
+(14,14);
 
 insert into products_allergies
 (product_id,allergy_id)
