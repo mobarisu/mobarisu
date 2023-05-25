@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  react:
+    build:
+      context: ./build/react/
+      dockerfile: Dockerfile
+    container_name: web-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web:/usr/src/app
+    command: sh -c 'cd react-app && yarn install && yarn start'
+    environment:
+      - WATCHPACK_POLLING=true
+    tty: true
+
+  ruby:
+    build:
+      context: ./build/ruby/
+      dockerfile: Dockerfile
+    container_name: api-server
+    ports:
+      - "3443:3000"
+    volumes:
+      - ./api:/usr/src/app
+    depends_on:
+      - db
+    tty: true
+
+  db:
+    build:
+      context: ./build/mysql/
+      dockerfile: Dockerfile
+    container_name: db-server
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./build/mysql/init/:/docker-entrypoint-initdb.d
+      - ./db:/var/lib/mysql
+    env_file:
+      - ./build/mysql/.env
