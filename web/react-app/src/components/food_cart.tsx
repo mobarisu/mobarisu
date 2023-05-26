@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const food_cart: React.FC = () => {
+const FoodCart: React.FC = () => {
     return (
         <div>
             <h1>PageA</h1>
         </div>
-    )
-}
+    );
+};
 
-export default food_cart
+export default FoodCart;
