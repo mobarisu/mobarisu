@@ -10,7 +10,7 @@ services:
       - "3000:3000"
     volumes:
       - ./web:/usr/src/app
-    command: sh -c 'cd react-app && yarn start'
+    command: sh -c 'cd react-app && yarn install && yarn start'
     environment:
       - WATCHPACK_POLLING=true
     tty: true
