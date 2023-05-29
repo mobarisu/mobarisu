@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { useNavigate } from "react-router-dom";
-
 import './App.css';
 
 interface CartItem {
@@ -48,7 +46,7 @@ const App: React.FC = () => {
     <div className="App">
       <div className="cart">
         <h1>カート</h1>
-        <button className="btn_cart">買い物を続ける</button>
+        <button className="btn_cart" onClick={() => navigate("food_list")}>買い物を続ける</button>
       </div>
 
       <div className="scl">
