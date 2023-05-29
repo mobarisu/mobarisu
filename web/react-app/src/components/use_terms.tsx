@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, useNavigate } from '../react-router-dom/dist';
+import { useNavigate } from 'react-router-dom';
 import './use_terms.css';
 
 const Useterms: React.FC = () => {
@@ -14,7 +14,7 @@ const Useterms: React.FC = () => {
     event.preventDefault();
     if (isChecked) {
       // チェックボックスが選択されている場合、app.tsxに遷移する処理を追加する
-      navigate('/App');
+      navigate('/account');
     } else {
       alert('利用規約に同意してください');
     }
