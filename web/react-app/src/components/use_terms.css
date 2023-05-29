@@ -1,0 +1,34 @@
+header{
+    font-size: 30px;
+    text-align:center;
+    margin-top: 30px;
+}
+.terms_name{
+    margin-top: 30px;
+    margin-left: 10%;
+}
+.terms_box{
+    margin-left: 10%;
+    width: 80%;                
+    height: 550px;               
+    border: 1px solid #000;    
+    overflow-y: scroll;  
+}
+.terms_form{
+    text-align: center;
+}
+.terms_check{
+    margin-top: 20px;
+}
+.btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.btn_{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+}
