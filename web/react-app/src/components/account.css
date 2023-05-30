@@ -1,4 +1,4 @@
-header{
+/* header{
     font-size: 30px;
     text-align:center;
     margin-top: 30px;
@@ -35,14 +35,14 @@ label{
     vertical-align: top;
    
     width         : 80%;
-    height        : 40px;                /* 入力域の高さ   */
-    background    : #d9d9d9;             /* 入力域の背景色 */
-    border        : 1px solid #000000;   /* 入力域の枠線   */
-    border-radius : 20px;                 /* 入力域の角丸   */
-    padding       : 0 10px;              /* 入力文字の余白 */
-    font-size     : 100%;                /* 入力文字サイズ */
-    color         : #000000;             /* 入力文字の色   */
+    height        : 40px;             
+    background    : #d9d9d9;           
+    border        : 1px solid #000000;   
+    border-radius : 20px;               
+    padding       : 0 10px;             
+    font-size     : 100%;              
+    color         : #000000;             
 }
 .account{
     margin-top: 15%;
-}
+} */

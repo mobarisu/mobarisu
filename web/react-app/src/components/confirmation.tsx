@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Confirmation: React.FC = () => {
-  // コンポーネントの実装を記述します
+
 
   return (
     <div>
