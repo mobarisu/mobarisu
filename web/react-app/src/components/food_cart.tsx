@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './App.css';
+import './food_cart.css';
 
 interface CartItem {
   id: number;
@@ -8,7 +8,7 @@ interface CartItem {
   count: number;
 }
 
-const App: React.FC = () => {
+const FoodCart: React.FC = () => {
   
   const navigate = useNavigate();
 
@@ -38,10 +38,16 @@ const App: React.FC = () => {
     setCartItems(updatedItems);
   };
 
+  const removeItem = (id: number) => {
+    const updatedItems = cartItems.filter(item => item.id !== id);
+    setCartItems(updatedItems);
+  };
+
   return (
     <div className="App">
       <div className="cart">
-        <h1>カート</h1>
+        <h1 className=''>⇚</h1>
+        <h1 className='hidari'>カート</h1>
         <button className="btn_cart" onClick={() => navigate("food_list")}>買い物を続ける</button>
       </div>
 
@@ -49,9 +55,15 @@ const App: React.FC = () => {
         {cartItems.map(item => (
           <div className="line" key={item.id}>
             <div className="sazi">
-              <label className="btn_change">サイズ: {item.size}</label>
-              <button className="btn_change" onClick={() => navigate("food_cart")}>変更</button>
+              <h2>商品名</h2>
+              <a className='fin' onClick={() => removeItem(item.id)}>×</a>
             </div>
+
+            <div className="sazi">
+              <label className="btn_change">サイズ: {item.size}</label>
+              <button className="btn_change" onClick={() => navigate("food_list")}>変更</button>
+            </div>
+
             <div className="sazi">
               <button className="btn_pm" onClick={() => decrement(item.id)}>
                 －
@@ -65,8 +77,19 @@ const App: React.FC = () => {
           </div>
         ))}
       </div>
+      
+      <div className='syoukei'>
+        <div className='yohaku'>
+          <label className='fin'>合計</label>
+          <label className='gou'>1200円</label>
+        </div>
+      </div>
+
+      <div>
+        <button className='btn_personal' onClick={() => navigate("personal_data")}>購入手続きへ</button>
+      </div>
     </div>
   );
 };
 
-export default App;
+export default FoodCart;
