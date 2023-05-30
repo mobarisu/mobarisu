@@ -1,0 +1,46 @@
+header{
+    font-size: 30px;
+    text-align:center;
+    margin-top: 30px;
+}
+.error{
+    color: #F00;
+    font-size: 5px;
+}
+.btn{
+    margin-top: 25%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.btn_{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
+}
+label{
+    margin-left: 10%;
+}
+.account_input{
+    text-align: center;
+}
+.email,.pass,.pass2{
+    box-sizing    : border-box;
+    margin        : 0;
+    vertical-align: top;
+   
+    width         : 80%;
+    height        : 40px;                /* 入力域の高さ   */
+    background    : #d9d9d9;             /* 入力域の背景色 */
+    border        : 1px solid #000000;   /* 入力域の枠線   */
+    border-radius : 20px;                 /* 入力域の角丸   */
+    padding       : 0 10px;              /* 入力文字の余白 */
+    font-size     : 100%;                /* 入力文字サイズ */
+    color         : #000000;             /* 入力文字の色   */
+}
+.account{
+    margin-top: 20%;
+}
