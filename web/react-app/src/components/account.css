@@ -6,9 +6,11 @@ header{
 .error{
     color: #F00;
     font-size: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .btn{
-    margin-top: 25%;
+    margin-top: 20%;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -42,5 +44,5 @@ label{
     color         : #000000;             /* 入力文字の色   */
 }
 .account{
-    margin-top: 20%;
+    margin-top: 15%;
 }
