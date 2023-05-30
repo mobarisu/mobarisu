@@ -1,22 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './account.css';
+import React from 'react';
 
-const Account: React.FC= () => {
-  return (
-    <>
-      <head>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>アカウント登録</title>
-      </head>
-      <body>
-        <header>アカウント登録</header>
-        
-      </body>
-    </>
-  );
-}
+const Account: React.FC = () => {
+    return (
+        <div>
+            <h1>food_list</h1>
+        </div>
+    );
+};
 
 export default Account;
