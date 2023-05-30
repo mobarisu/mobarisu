@@ -43,7 +43,6 @@ const FoodCart: React.FC = () => {
     setCartItems(updatedItems);
   };
 
-
   return (
     <div className="App">
       <div className="cart">
@@ -57,7 +56,9 @@ const FoodCart: React.FC = () => {
           <div className="line" key={item.id}>
             <div className="sazi">
               <h2>商品名</h2>
+
               <button className='fin' onClick={() => removeItem(item.id)}>×</button>
+
             </div>
 
             <div className="sazi">

@@ -68,10 +68,12 @@ create table orders(
 create table orders_details(
     order_id int,
     product_id int,
+    option_id int,
     quantity int NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id),
-    PRIMARY KEY(order_id,product_id)
+    FOREIGN KEY (option_id) REFERENCES options(option_id),
+    PRIMARY KEY(order_id,product_id,option_id)
 );
 
 insert into products_categories
@@ -112,6 +114,11 @@ values
 ('やまいも'),
 ('りんご'),
 ('ゼラチン');
+
+insert into options
+(option_name,option_price)
+values
+('サイズなし',0);
 
 insert into stores
 (store_name,store_introduction,mail_address,phone_number,representative_name,password)
