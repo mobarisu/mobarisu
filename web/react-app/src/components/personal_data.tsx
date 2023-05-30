@@ -8,7 +8,7 @@ interface CartItem {
   count: number;
 }
 
-const FoodCart: React.FC = () => {
+const App: React.FC = () => {
   
   const navigate = useNavigate();
 
@@ -95,4 +95,4 @@ const FoodCart: React.FC = () => {
   );
 };
 
-export default FoodCart;
+export default App;

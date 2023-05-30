@@ -12,7 +12,7 @@
   padding-left: 0px;
 } */
 
-.cart {
+.cart{
   /* text-align: center; */
   border-bottom: 5px solid black;
   padding-bottom: 10px;
@@ -20,10 +20,18 @@
   display: flex;
   justify-content:space-around;
 }
+.hidari{
+  margin-left: 0px;
+  margin-right: 150px;
+  font-size: 30px;
+}
 .btn{
   display: flex;
   justify-content:space-around;
 
+}
+.h1 .h2{
+  font-size: 30px;
 }
 .btn_cart{
   margin-top: 20px;
@@ -48,6 +56,7 @@
   justify-content:space-around;
   margin: 30px;
 }
+
 .line{
   border-bottom: 1px solid black;
   padding-bottom: 10px;
@@ -55,10 +64,36 @@
 }
 .scl{
   overflow-y: scroll;
+  margin-bottom: 30px;
 }
 .a{
   border-bottom: 5px solid black;
   padding-bottom: 30px;
+}
+.fin{
+  font-size: 30px;
+}
+.syoukei{
+  border-top: 5px solid black;
+  display: flex;
+  justify-content:space-around;
+  margin-bottom: 30%;
+}
+.gou{
+  font-size: 50px;
+}
+.btn_personal{
+  margin-top: 20px;
+  background-color: #FE724C;
+  font-size: 100%;
+  width: 30%;
+  height: 3rem;
+  border-radius: 22px;
+  color: #fff;
+
+  display: block;
+  width: 150px;
+  margin: 0 auto;
 }
 
 /* .App-logo {
