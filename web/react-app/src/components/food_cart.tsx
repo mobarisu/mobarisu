@@ -38,10 +38,6 @@ const App: React.FC = () => {
     setCartItems(updatedItems);
   };
 
-  const aa = () =>{
-    console.log(1);
-  } 
-
   return (
     <div className="App">
       <div className="cart">
