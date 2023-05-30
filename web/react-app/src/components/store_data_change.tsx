@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 
-function App() {
+function StoreDataChange() {
   return (
     <div>
       <header>
@@ -37,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default StoreDataChange;
