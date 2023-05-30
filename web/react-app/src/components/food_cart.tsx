@@ -81,7 +81,7 @@ const FoodCart: React.FC = () => {
       <div className='syoukei'>
         <div className='yohaku'>
           <label className='fin'>合計</label>
-          <label className='gou'>12000円</label>
+          <label className='gou'>1200円</label>
         </div>
       </div>
 
