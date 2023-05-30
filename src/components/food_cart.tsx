@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './food_cart.css';
+import './App.css';
 
 interface CartItem {
   id: number;
@@ -38,10 +38,11 @@ const FoodCart: React.FC = () => {
     setCartItems(updatedItems);
   };
 
-  const removeItem = (id: number) => {
-    const updatedItems = cartItems.filter(item => item.id !== id);
-    setCartItems(updatedItems);
-  };
+  const aa = () =>{
+    console.log(1);
+  }
+  
+
 
   return (
     <div className="App">
@@ -52,18 +53,18 @@ const FoodCart: React.FC = () => {
       </div>
 
       <div className="scl">
+
         {cartItems.map(item => (
           <div className="line" key={item.id}>
+
             <div className="sazi">
               <h2>商品名</h2>
-
-              <button className='fin' onClick={() => removeItem(item.id)}>×</button>
-
+              <a className='fin'>×</a>
             </div>
 
             <div className="sazi">
               <label className="btn_change">サイズ: {item.size}</label>
-              <button className="btn_change" onClick={() => navigate("food_list")}>変更</button>
+              <button className="btn_change" onClick={() => navigate("food_cart")}>変更</button>
             </div>
 
             <div className="sazi">
@@ -76,20 +77,22 @@ const FoodCart: React.FC = () => {
               </button>
               <label>1200円</label>
             </div>
+
+
           </div>
         ))}
-      </div>
-      
-      <div className='syoukei'>
-        <div className='yohaku'>
-          <label className='fin'>合計</label>
-          <label className='gou'>1200円</label>
-        </div>
-      </div>
 
-      <div>
-        <button className='btn_personal' onClick={() => navigate("personal_data")}>購入手続きへ</button>
-      </div>
+        </div>
+        
+          <div className='syoukei'>
+            <label className='fin'>合計</label>
+            <label className='gou'>12000円</label>
+          </div>
+
+          <div>
+            <button className='btn_personal' onClick={() => navigate("personal_data")}>購入手続きへ</button>
+          </div>
+
     </div>
   );
 };
