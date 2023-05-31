@@ -13,7 +13,7 @@ header{
     color: #fff;
     padding : 10px 10px; 
 }
-label{
+.personal_name{
     margin-left: 10%;
 }
 .account_in{
@@ -34,10 +34,10 @@ label{
     color         : #000000;             
 }
 .account_kiyaku{
-    margin-top: 15%;
+    margin-top: 10%;
 }
 .personal_form{
-    margin-top: 10%;
+    margin-top: 5%;
     text-align: center;
 }
 .btn_kk{
@@ -46,7 +46,6 @@ label{
   
   }
   .personal_box{
-    margin-top: 10%;
     margin-left: 10%;
     width: 80%;                
     height: 550px;               
@@ -58,4 +57,7 @@ label{
 }
 .personal_check{
     margin-bottom: 10%;
+}
+.kiyaku{
+    margin-top:10%;
 }
