@@ -1,0 +1,34 @@
+header{
+    font-size: 30px;
+    text-align:center;
+    margin-top: 30px;
+}
+.btn{
+    margin-top: 10%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.btn_{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
+}
+.account_back{
+    margin-top: 20%;
+    text-align: center;
+}
+.account_back_btn{
+   border: none;
+   background: none;
+   border-bottom: solid 1px;
+}
+.conf_p{
+text-align: center;
+margin-top: 20%;
+margin-left: 10%;
+margin-right: 10%;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import './personal_data.css';
 
@@ -266,8 +267,8 @@ const PersonalData: React.FC = () => {
       </div>
       </body>
     </>
+
   );
 };
 
 export default PersonalData;
-
