@@ -1,0 +1,17 @@
+.mail_change_input{
+    text-align: center;
+}
+.mail_change{
+    margin-top: 15%;
+}
+label{
+    margin-left: 10%;
+}
+.error_message{
+    font-size: 5%;
+    color: #f00;
+}
+.error{
+    margin-left: 10%;
+    margin-bottom: 20%;
+}

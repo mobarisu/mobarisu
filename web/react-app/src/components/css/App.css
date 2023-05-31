@@ -10,7 +10,8 @@ textarea {
 
 input[type="text"],
 input[type="number"],
-input[type="tel"]{
+input[type="tel"],
+input[type="email"]{
   box-sizing    : border-box;
   margin        : 0;
   vertical-align: top;
