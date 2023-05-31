@@ -50,9 +50,7 @@ const PersonalData: React.FC = () => {
       <header>個人情報入力</header>
       <body>
         <div className='account_huru'>
-        <div className="kiyaku">
-          <label>利用規約</label>
-        </div>
+
         <form onSubmit={handleSubmit}>
         <div className="account_kiyaku">
               <label>お名前</label><br />
@@ -79,13 +77,16 @@ const PersonalData: React.FC = () => {
               className='text' 
               value={phone} 
               onChange={handlePhoneChange} 
-              required 
+              required
               />
-            </div>
-            </div>
 
+              </div>
+            </div>
+            <div className="kiyaku">
+            <label>利用規約</label>
+            </div>
             <div className="personal_box">
-          <p className="terms">
+          <p className="personal_terms">
             モバリス利用規約（以下「本規約」といいます。）は、CT4A2班（以下「2班」といいます。）が提供するモバイルオーダーサービス（以下「本サービス」といいます。）の利用に関する条件を、本サービスを利用するお客様（以下「利用者」といいます。）と、2班の間で定めるものです。
             <br />
             第１条　定義
