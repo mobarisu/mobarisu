@@ -1,7 +1,78 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './css/App.css';
 
 function FoodChange() {
+
+    // Line削除
+    const DeleteLine = () =>{
+      var sizeLine = document.getElementsByClassName("size_line");
+      var cnt = sizeLine.length;
+      if(cnt-1 >= 1){
+        var test = document.querySelector(".size_batu");
+        var next = test?.nextElementSibling;
+        var nextnext = next?.nextElementSibling;
+        var parent = test?.parentElement;
+        test?.remove();
+        next?.remove();
+        nextnext?.remove();
+        parent?.remove();
+      }
+      if(cnt-1 == 1){
+        var line = document.getElementsByClassName("size_line")[0];
+        var target = document.getElementsByClassName("size_batu");
+        var pop = document.getElementsByClassName("pop_txt")[0];
+        target[0].remove();
+        var a = document.createElement("a");
+        a.setAttribute("class","size_batu");
+        a.appendChild(document.createTextNode("　"));
+        line.insertBefore(a,pop);
+      }
+    }
+  
+    // Line追加
+    const addLine = () =>{
+      var sizeLine = document.getElementsByClassName("size_line");
+      var cnt = sizeLine.length;
+  
+      var area = document.getElementsByClassName("line_area")[0];
+      var div = document.createElement("div");
+      div.setAttribute("class","size_line");
+  
+      var a = document.createElement("a");
+      a.setAttribute("class","size_batu");
+      a.setAttribute("href","javascript:void(0);");
+      a.addEventListener("click",DeleteLine);
+      if(cnt == 1){
+        var sizeBatu = document.getElementsByClassName("size_batu")[0];
+        sizeBatu.setAttribute("href","javascript:void(0);");
+        sizeBatu.addEventListener("click",DeleteLine);  
+        sizeBatu.textContent="×";
+        a.appendChild(document.createTextNode("×"));
+      }else{
+        a.appendChild(document.createTextNode("×"));
+      }
+      
+      div.appendChild(a);
+  
+      var input1 = document.createElement("input");
+      input1.className="pop_txt";
+      input1.type="text";
+      div.appendChild(input1);
+  
+      var input2 = document.createElement("input");
+      input2.className="pop_txt";
+      input2.type="number";
+      div.appendChild(input2);
+  
+      var p = document.createElement("p");
+      p.className="en";
+      p.appendChild(document.createTextNode("円"));
+      div.appendChild(p);
+  
+      area.append(div);
+    }
+  
   return (
     <div>
       <header>
@@ -40,25 +111,27 @@ function FoodChange() {
             <input type="checkbox" id="pop-up"/>
             <div className="overlay">
               <div className="window">
-                <div className='test_batu'>
+                <div className='pop_batu'>
                   <label className="close" htmlFor="pop-up">×</label>
                 </div>
-                <div className='test_label'>
-                  <label>サイズ</label>
-                  <label>値段</label>
+                <div className='food_r_pop'>
+                  <label className='food_r_pop_size'>サイズ</label>
+                  <label className='food_r_pop_price'>値段</label>
                 </div>
-                <div className='size_line'>
-                  <label className='size_batu'>×</label>
-                  <input className='pop_txt' type="text"/>
-                  <input className='pop_txt' type="number"/>
-                </div>
-                <div className='size_line'>
-                  <label className='size_batu'>×</label>
-                  <input className='pop_txt' type="text"/>
-                  <input className='pop_txt' type="number"/>
+                <div className="line_area">
+                  <div className='size_line'>
+                    <a href="javascript:void(0);" onClick={DeleteLine} className='size_batu'>×</a>
+                    <input className='pop_txt' type="text"/>
+                    <input className='pop_txt' type="number"/><p className='en'>円</p>
+                  </div>
+                  <div className='size_line'>
+                    <a href="javascript:void(0);" onClick={DeleteLine} className='size_batu'>×</a>
+                    <input className='pop_txt' type="text"/>
+                    <input className='pop_txt' type="number"/><p className='en'>円</p>
+                  </div>
                 </div>
                 <div className='line_plus'>
-                  <label className='line_in'>＋サイズを追加</label>
+                  <a href="javascript:void(0);" onClick={addLine} className='line_in'>＋サイズを追加</a>
                 </div>
                 <div className='btn_area'>
                   <button className='btn_in'>変更</button> 
@@ -72,7 +145,7 @@ function FoodChange() {
             <input type="file" id="img"/>
           </div>
           <div className='btn_div food_label'>
-            <input type="submit" value={"変更"}/>
+            <input type="submit" onClick={()=> navigate('/store_food_list')} value={"変更"}/>
           </div>
         </form>
       </main>

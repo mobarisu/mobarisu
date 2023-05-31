@@ -9,7 +9,8 @@ textarea {
 
 
 input[type="text"],
-input[type="number"]{
+input[type="number"],
+input[type="tel"]{
   box-sizing    : border-box;
   margin        : 0;
   vertical-align: top;
@@ -127,14 +128,19 @@ select{
 	font-size: 2rem;
 }
 
-.test_label{
+.food_r_pop{
   /* ポップアップのサイズと値段の項目名をまとめるdivタグ */
-  display: inline-flex;
+  display: flex;
   justify-content: space-around;
 }
-.test_label label{
+.food_r_pop label{
   margin-left: 0;
-  /* text-align: center; */
+}
+.food_r_pop_size{
+  padding-right: 5%;
+}
+.food_r_pop_price{
+  padding-right: 20%;
 }
 
 .line_area{
