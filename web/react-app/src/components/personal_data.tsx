@@ -53,7 +53,7 @@ const PersonalData: React.FC = () => {
 
         <form onSubmit={handleSubmit}>
         <div className="account_kiyaku">
-              <label>お名前</label><br />
+              <label className='personal_name'>お名前</label><br />
               <div className="account_in">
 
               <input 
@@ -68,7 +68,7 @@ const PersonalData: React.FC = () => {
             </div>
 
             <div className="account_kiyaku">
-              <label>電話番号</label><br />
+              <label className='personal_name'>電話番号</label><br />
 
               <div className="account_in">
 
@@ -83,7 +83,7 @@ const PersonalData: React.FC = () => {
               </div>
             </div>
             <div className="kiyaku">
-            <label>利用規約</label>
+            <label className='personal_name'>利用規約</label>
             </div>
             <div className="personal_box">
           <p className="personal_terms">
