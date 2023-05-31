@@ -100,7 +100,7 @@ const StoreData: React.FC = () => {
             </div>
             <div className="btn">
               <button type="submit" className="btn_" id="submit-btn">
-                登録
+                商品一覧へ
               </button>
             </div>
           </div>

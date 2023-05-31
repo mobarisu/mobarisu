@@ -4,6 +4,8 @@ import './css/App.css';
 
 function FoodChange() {
 
+    const navigate = useNavigate();
+
     // Line削除
     const DeleteLine = () =>{
       var sizeLine = document.getElementsByClassName("size_line");
