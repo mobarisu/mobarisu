@@ -51,6 +51,9 @@ const StoreLogin: React.FC = () => {
               <div className="login_input">
                 <input type="password" className='pass' value={password} onChange={handlePasswordChange} required />
               </div>
+              <div className="pass_btn">
+              <button className='pass_btn_' onClick={()=> navigate('/current_mail')}>パスワードを忘れた方はこちら</button>
+              </div>
             </div>
             <div className="btn">
               <button type="submit" className="btn_" id="submit-btn">
