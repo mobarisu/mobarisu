@@ -23,19 +23,22 @@ const PersonalData: React.FC = () => {
   };
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputPhone = e.target.value;
-    if (inputPhone.length <= 128) {
+    if (inputPhone.length <= 11) {
       setPhone(inputPhone);
     }else{
-      alert("128文字いないで入力してください");
+      alert("11文字いないで入力してください");
     }
   };
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    const phoneNumberRegex = /^(090|080|070|060)\d{8}$/;
+    if (!phoneNumberRegex.test(phone)) {
+      alert("電話番号は090、080、070、060から始まる11桁の番号で入力してください。");
+      return;
+    }
     if (isChecked) {
       // チェックボックスが選択されている場合、app.tsxに遷移する処理を追加する
       navigate('/final_confirmation');
-    } else {
-      alert('利用規約に同意してください');
     }
   };
   return (
