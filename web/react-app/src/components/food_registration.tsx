@@ -112,9 +112,9 @@ function FoodRegistration() {
                 <div className='pop_batu'>
                   <label className="close" htmlFor="pop-up">×</label>
                 </div>
-                <div className='test_label'>
-                  <label>サイズ</label>
-                  <label>値段</label>
+                <div className='food_r_pop'>
+                  <label className='food_r_pop_size'>サイズ</label>
+                  <label className='food_r_pop_price'>値段</label>
                 </div>
                 <div className="line_area">
                   <div className='size_line'>
