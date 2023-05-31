@@ -23,19 +23,22 @@ const PersonalData: React.FC = () => {
   };
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputPhone = e.target.value;
-    if (inputPhone.length <= 128) {
+    if (inputPhone.length <= 11) {
       setPhone(inputPhone);
     }else{
-      alert("128文字いないで入力してください");
+      alert("11文字いないで入力してください");
     }
   };
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    const phoneNumberRegex = /^(090|080|070|060)\d{8}$/;
+    if (!phoneNumberRegex.test(phone)) {
+      alert("電話番号は090、080、070、060から始まる11桁の番号で入力してください。");
+      return;
+    }
     if (isChecked) {
       // チェックボックスが選択されている場合、app.tsxに遷移する処理を追加する
       navigate('/final_confirmation');
-    } else {
-      alert('利用規約に同意してください');
     }
   };
   return (
@@ -50,12 +53,10 @@ const PersonalData: React.FC = () => {
       <header>個人情報入力</header>
       <body>
         <div className='account_huru'>
-        <div className="kiyaku">
-          <label>利用規約</label>
-        </div>
+
         <form onSubmit={handleSubmit}>
         <div className="account_kiyaku">
-              <label>お名前</label><br />
+              <label className='personal_name'>お名前</label><br />
               <div className="account_in">
 
               <input 
@@ -70,7 +71,7 @@ const PersonalData: React.FC = () => {
             </div>
 
             <div className="account_kiyaku">
-              <label>電話番号</label><br />
+              <label className='personal_name'>電話番号</label><br />
 
               <div className="account_in">
 
@@ -79,13 +80,16 @@ const PersonalData: React.FC = () => {
               className='text' 
               value={phone} 
               onChange={handlePhoneChange} 
-              required 
+              required
               />
-            </div>
-            </div>
 
+              </div>
+            </div>
+            <div className="kiyaku">
+            <label className='personal_name'>利用規約</label>
+            </div>
             <div className="personal_box">
-          <p className="terms">
+          <p className="personal_terms">
             モバリス利用規約（以下「本規約」といいます。）は、CT4A2班（以下「2班」といいます。）が提供するモバイルオーダーサービス（以下「本サービス」といいます。）の利用に関する条件を、本サービスを利用するお客様（以下「利用者」といいます。）と、2班の間で定めるものです。
             <br />
             第１条　定義
