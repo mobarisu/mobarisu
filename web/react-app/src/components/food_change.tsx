@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './css/App.css';
 
 function FoodChange() {
+
     // Line削除
     const DeleteLine = () =>{
       var sizeLine = document.getElementsByClassName("size_line");
@@ -143,7 +145,7 @@ function FoodChange() {
             <input type="file" id="img"/>
           </div>
           <div className='btn_div food_label'>
-            <input type="submit" value={"変更"}/>
+            <input type="submit" onClick={()=> navigate('/store_food_list')} value={"変更"}/>
           </div>
         </form>
       </main>
