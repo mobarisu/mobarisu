@@ -3,35 +3,20 @@ import { useNavigate } from "react-router-dom";
 import './css/App.css';
 
 function FoodChange() {
-
-
-    const navigate = useNavigate();
-
-    // Line削除
-    const DeleteLine = () =>{
-      var sizeLine = document.getElementsByClassName("size_line");
-      var cnt = sizeLine.length;
-      if(cnt-1 >= 1){
-        var test = document.querySelector(".size_batu");
-        var next = test?.nextElementSibling;
-        var nextnext = next?.nextElementSibling;
-        var parent = test?.parentElement;
-        test?.remove();
-        next?.remove();
-        nextnext?.remove();
-        parent?.remove();
-      }
-      if(cnt-1 == 1){
-        var line = document.getElementsByClassName("size_line")[0];
-        var target = document.getElementsByClassName("size_batu");
-        var pop = document.getElementsByClassName("pop_txt")[0];
-        target[0].remove();
-        var a = document.createElement("a");
-        a.setAttribute("class","size_batu");
-        a.appendChild(document.createTextNode("　"));
-        line.insertBefore(a,pop);
-      }
-
+  const navigate = useNavigate();
+  // Line削除
+  const DeleteLine = () =>{
+    var sizeLine = document.getElementsByClassName("size_line");
+    var cnt = sizeLine.length;
+    if(cnt-1 >= 1){
+      var test = document.querySelector(".size_batu");
+      var next = test?.nextElementSibling;
+      var nextnext = next?.nextElementSibling;
+      var parent = test?.parentElement;
+      test?.remove();
+      next?.remove();
+      nextnext?.remove();
+      parent?.remove();
     }
     if(cnt-1 == 1){
       var line = document.getElementsByClassName("size_line")[0];
