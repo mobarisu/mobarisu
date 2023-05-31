@@ -1,0 +1,61 @@
+header{
+    font-size: 30px;
+    text-align:center;
+    margin-top: 30px;
+}
+
+.btn_{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
+}
+label{
+    margin-left: 10%;
+}
+.account_in{
+    text-align: center;
+}
+.email,.pass,.pass2,.text{
+    box-sizing    : border-box;
+    margin        : 0;
+    vertical-align: top;
+   
+    width         : 80%;
+    height        : 40px;             
+    background    : #d9d9d9;           
+    border        : 1px solid #000000;   
+    border-radius : 20px;               
+    padding       : 0 10px;             
+    font-size     : 100%;              
+    color         : #000000;             
+}
+.account_kiyaku{
+    margin-top: 15%;
+}
+.personal_form{
+    margin-top: 10%;
+    text-align: center;
+}
+.btn_kk{
+    display: flex;
+    justify-content:space-around;
+  
+  }
+  .personal_box{
+    margin-top: 10%;
+    margin-left: 10%;
+    width: 80%;                
+    height: 550px;               
+    border: 1px solid #000;    
+    overflow-y: scroll;  
+}
+.account_huru{
+    margin-bottom: 20%;
+}
+.personal_check{
+    margin-bottom: 10%;
+}

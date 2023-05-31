@@ -5,8 +5,8 @@ import FoodCart from './components/food_cart';
 import FoodList from './components/food_list';
 import Account from './components/account';
 // import FoodDetails from './components/food_details';
-// import PersonalData from './components/personal_data';
-// import FinalConfirmation from './components/final_confirmation';
+import PersonalData from './components/personal_data';
+import FinalConfirmation from './components/final_confirmation';
 // import OrderDetails from './components/order_details';
 // import Faq from './components/faq';
 import UseTerms from './components/use_terms';
@@ -31,8 +31,8 @@ export const router = createBrowserRouter([
   { path: "/food_list", element: <FoodList /> },
   { path: "/account", element: <Account /> },
   // { path: "/food_details", element: <FoodDetails /> },
-  // { path: "/personal_data", element: <PersonalData /> },
-  // { path: "/final_confirmation", element: <FinalConfirmation /> },
+  { path: "/personal_data", element: <PersonalData /> },
+  { path: "/final_confirmation", element: <FinalConfirmation /> },
   // { path: "/order_details", element: <OrderDetails /> },
   // { path: "/Faq", element: <Faq /> },
   { path: "/use_terms", element: <UseTerms /> },
