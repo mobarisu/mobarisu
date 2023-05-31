@@ -151,6 +151,7 @@ function FoodChange() {
 
     </div>
   );
+  
 }
 
 export default FoodChange;
