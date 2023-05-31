@@ -45,28 +45,28 @@ const FoodCart: React.FC = () => {
 
   return (
     <div className="App">
-      <div className="cart">
+      <div className="hurucart">
         <h1 className=''>⇚</h1>
-        <h1 className='hidari'>カート</h1>
-        <button className="btn_cart" onClick={() => navigate("food_list")}>買い物を続ける</button>
+        <header className='ct_moji'>カート</header>
+        <button className="btn_cart" onClick={() => navigate("/food_list")}>買い物を続ける</button>
       </div>
 
       <div className="scl">
         {cartItems.map(item => (
-          <div className="line" key={item.id}>
-            <div className="sazi">
+          <div className="top_line" key={item.id}>
+            <div className="mj_sazi">
               <h2>商品名</h2>
 
               <button className='fin' onClick={() => removeItem(item.id)}>×</button>
 
             </div>
 
-            <div className="sazi">
+            <div className="mj_sazi">
               <label className="btn_change">サイズ: {item.size}</label>
-              <button className="btn_change" onClick={() => navigate("food_list")}>変更</button>
+              <button className="btn_change" onClick={() => navigate("/food_list")}>変更</button>
             </div>
 
-            <div className="sazi">
+            <div className="mj_sazi">
               <button className="btn_pm" onClick={() => decrement(item.id)}>
                 －
               </button>
@@ -88,7 +88,7 @@ const FoodCart: React.FC = () => {
       </div>
 
       <div>
-        <button className='btn_personal' onClick={() => navigate("personal_data")}>購入手続きへ</button>
+        <button className='btn_personal' onClick={() => navigate("/personal_data")}>購入手続きへ</button>
       </div>
     </div>
   );
