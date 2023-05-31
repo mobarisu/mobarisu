@@ -9,7 +9,8 @@ textarea {
 
 
 input[type="text"],
-input[type="number"]{
+input[type="number"],
+input[type="tel"]{
   box-sizing    : border-box;
   margin        : 0;
   vertical-align: top;
