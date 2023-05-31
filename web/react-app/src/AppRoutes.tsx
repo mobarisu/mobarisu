@@ -11,7 +11,7 @@ import Account from './components/account';
 // import Faq from './components/faq';
 import UseTerms from './components/use_terms';
 import Confirmation from './components/confirmation';
-// import StoreData from './components/store_data';
+import StoreData from './components/store_data';
 // import StoreLogin from './components/store_login';
 // import StoreFoodList from './components/store_food_list';
 import FoodRegistration from './components/food_registration';
@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
   // { path: "/Faq", element: <Faq /> },
   { path: "/use_terms", element: <UseTerms /> },
   { path: "/confirmation", element: <Confirmation /> },
-  // { path: "/store_data", element: <StoreData /> },
+  { path: "/store_data", element: <StoreData /> },
   // { path: "/store_login", element: <StoreLogin /> },
   // { path: "/store_food_list", element: <StoreFoodList /> },
   { path: "/food_registration", element: <FoodRegistration /> },
