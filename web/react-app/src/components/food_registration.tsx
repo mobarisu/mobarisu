@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './css/App.css';
 
 function FoodRegistration() {
+  const navigate = useNavigate();
   // Line削除
   const DeleteLine = () =>{
     var sizeLine = document.getElementsByClassName("size_line");
@@ -149,7 +151,7 @@ function FoodRegistration() {
             }}/>
           </div>
           <div className='btn_div food_label'>
-            <input type="submit" value={"登録"}/>
+            <input type="submit" onClick={()=> navigate('/store_food_list')} value={"登録"}/>
           </div>
         </form>
       </main>
