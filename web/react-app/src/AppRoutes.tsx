@@ -18,7 +18,7 @@ import FoodRegistration from './components/food_registration';
 import FoodChange from './components/food_change';
 import StoreDataChange from './components/store_data_change';
 import MailChange from './components/mail_change';
-// import CurrentMail from './components/current_mail';
+import CurrentMail from './components/current_mail';
 // import PassChange from './components/pass_change';
 // import FoodDelivery from './components/food_delivery';
 // import OrderHistory from './components/order_history';
@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
   { path: "/food_change", element: <FoodChange /> },
   { path: "/store_data_change", element: <StoreDataChange /> },
   { path: "/mail_change", element: <MailChange /> },
-  // { path: "/current_mail", element: <CurrentMail /> },
+  { path: "/current_mail", element: <CurrentMail /> },
   // { path: "/pass_change", element: <PassChange /> },
   // { path: "/food_delivery", element: <FoodDelivery /> },
   // { path: "/order_history", element: <OrderHistory /> }
