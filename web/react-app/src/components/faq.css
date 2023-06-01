@@ -1,0 +1,53 @@
+.faq_h1{
+    text-align: center;
+    margin-bottom: 20%;
+}
+
+  
+.faq_h2 {
+text-align: center;
+border: solid 1px;
+margin: 0 10%;
+
+  }
+.faq_p{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.faq_h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .faq_h2::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #000;
+    border-right-color: #000;
+    position: absolute;
+    margin-right: 10%;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+    transition: transform 0.3s;
+  }
+  
+  .faq_h2.active::before {
+    transform: translateY(-30%) rotate(315deg);
+  }
+  
+  .faq_p {
+    display: none;
+  }
+  
+  .faq_p.active {
+    display: block;
+  }
+  
