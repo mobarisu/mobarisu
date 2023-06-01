@@ -44,46 +44,53 @@ const FoodCart: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div className="food_furu">
       <div className="hurucart">
-        <h1 className=''>⇚</h1>
-        <header className='ct_moji'>カート</header>
+        <div className='fd_ct'>
+        <h1 className='back_fd'>⇚</h1>
+        </div>
+        <h1 className='ct_moji'>カート</h1>
         <button className="btn_cart" onClick={() => navigate("/food_list")}>買い物を続ける</button>
       </div>
 
       <div className="scl">
         {cartItems.map(item => (
           <div className="top_line" key={item.id}>
-            <div className="mj_sazi">
+            <div className="food_sazi">
               <h2>商品名</h2>
 
               <button className='fin' onClick={() => removeItem(item.id)}>×</button>
 
             </div>
+            <div className="food_sazi">
 
-            <div className="mj_sazi">
-              <label className="btn_change">サイズ: {item.size}</label>
-              <button className="btn_change" onClick={() => navigate("/food_list")}>変更</button>
+              <label className="food_change">サイズ: {item.size}</label>
+              
+              <button className="food_change" onClick={() => navigate("/food_list")}>変更</button>
+
             </div>
 
-            <div className="mj_sazi">
-              <button className="btn_pm" onClick={() => decrement(item.id)}>
-                －
-              </button>
-              <p>{item.count}</p>
-              <button className="btn_pm" onClick={() => increment(item.id)}>
-                ＋
-              </button>
-              <label>1200円</label>
+            <div className="count_sazi">
+              <div className='count_fl'>
+                <button className="btn_am" onClick={() => decrement(item.id)}>
+                  －
+                </button>
+                <p className='food_caunt'>{item.count}</p>
+                <button className="btn_pm" onClick={() => increment(item.id)}>
+                  ＋
+                </button>
+              </div>
+              <label className='food_money'>1200円</label>
             </div>
           </div>
+          
         ))}
       </div>
       
       <div className='syoukei'>
         <div className='yohaku'>
           <label className='fin'>合計</label>
-          <label className='gou'>1200円</label>
+          <label className='gou'>12000円</label>
         </div>
       </div>
 

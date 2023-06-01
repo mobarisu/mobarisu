@@ -1,46 +1,79 @@
+.food_furu{
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .hurucart{
     /* text-align: center; */
     border-bottom: 5px solid black;
     padding-bottom: 10px;
-    margin: 30px;
+    margin: 5px;
     display: flex;
     justify-content:space-around;
   }
+  .fd_ct{
+    position: relative;
+}
+  .back_fd{
+    position: absolute;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 5%;
+    padding-top: 8px;
+    z-index: 1;
+  }
   .ct_moji{
     margin-left: 0px;
-    margin-right: 150px;
     font-size: 30px;
   }
   .btn_cart{
     margin-top: 20px;
     background-color: #FE724C;
-    font-size: 100%;
+    font-size: 50%;
     width: 30%;
     height: 3rem;
     border-radius: 22px;
     color: #fff;
+
+
   }
   .scl{
     overflow-y: scroll;
     margin-bottom: 30px;
   }
   .top_line{
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black;
     padding-bottom: 10px;
-    margin: 30px;
+    margin: 5px; */
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    margin: 5px;
   }
-  .mj_sazi{
+  .food_sazi{
     display: flex;
-    justify-content:space-around;
-    margin: 30px;
+    justify-content:space-between;
+    margin-top: 10px;
+    padding-left: 10px;
   }
   .fin{
-    text-align    : center; 
     cursor        : pointer; 
-    padding       : 10px 10px; 
+    /* padding       : 10px 10px;  */
+    font-size: 25px;
+    padding-right: 40px;
     background    : none; 
     margin-bottom: 20px;
     border: none;
+  }
+
+  .btn_am{
+    margin-top: 20px;
+    background-color: #ffffff;
+    font-size: 100%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    color: #FE724C;
+    margin-right: 20px;
   }
   .btn_pm{
     margin-top: 20px;
@@ -50,17 +83,23 @@
     height: 30px;
     border-radius: 50px;
     color: #fff;
+    margin-left: 20px;
   }
-
-
-  .h1 .h2{
-    font-size: 30px;
+  .count_fl{
+    display: flex;
+    /* justify-content:space-between; */
+    /* margin-top: 10px;
+    padding-left: 10px; */
   }
+  .count_sazi{
+    display: flex;
+    justify-content:space-between;
 
-  .a{
-    border-bottom: 5px solid black;
-    padding-bottom: 30px;
   }
+.food_caunt{
+  margin-bottom: 0;
+  padding-top: 5px;
+}
  
   .syoukei{
     border-top: 5px solid black;
@@ -86,3 +125,55 @@
     display: block;
     margin: 0 auto;
   }
+
+.food_change{
+  margin-right: 10px;
+  margin-bottom: 10%;
+}
+.food_money{
+  padding-top: 20px;
+}
+/* パソコン画面のCSS */
+@media screen and (min-width: 481px){
+  .btn_cart{
+    margin-top: 20px;
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 30%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+  }
+  .fin{
+    cursor        : pointer; 
+    /* padding       : 10px 10px;  */
+    font-size: 25px;
+    padding-right: 40px;
+    background    : none; 
+    margin-bottom: 20px;
+    border: none;
+    margin-right: 10%;
+  }
+  .food_sazi{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 10px;
+    padding-left: 10%;
+
+  }
+  .food_change{
+    margin-right: 10%;
+    margin-bottom: 10%;
+  }
+  .count_fl{
+    display: flex;
+    /* justify-content:space-between; */
+    /* margin-top: 10px;
+    padding-left: 10px; */
+    margin-left: 10%;
+  }
+  .food_money{
+    padding-top: 20px;
+    padding-right: 10%;
+  }
+}

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 import './personal_data.css';
+
 
 const PersonalData: React.FC = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
@@ -15,32 +16,42 @@ const PersonalData: React.FC = () => {
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputName = e.target.value;
-    if(inputName.length <= 128){
+    if (inputName.length <= 128) {
       setName(inputName);
-    }else{
-      alert("128文字いないで入力してください");
+    } else {
+      alert('128文字以内で入力してください');
     }
   };
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputPhone = e.target.value;
     if (inputPhone.length <= 11) {
       setPhone(inputPhone);
-    }else{
-      alert("11文字いないで入力してください");
+    } else {
+      alert('11文字以内で入力してください');
     }
   };
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const phoneNumberRegex = /^(090|080|070|060)\d{8}$/;
     if (!phoneNumberRegex.test(phone)) {
-      alert("電話番号は090、080、070、060から始まる11桁の番号で入力してください。");
+      alert('電話番号は090、080、070、060から始まる11桁の番号で入力してください。');
       return;
     }
     if (isChecked) {
-      // チェックボックスが選択されている場合、app.tsxに遷移する処理を追加する
+      // 名前と電話番号を送信する処理を追加する
+      sendPersonalData(name, phone);
       navigate('/final_confirmation');
     }
   };
+
+  const sendPersonalData = (name: string, phone: string) => {
+    // ここに名前と電話番号の送信処理を追加する（例：APIリクエストなど）
+    console.log('名前:', name);
+    console.log('電話番号:', phone);
+  };
+
   return (
     <>
       <head>
@@ -52,41 +63,39 @@ const PersonalData: React.FC = () => {
 
       <header>個人情報入力</header>
       <body>
-        <div className='account_huru'>
-
-        <form onSubmit={handleSubmit}>
-        <div className="account_kiyaku">
-              <label className='personal_name'>お名前</label><br />
+        <div className="account_huru">
+          <form onSubmit={handleSubmit}>
+            <div className="account_kiyaku">
+              <label className="personal_name">お名前</label>
+              <br />
               <div className="account_in">
-
-              <input 
-              type="text" 
-              className='text' 
-              value={name} 
-              onChange={handleNameChange} 
-              required 
-              />
-
-            </div>
+                <input
+                  type="text"
+                  className="text"
+                  value={name}
+                  onChange={handleNameChange}
+                  required
+                />
+              </div>
             </div>
 
             <div className="account_kiyaku">
-              <label className='personal_name'>電話番号</label><br />
+              <label className="personal_name">電話番号</label>
+              <br />
 
               <div className="account_in">
-
-              <input 
-              type="tel" 
-              className='text' 
-              value={phone} 
-              onChange={handlePhoneChange} 
-              required
-              />
-
+                <input
+                  type="tel"
+                  className="text"
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  required
+                />
               </div>
             </div>
+
             <div className="kiyaku">
-            <label className='personal_name'>利用規約</label>
+              <label className="personal_name">利用規約</label>
             </div>
             <div className="personal_box">
           <p className="personal_terms">
@@ -253,25 +262,22 @@ const PersonalData: React.FC = () => {
             最終更新日：2023年04月27日
           </p>
         </div>
+            <div className="personal_form">
+              <div className="personal_check">
+                <input type="checkbox" id="agree" onChange={handleCheckboxChange} />
+                <label htmlFor="agree">利用規約に同意する</label>
+              </div>
 
-        <div className="personal_form">
-          <div className="personal_check">
-            <input type="checkbox" id="agree" onChange={handleCheckboxChange} />
-            <label htmlFor="agree">利用規約に同意する</label>
-          </div>
-
-          <div className="btn_kk">
-            <button type="submit" className="btn_" id="submit-btn" disabled={!isChecked}>
-              確認画面へ
-            </button>
-          </div>
+              <div className="btn_kk">
+                <button type="submit" className="btn_" id="submit-btn" disabled={!isChecked}>
+                  確認画面へ
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-
-      </form>
-      </div>
       </body>
     </>
-
   );
 };
 
