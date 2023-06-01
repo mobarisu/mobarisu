@@ -8,7 +8,7 @@ import Account from './components/account';
 import PersonalData from './components/personal_data';
 import FinalConfirmation from './components/final_confirmation';
 // import OrderDetails from './components/order_details';
-// import Faq from './components/faq';
+import Faq from './components/faq';
 import UseTerms from './components/use_terms';
 import Confirmation from './components/confirmation';
 import StoreData from './components/store_data';
@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
   { path: "/personal_data", element: <PersonalData /> },
   { path: "/final_confirmation", element: <FinalConfirmation /> },
   // { path: "/order_details", element: <OrderDetails /> },
-  // { path: "/Faq", element: <Faq /> },
+  { path: "/Faq", element: <Faq /> },
   { path: "/use_terms", element: <UseTerms /> },
   { path: "/confirmation", element: <Confirmation /> },
   { path: "/store_data", element: <StoreData /> },
