@@ -1,16 +1,17 @@
-/* .current_input{
+.pass_change_input{
     text-align: center;
 }
-.current_p{
+.pass_change_label{
     margin-left: 10%;
-    margin-top: 10%;
-    margin-right: 10%;
 }
-.current{
+.pass_change{
     margin-top: 20%;
     margin-bottom: 20%;
 }
-.current_mess{
+.error{
+    font-size: 5%;
     margin-left: 10%;
+    margin-top: 3%;
     margin-right: 10%;
-} */
+    color: #F00;
+}
