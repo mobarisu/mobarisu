@@ -1,0 +1,113 @@
+.final_confima{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.final_cart{
+    position: relative;
+}
+  .back_f{
+    position: absolute;
+margin-top: 0;
+padding-bottom: 0;
+margin-left: 5%;
+    z-index: 1;
+  }
+  .ptag{
+    text-align: center;
+  }
+.back_f{
+margin-right: 0px;
+margin-bottom: 30px;
+}
+.ct_moji1{
+  margin-top: 20px;
+  padding-top: 10px;
+text-align: center;
+font-size: 20px;
+}
+.tyu{
+  color: red;
+}
+.perso_nm, .perso_ph {
+  border-bottom: 1px solid black;
+  text-align: left;
+  margin: 5px;
+  padding-left: 20px;
+}
+.left_per{
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+  .scl{
+    overflow-y: scroll;
+    margin-bottom: 30px;
+  }
+  .final_line{
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin: 5px;
+  }
+  .final_title{
+    font-size: 20px;
+    text-align: left;
+  }
+  .final_sazi{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    text-align: left;
+  }
+  .per_fl{
+    display: flex;
+    justify-content:space-between;
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+  .f_c_p{
+    padding-right: 10%;
+  }
+  .final_fin{
+    text-align    : center; 
+    cursor        : pointer; 
+    padding       : 10px 10px; 
+    background    : none; 
+    margin-bottom: 20px;
+    border: none;
+  }
+  .btn_pm{
+    margin-top: 20px;
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    color: #fff;
+  }
+
+  .syoukei{
+    border-top: 1px solid black;
+    display: flex;
+    justify-content:space-around;
+    margin-bottom: 20%;
+  }
+  .yohaku{
+    margin-top: 50px;
+  }
+  .final_gou{
+    font-size: 30px;
+  }
+  .btn_personal{
+    margin-top: 20px;
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
