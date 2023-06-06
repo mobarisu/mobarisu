@@ -34,7 +34,11 @@
     transform: translateY(-50%) rotate(135deg);
     transition: transform 0.3s;
 }
-      
+.order_mess_p{
+    margin: 0 10%;
+    color: #f00;
+    font-size: 100%;
+}
 .history_h2.active::before {
     transform: translateY(-30%) rotate(315deg);
 }
