@@ -1,5 +1,10 @@
 USE database;
 
+create table cash(
+    mail_address varchar(255) PRIMARY KEY,
+    password varchar(255) NOT NULL
+);
+
 create table stores(
     store_id int PRIMARY KEY AUTO_INCREMENT,
     store_name varchar(128) NOT NULL,
@@ -18,7 +23,7 @@ create table options(
 
 create table products_categories(
     category_id int PRIMARY KEY AUTO_INCREMENT,
-    category_name varchar(255) NOT NULL
+    category_name varchar(64) NOT NULL
 );
 
 
@@ -26,7 +31,7 @@ create table products(
     product_id int PRIMARY KEY AUTO_INCREMENT,
     store_id int NOT NULL,
     category_id int NOT NULL,
-    product_name varchar(128) NOT NULL,
+    product_name varchar(255) NOT NULL,
     product_introduction varchar(255),
     product_price int NOT NULL,
     on_sale boolean NOT NULL,
@@ -58,7 +63,7 @@ create table products_allergies(
 create table orders(
     order_id int PRIMARY KEY AUTO_INCREMENT,
     store_id int  NOT NULL,
-    receipt_number varchar(32) NOT NULL,
+    receipt_number varchar(64) NOT NULL,
     phone_number int NOT NULL,
     orderer_name varchar(128) NOT NULL,
     order_time time NOT NULL,
