@@ -2,6 +2,11 @@
     margin: 0;
     text-align: right;
 }
+.order_button{
+  border: none;
+  background-color: #E8E8E8;
+  font-size: 20px;
+}
 .order_head{
   background-color: #E8E8E8;
 }

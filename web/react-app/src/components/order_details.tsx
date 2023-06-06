@@ -71,7 +71,7 @@ const OrderDetails: React.FC = () => {
       </head>
       <body className="order_body">
         <div className="order_head">
-          <header className="order_header">✕</header>
+          <header className="order_header"><button className='order_button' onClick={() => navigate('/food_list')}>✕</button></header>
           <h1 className="order_h1">注文完了しました</h1>
         </div>
         <div className="order_number">
