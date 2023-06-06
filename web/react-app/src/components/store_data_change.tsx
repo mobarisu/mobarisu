@@ -3,12 +3,12 @@ import './css/App.css';
 
 function StoreDataChange() {
 
-  const backPage = () =>{
-    var btn = document.getElementById("bt_back");
-    btn?.addEventListener('click',function(){
-      history.back();
-    });
-  }
+  // const backPage = () =>{
+  //   var btn = document.getElementById("bt_back");
+  //   btn?.addEventListener('click',function(){
+  //     history.back();
+  //   });
+  // }
 
   
   return (
@@ -42,7 +42,7 @@ function StoreDataChange() {
             <textarea id="Introduction"/>
           </div>
           <div className='btn_div'>
-            <input type="submit" id="bt_back" onClick={backPage} value={"変更"}/>
+            {/* <input type="submit" id="bt_back" onClick={backPage} value={"変更"}/> */}
           </div>
         </form>
       </main>
