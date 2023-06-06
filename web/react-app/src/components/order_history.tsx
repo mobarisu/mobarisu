@@ -1,68 +1,128 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import './order_history.css';
 
-const OrderHistory: React.FC = () => { 
+const OrderHistory: React.FC = () => {
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState('');
-  const ShopNumber = "AC";
-  const Order = 53;
-  const Ordername ="田中クレジット真司";
 
   const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedDate(event.target.value);
-    // ここで選択された日付に基づいてデータを取得し、表示する処理を実行します
   };
+
+  const orderHistoryData = [
+    {
+      selectedDate: '2023/06/05',
+      shopNumber: 'AC',
+      order: 53,
+      orderName: '田中クレジット真司',
+      historyMenu: [
+        {
+          menuName: 'ぷりぷり赤エビの天ぷら～オニオンソースを添えて～',
+          op: 'M',
+          count: 2,
+          menuPrice: 4000,
+          subTotal: 0,
+        },
+        {
+          menuName: 'いもむしの刺身盛り合わせ～寄生虫を添えて～',
+          op: 'L',
+          count: 1,
+          menuPrice: 5000,
+          subTotal: 0,
+        },
+        {
+          menuName: 'サラダ',
+          op: 'S',
+          count: 3,
+          menuPrice: 1500,
+          subTotal: 0,
+        },
+      ],
+    },
+    {
+        selectedDate: '2023/06/05',
+        shopNumber: 'AC',
+        order: 56,
+        orderName: '司',
+        historyMenu: [
+          {
+            menuName: 'ソース',
+            op: 'M',
+            count: 2,
+            menuPrice: 4000,
+            subTotal: 0,
+          },
+          {
+            menuName: 'いも虫を添えて',
+            op: 'L',
+            count: 1,
+            menuPrice: 9000,
+            subTotal: 0,
+          },
+          {
+            menuName: 'サ',
+            op: 'S',
+            count: 3,
+            menuPrice: 15000,
+            subTotal: 0,
+          },
+        ],
+      },
+    {
+      selectedDate: '2023/06/06',
+      shopNumber: 'AC',
+      order: 58,
+      orderName: '佐藤',
+      historyMenu: [
+        {
+          menuName: 'チャーハン',
+          op: 'S',
+          count: 1,
+          menuPrice: 400,
+          subTotal: 0,
+        },
+        {
+          menuName: '天ぷら盛り合わせ',
+          op: 'M',
+          count: 3,
+          menuPrice: 2000,
+          subTotal: 0,
+        },
+        {
+          menuName: 'ラクダ',
+          op: 'XL',
+          count: 8,
+          menuPrice: 500,
+          subTotal: 0,
+        },
+      ],
+    },
+    // Add more data sets here...
+  ];
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleH2Click = (index: number) => {
-      setActiveIndex(index === activeIndex ? null : index);
+    setActiveIndex(index === activeIndex ? null : index);
   };
-  let totalPrice = 0;
 
-  const history_menu = [
-    {
-      MenuName: "ぷりぷり赤エビの天ぷら～オニオンソースを添えて～",
-      op: "M",
-      count: 2,
-      MenuPrice: 4000,
-      SubTotal: 0
-    },
-    {
-      MenuName: "いもむしの刺身盛り合わせ～寄生虫を添えて～",
-      op: "L",
-      count: 1,
-      MenuPrice: 5000,
-      SubTotal: 0
-    },
-    {
-      MenuName: "サラダ",
-      op: "S",
-      count: 3,
-      MenuPrice: 1500,
-      SubTotal: 0
-    }
-  ];
-
-  const calculateTotalPrice = () => {
+  const calculateTotalPrice = (historyMenu: any[]) => {
     let total = 0;
-    history_menu.forEach((item) => {
-      total += item.SubTotal;
+    historyMenu.forEach((item) => {
+      total += item.subTotal;
     });
     return total;
   };
 
-
-
-  const renderHistoryMenu = () => {
-    return history_menu.map((item, index) => {
-      const subtotal = item.MenuPrice * item.count;
-      item.SubTotal = subtotal;
-      totalPrice += subtotal;
+  const renderHistoryMenu = (historyMenu: any[]) => {
+    return historyMenu.map((item, index) => {
+      const subtotal = item.menuPrice * item.count;
+      item.subTotal = subtotal;
 
       return (
         <div className="history_menu_list" key={index}>
-          <h3 className="history_menu_name">{item.MenuName}</h3>
+          <h3 className="history_menu_name">{item.menuName}</h3>
           <div className="history_menu_op">
             <p className="history_p">サイズ：{item.op}</p>
           </div>
@@ -74,6 +134,11 @@ const OrderHistory: React.FC = () => {
       );
     });
   };
+
+  const filteredOrderHistoryData = orderHistoryData.filter(
+    (orderData) => orderData.selectedDate === selectedDate
+  );
+
   return (
     <>
       <head>
@@ -85,9 +150,8 @@ const OrderHistory: React.FC = () => {
       <header>注文履歴</header>
       <body>
         <div className="history_date">
-          <select className='history_select' value={selectedDate} onChange={handleDateChange}>
+          <select className="history_select" value={selectedDate} onChange={handleDateChange}>
             <option value="">日付を選択</option>
-            {/* 過去1カ月分の日付を生成 */}
             {Array.from({ length: 30 }, (_, index) => {
               const date = new Date();
               date.setDate(date.getDate() - index);
@@ -104,33 +168,34 @@ const OrderHistory: React.FC = () => {
             })}
           </select>
         </div>
-        {/* 選択された日付に基づいてデータを表示する要素を追加 */}
         <div className="history">
-                <div className="history_nav">
-                    <div className={`history_h2 ${activeIndex === 0 ? 'active' : ''}`}
-                        onClick={() => handleH2Click(0)}
-                    >
-                    <h2>
-                        {ShopNumber + Order}
-                    </h2>
-                    <h2 className="history_name">
-                        {Ordername}
-                    </h2>
+          {selectedDate === '' ? (
+            <p className='order_mess_p'>日付を選択してください。</p>
+          ) : filteredOrderHistoryData.length === 0 ? (
+            <p className='order_mess_p'>選択された日付の履歴はありません。</p>
+          ) : (
+            filteredOrderHistoryData.map((orderData, index) => (
+              <div className="history_nav" key={index}>
+                <div
+                  className={`history_h2 ${activeIndex === index ? 'active' : ''}`}
+                  onClick={() => handleH2Click(index)}
+                >
+                  <h2>{orderData.shopNumber + orderData.order}</h2>
+                  <h2 className="history_name">{orderData.orderName}</h2>
+                </div>
+                {activeIndex === index && (
+                  <div className="history_div active">
+                    <div className="history_menu">{renderHistoryMenu(orderData.historyMenu)}</div>
+                    <div className="history_price">
+                      <p className="history_price_title">合計</p>
+                      <h2>{calculateTotalPrice(orderData.historyMenu)}円</h2>
                     </div>
-                    {activeIndex === 0 && (
-            <div className="history_div active">
-          <div className="history_menu">{renderHistoryMenu()}</div>
-          <div className="history_price">
-          <p className="history_price_title">合計</p>
-          <h2>{calculateTotalPrice()}円</h2>
-        </div>
-        </div>
+                  </div>
                 )}
-                </div>
-                <div className="history_nav">
-                
-                </div>
-            </div>
+              </div>
+            ))
+          )}
+        </div>
       </body>
     </>
   );
