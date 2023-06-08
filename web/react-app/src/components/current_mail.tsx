@@ -26,7 +26,7 @@ const CurrentMail: React.FC = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>メールアドレス認証</title>
             </head>
-            <header>メールアドレス認証</header>
+            <header className='header_ac_none'>メールアドレス認証</header>
             <body>
                 <p className='current_p'>登録したメールアドレスを入力してください。</p>
 

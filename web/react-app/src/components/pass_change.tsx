@@ -32,7 +32,7 @@ const PassChange: React.FC = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>パスワード変更</title>
             </head>
-            <header>パスワード変更</header>
+            <header className='header_ac_none'>パスワード変更</header>
             <body>
                 <form onSubmit={handleSubmit}>
                     <div className="pass_change_form">
