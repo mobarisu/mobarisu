@@ -67,7 +67,7 @@ const Account: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>アカウント登録</title>
       </head>
-      <header>アカウント登録</header>
+      <header className='header_ac_none'>アカウント登録</header>
       <body className="account_body">
         <form onSubmit={account_Submit}>
           <div className="account_form">

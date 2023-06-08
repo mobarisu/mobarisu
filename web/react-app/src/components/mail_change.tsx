@@ -42,7 +42,7 @@ const MailChange: React.FC = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>メールアドレス変更</title>
             </head>
-            <header>メールアドレス変更</header>
+            <header className='header_ac_none'>メールアドレス変更</header>
             <body>
                 <form onSubmit={handleSubmit}>
                     <div className="mail_change_form">

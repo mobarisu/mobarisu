@@ -16,7 +16,7 @@ const Confirmation: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>メールアドレス確認</title>
       </head>
-      <header>メールアドレス確認</header>
+      <header className='header_ac_none'>メールアドレス確認</header>
     <body>
       <div className='conf_p'>
         <p className='conf_p_text'>{email}にメールを送信しました。<br />メールが届かない場合は再送信を押してしてください。</p>

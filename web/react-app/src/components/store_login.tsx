@@ -36,7 +36,7 @@ const StoreLogin: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ログイン</title>
       </head>
-      <header>ログイン</header>
+      <header className='header_ac_none'>ログイン</header>
       <body>
         <form onSubmit={handleSubmit}>
           <div className="login_form">

@@ -27,7 +27,7 @@ const Useterms: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>利用規約</title>
       </head>
-      <header>モバリス加入店規約</header>
+      <header className='header_ac_none'>モバリス加入店規約</header>
       <body>
         <div className="terms_name">
           <label>利用規約</label>

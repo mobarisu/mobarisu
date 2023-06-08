@@ -66,7 +66,7 @@ const StoreData: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>店舗情報登録</title>
       </head>
-      <header>店舗情報</header>
+      <header className='header_ac_none'>店舗情報</header>
       <body>
         <form onSubmit={handleSubmit}>
           <div className="store_">
