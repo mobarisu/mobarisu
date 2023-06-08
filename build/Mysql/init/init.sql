@@ -1,5 +1,10 @@
 USE database;
 
+create table cash(
+    mail_address varchar(255) PRIMARY KEY,
+    password varchar(255) NOT NULL
+);
+
 create table stores(
     store_id int PRIMARY KEY AUTO_INCREMENT,
     store_name varchar(128) NOT NULL,
@@ -18,7 +23,7 @@ create table options(
 
 create table products_categories(
     category_id int PRIMARY KEY AUTO_INCREMENT,
-    category_name varchar(255) NOT NULL
+    category_name varchar(64) NOT NULL
 );
 
 
@@ -26,7 +31,7 @@ create table products(
     product_id int PRIMARY KEY AUTO_INCREMENT,
     store_id int NOT NULL,
     category_id int NOT NULL,
-    product_name varchar(128) NOT NULL,
+    product_name varchar(255) NOT NULL,
     product_introduction varchar(255),
     product_price int NOT NULL,
     on_sale boolean NOT NULL,
@@ -58,7 +63,7 @@ create table products_allergies(
 create table orders(
     order_id int PRIMARY KEY AUTO_INCREMENT,
     store_id int  NOT NULL,
-    receipt_number varchar(32) NOT NULL,
+    receipt_number varchar(64) NOT NULL,
     phone_number int NOT NULL,
     orderer_name varchar(128) NOT NULL,
     order_time time NOT NULL,
@@ -157,6 +162,11 @@ values
 (1,21),
 (1,23);
 
+insert into products_options
+(product_id,option_id)
+values
+(1,1);
+
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
 values (1,1,'炙り醤油風ベーコントマト肉厚ビーフ','厚みのある100%ビーフとふんだんな野菜に、香ばしい炙り醤油風のソースが決め手の、肉と野菜のバランスが絶妙な一品です。',
@@ -173,6 +183,11 @@ values
 (2,20),
 (2,21),
 (2,23);
+
+insert into products_options
+(product_id,option_id)
+values
+(2,1);
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
@@ -191,6 +206,11 @@ values
 (3,20),
 (3,21);
 
+insert into products_options
+(product_id,option_id)
+values
+(3,1);
+
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
 values (1,1,'ゆず香るおろしチキンタツタ','国産ゆずなどの柑橘でさっぱり仕上げた角切り大根入りのおろしと、たまり醤油マヨソースが相性抜群のチキンタツタが新登場！',
@@ -208,6 +228,11 @@ values
 (4,20),
 (4,21);
 
+insert into products_options
+(product_id,option_id)
+values
+(4,1);
+
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
 values (1,2,'マックフライポテト','外はカリッとゴールデンブラウン。中はホクホクとベイクドポテトのような食感。こだわりぬいた、マクドナルドのベストセラー。',
@@ -217,13 +242,15 @@ insert into options
 (option_name,option_price)
 values
 ('Sサイズ',-140),
+('Mサイズ',0),
 ('Lサイズ',50);
 
 insert into products_options
 (product_id,option_id)
 values
-(5,1),
-(5,2);
+(5,2),
+(5,3),
+(5,4);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -236,10 +263,20 @@ insert into products
 values (1,2,'サイドサラダ','レタス、紫キャベツ、赤と黄色のパプリカを組み合わせた彩り豊かなサラダです。ドレッシングはお好みに合わせてお選びください。',
 300,true);
 
+insert into products_options
+(product_id,option_id)
+values
+(6,1);
+
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
 values (1,2,'えだまめコーン','栄養バランスを考慮してスイートコーンにえだまめをプラスした、おいしく栄養を摂っていただけるメニューです。',
 250,true);
+
+insert into products_options
+(product_id,option_id)
+values
+(7,1);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -283,6 +320,11 @@ values
 (9,20),
 (9,23);
 
+insert into products_options
+(product_id,option_id)
+values
+(9,1);
+
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
 values (2,1,'とびきりトマト＆レタス','国産肉（牛・豚合挽き肉）を100％使用したハンバーグに、モスオリジナルの“和風ソース”をかけました。和風ソースが引き立てた、モスのこだわりがたっぷりつまった一品です。',
@@ -302,6 +344,11 @@ values
 (10,23),
 (10,27);
 
+insert into products_options
+(product_id,option_id)
+values
+(10,1);
+
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
 values (2,3,'アイスコーヒー','甘くなめらかな口当たりが特長で、まろやかな苦みとすっきりとした味わいのアイスコーヒーです。',
@@ -311,13 +358,15 @@ insert into options
 (option_name,option_price)
 values
 ('Sサイズ',-70),
+('Mサイズ',0),
 ('Lサイズ',70);
 
 insert into products_options
 (product_id,option_id)
 values
-(11,3),
-(11,4);
+(11,5),
+(11,6),
+(11,7);
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
@@ -328,13 +377,15 @@ insert into options
 (option_name,option_price)
 values
 ('Sサイズ',-70),
+('Mサイズ',0),
 ('Lサイズ',70);
 
 insert into products_options
 (product_id,option_id)
 values
-(12,3),
-(12,4);
+(12,8),
+(12,9),
+(12,10);
 
 insert into products
 (store_id,category_id,product_name,product_introduction,product_price,on_sale)
@@ -345,6 +396,7 @@ insert into options
 (option_name,option_price)
 values
 ('ミニ',-50),
+('並盛',0),
 ('中盛',180),
 ('大盛',180),
 ('特盛',330),
@@ -353,11 +405,12 @@ values
 insert into products_options
 (product_id,option_id)
 values
-(13,5),
-(13,6),
-(13,7),
-(13,8),
-(13,9);
+(13,11),
+(13,12),
+(13,13),
+(13,14),
+(13,15),
+(13,16);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -398,6 +451,7 @@ insert into options
 (option_name,option_price)
 values
 ('ミニ',-50),
+('並盛',0),
 ('中盛',180),
 ('大盛',180),
 ('特盛',330),
@@ -406,11 +460,12 @@ values
 insert into products_options
 (product_id,option_id)
 values
-(14,10),
-(14,11),
-(14,12),
-(14,13),
-(14,14);
+(14,17),
+(14,18),
+(14,19),
+(14,20),
+(14,21),
+(14,22);
 
 insert into products_allergies
 (product_id,allergy_id)
