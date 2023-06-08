@@ -15,18 +15,34 @@ services:
       - WATCHPACK_POLLING=true
     tty: true
 
-  ruby:
+  node:
     build:
-      context: ./build/ruby/
+      context: ./build/node/
       dockerfile: Dockerfile
-    container_name: api-server
+    container_name: express-server
+    # command: sh -c 'yarn install && yarn start'
     ports:
-      - "3443:3000"
+      - "3030:3000"
     volumes:
-      - ./api:/usr/src/app
+      - ./api:/usr/src/app/api
+    environment:
+      - WATCHPACK_POLLING=true
     depends_on:
       - db
     tty: true
+
+  # ruby:
+  #   build:
+  #     context: ./build/ruby/
+  #     dockerfile: Dockerfile
+  #   container_name: api-server
+  #   ports:
+  #     - "3443:3000"
+  #   volumes:
+  #     - ./api:/usr/src/app
+  #   depends_on:
+  #     - db
+  #   tty: true
 
   db:
     build:
