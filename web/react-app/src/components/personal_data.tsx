@@ -61,7 +61,7 @@ const PersonalData: React.FC = () => {
         <title>個人情報入力画面</title>
       </head>
 
-      <h1>個人情報入力</h1>
+      <h1 className='personal_h1'>個人情報入力</h1>
       <body>
         <div className="account_huru">
           <form onSubmit={handleSubmit}>

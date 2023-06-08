@@ -8,6 +8,9 @@
     color: #fff;
     padding : 10px 10px; 
 }
+.personal_h1{
+    text-align: center;
+}
 .personal_name{
     margin-left: 10%;
 }
@@ -43,7 +46,7 @@
   .personal_box{
     margin-left: 10%;
     width: 80%;                
-    height: 550px;               
+    height: 300px;               
     border: 1px solid #000;    
     overflow-y: scroll;  
 }
