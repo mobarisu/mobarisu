@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html{
+    height: 100%;
+}
+html *{
+	box-sizing: border-box;
+}
+body{
+    margin: 0 0 0 0;
+    background-color: #FAFAFA;
+}
+
+a{
+	text-decoration: none;
+}
+
+h1{
+    margin: 0;
+}
+
+p store_introduction{
+    color: #000000;
+	line-height:1.6;
+    margin: 0;
+}
+
+p {
+    color: #000000;
+    margin: 0;
+}
+
+header {
+	width: 100%;
+	background-color: white;
+    align-items: center;
+	display: flex;
+	position: fixed;
+    height: 75px;
+}
+
+.header-logo img {
+    width: 60px;
+    height: 60px;
+    margin-left: 15px;
+}
+
+.header-cart{
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.header-cart img{
+    width: 60px;
+    height: 60px;
+}
+
+.store-image{
+    padding-top: 32px;
+}
+
+.store-image p{
+    margin: 0px;
+}
+
+.store-image img {
+    width: 100%;
+    height: 125px;
+    object-fit: cover;
+}
+
+.contents{
+    margin: 0 30px 0 30px;   
+
+}
+.food p{
+	line-height:1.2;
+}
+
+.food a{
+    margin-bottom: 30px;
+}
+
+.food h2{
+    margin: 0;
+    margin-left: 25px;
+    margin-bottom: 50px;
+}
+
+.food img{
+    width: 100%;
+}
+
+.food-category{
+    /* text-align: center; */
+	list-style: none;
+    font-size: 18px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+.food-category ul{
+    margin: auto;
+}
+.category{
+    padding: 30px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #FAFAFA;
+}
+
+.food-category button{
+    display: inline-block;
+    /*margin: 0 50px 0 0px;*/
+    width: 150px;
+    height: 50px;
+    /*padding: 15px 40px 15px 40px;*/
+    border-radius: 22px;
+}
+
+.is-selected{
+    background-color: #FE724C;
+    color: #FAFAFA;
+}
+
+.footer-nav a{
+    font-size: 17px;
+}
+
+.footer-nav-item{
+    margin-left: 60px;
+}
+
+
+.example2{
+        display: flex;
+}
+
+.example2 label{
+    display: block;
+    width: 150px;
+    background: #c8eac3;
+    color: #000;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.example2 input:checked+label{
+    background: #1a720d;
+    color: #FFF;
+}
+.example2 input{
+    display: none;
+}
