@@ -31,18 +31,18 @@ services:
       - db
     tty: true
 
-  # ruby:
-  #   build:
-  #     context: ./build/ruby/
-  #     dockerfile: Dockerfile
-  #   container_name: api-server
-  #   ports:
-  #     - "3443:3000"
-  #   volumes:
-  #     - ./api:/usr/src/app
-  #   depends_on:
-  #     - db
-  #   tty: true
+  ruby:
+    build:
+      context: ./build/ruby/
+      dockerfile: Dockerfile
+    container_name: api-server
+    ports:
+      - "3443:3000"
+    volumes:
+      - ./api:/usr/src/app
+    depends_on:
+      - db
+    tty: true
 
   db:
     build:

@@ -1,15 +1,2 @@
 db/
 web/react-app/node_modules
-
-# Ignore bundler config.
-api/mobaris/.bundle
-
-# Ignore all logfiles and tempfiles.
-api/mobaris/log/*
-api/mobaris/tmp/*
-
-# Ignore uploaded files in development.
-api/mobaris/storage/*
-
-# Ignore master key for decrypting credentials and more.
-api/mobaris/config/master.key
