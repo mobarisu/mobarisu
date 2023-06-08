@@ -109,5 +109,14 @@
     border-radius: 22px;
     color: #fff;
     padding : 10px 10px; 
+  }
+  .delivery_cancel_btn.hidden{
+    display: none;
+  }
+  .delivery_sub_btn.completed {
+    background-color: #E8E8E8;
+    color: #000;
+  }
+  .delivery_menu.hidden {
     display: none;
   }
