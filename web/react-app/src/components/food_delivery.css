@@ -1,0 +1,122 @@
+.delivery_h2 {
+    border: solid 1px;
+    margin: 0;
+    background-color: #E8E8E8;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    position: relative;
+}
+.delivery_div{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: none;
+}
+      
+.delivery_h2::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #000;
+    border-right-color: #000;
+    position: absolute;
+    margin-right: 10%;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+    transition: transform 0.3s;
+}
+
+.delivery_h2.active::before {
+    transform: translateY(-30%) rotate(315deg);
+}
+           
+.delivery_div.active {
+    display: block;
+}
+      
+
+.delivery_price_title{
+    font-size: 32px;
+  }
+  .delivery_price{
+    font-size: 24px;
+  }
+  .delivery_menu_price{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    border-bottom: solid 1px;
+  }
+  .delivery_p{
+    margin: 0;
+    font-size: 130%;
+  }
+  .delivery_h4{
+    margin: 0;
+  }
+  .delivery_price{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 10%;
+  }
+  .del_cancel{
+    text-align: right;
+  }
+  .del_cancel_btn{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 30%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
+  }
+  .delivery_sub_btn{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 30%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
+  }
+  .delivery_sub_price{
+    font-size: 200%;
+    margin: 0;
+  }
+  .delivery_btn{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 60%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
+  }
+  .delivery_complete{
+    text-align: center;
+    margin-bottom: 5%;
+  }
+  .delivery_cancel_btn{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 30%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
+  }
+  .delivery_cancel_btn.hidden{
+    display: none;
+  }
+  .delivery_sub_btn.completed {
+    background-color: #E8E8E8;
+    color: #000;
+  }
+  .delivery_menu.hidden {
+    display: none;
+  }

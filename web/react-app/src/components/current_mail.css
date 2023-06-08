@@ -1,4 +1,4 @@
-/* .current_input{
+.current_input{
     text-align: center;
 }
 .current_p{
@@ -13,4 +13,7 @@
 .current_mess{
     margin-left: 10%;
     margin-right: 10%;
-} */
+}
+.current_label{
+    margin-left: 10%;
+}

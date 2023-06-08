@@ -33,7 +33,7 @@ const CurrentMail: React.FC = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="current_form">
                         <div className="current">
-                            <label>メールアドレス</label><br />
+                            <label className='current_label'>メールアドレス</label><br />
                             <div className="current_input">
                                 <input type="email" className='email' value={email} onChange={e => setEmail(e.target.value)} required />
                             </div>

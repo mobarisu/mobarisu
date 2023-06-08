@@ -1,9 +1,9 @@
-/* header{
+header{
     font-size: 30px;
     text-align:center;
     margin-top: 30px;
 }
-.error{
+.account_error{
     color: #F00;
     font-size: 5px;
     margin-left: 10%;
@@ -23,7 +23,7 @@
     color: #fff;
     padding : 10px 10px; 
 }
-label{
+.account_label{
     margin-left: 10%;
 }
 .account_input{
@@ -45,4 +45,4 @@ label{
 }
 .account{
     margin-top: 15%;
-} */
+}

@@ -1,8 +1,3 @@
-header{
-    font-size: 30px;
-    text-align:center;
-    margin-top: 30px;
-}
 
 .btn_{
     background-color: #FE724C;
@@ -12,6 +7,9 @@ header{
     border-radius: 22px;
     color: #fff;
     padding : 10px 10px; 
+}
+.personal_h1{
+    text-align: center;
 }
 .personal_name{
     margin-left: 10%;
@@ -48,7 +46,7 @@ header{
   .personal_box{
     margin-left: 10%;
     width: 80%;                
-    height: 550px;               
+    height: 300px;               
     border: 1px solid #000;    
     overflow-y: scroll;  
 }
