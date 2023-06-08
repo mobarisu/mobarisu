@@ -41,13 +41,13 @@ const StoreLogin: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <div className="login_form">
             <div className="login">
-              <label>メールアドレス</label><br />
+              <label className='login_label'>メールアドレス</label><br />
               <div className="login_input">
                 <input type="email" className='email' value={email} onChange={handleEmailChange} required />
               </div>
             </div>
             <div className="login">
-              <label>パスワード</label><br />
+              <label className='login_label'>パスワード</label><br />
               <div className="login_input">
                 <input type="password" className='pass' value={password} onChange={handlePasswordChange} required />
               </div>

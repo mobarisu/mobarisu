@@ -89,8 +89,8 @@ const Account: React.FC = () => {
               <input type="password" className='pass2' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
             </div>
             </div>
-            {passwordError && <div className="error">{passwordError}</div>}
-            {passwordFormatError && <div className="error">{passwordFormatError}</div>}
+            {passwordError && <div className="account_error">{passwordError}</div>}
+            {passwordFormatError && <div className="account_error">{passwordFormatError}</div>}
             <div className="btn">
               <button type="submit" className="btn_" id="submit-btn" >
                 登録
