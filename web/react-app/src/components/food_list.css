@@ -12,12 +12,6 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-html{
-    height: 100%;
-}
-html *{
-	box-sizing: border-box;
-}
 body{
     margin: 0 0 0 0;
     background-color: #FAFAFA;
@@ -27,7 +21,7 @@ a{
 	text-decoration: none;
 }
 
-h1{
+h1 store-name{
     margin: 0;
 }
 
@@ -37,12 +31,12 @@ p store_introduction{
     margin: 0;
 }
 
-p {
+.contents p {
     color: #000000;
     margin: 0;
 }
 
-header {
+.header_ac_on{
 	width: 100%;
 	background-color: white;
     align-items: center;
