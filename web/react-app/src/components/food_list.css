@@ -31,13 +31,18 @@ h1{
     margin: 0;
 }
 
-p{
+p store_introduction{
     color: #000000;
 	line-height:1.6;
     margin: 0;
 }
 
-header{
+p {
+    color: #000000;
+    margin: 0;
+}
+
+header {
 	width: 100%;
 	background-color: white;
     align-items: center;
@@ -49,10 +54,12 @@ header{
 .header-logo img {
     width: 60px;
     height: 60px;
+    margin-left: 15px;
 }
 
 .header-cart{
     margin-left: auto;
+    margin-right: 15px;
 }
 
 .header-cart img{

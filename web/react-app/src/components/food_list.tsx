@@ -18,15 +18,14 @@ const App: React.FC = () => {
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>null</title>
-        <link rel="stylesheet" href="food_list.css"/>
     </head>
     <body>
         <header>
             <div className="header-logo">
-                    <a href="./index.html"><img src={logo} className="logo" alt=''/></a>
+                    <a href="./"><img src={logo} className="logo" alt=''/></a>
             </div>
             <div className="header-cart">
-                <a href="./cart.html"><img src={cart} className="cart" alt='カート'/></a>
+                <a href="./food_cart"><img src={cart} className="cart" alt='カート'/></a>
             </div>
         </header>
         <div className="store-image">
@@ -34,7 +33,7 @@ const App: React.FC = () => {
             <h1>
                 <p>吉野家</p>
             </h1>
-                <p>新鮮な食材を使った美味しいすき焼きや丼物をリーズナブルに提供。心地よい雰囲気でおくつろぎください。ご家族や友人との食事に最適です。</p>
+                <p className='store_introduction'>新鮮な食材を使った美味しいすき焼きや丼物をリーズナブルに提供。心地よい雰囲気でおくつろぎください。ご家族や友人との食事に最適です。</p>
         </div>
 
         <div className='contents'>
@@ -43,25 +42,25 @@ const App: React.FC = () => {
                     <p>メニュー</p>
                 </h2>
                 <div className="food">
-                    <a href="./food_details.html"><img src={food} className="food" alt=''/>
+                    <a href="./food_details"><img src={food} className="food" alt=''/>
                         <h2>
                             <p>焦がしネギ焼き鳥丼</p>
                             <p>1200円</p>
                         </h2>
                     </a>
-                    <a href="./food_details.html"><img src={food} className="food" alt=''/>
+                    <a href="./food_details"><img src={food} className="food" alt=''/>
                         <h2>
                             <p>焦がしネギ焼き鳥丼</p>
                             <p>1200円</p>
                         </h2>
                     </a>
-                    <a href="./food_details.html"><img src={food} className="food" alt=''/>
+                    <a href="./food_details"><img src={food} className="food" alt=''/>
                         <h2>
                             <p>焦がしネギ焼き鳥丼</p>
                             <p>1200円</p>
                         </h2>
                     </a>
-                    <a href="./food_details.html"><img src={food} className="food" alt=''/>
+                    <a href="./food_details"><img src={food} className="food" alt=''/>
                         <h2>
                             <p>焦がしネギ焼き鳥丼</p>
                             <p>1200円</p>
@@ -98,8 +97,8 @@ const App: React.FC = () => {
         <footer>
             <div className="footer-nav">
                 <ul className='footer-nav-item'>
-                    <li><a href="cart.html">カート</a></li>
-                    <li><a href="faq.html">よくある質問</a></li>
+                    <li><a href="food_cart">カート</a></li>
+                    <li><a href="faq">よくある質問</a></li>
                     <li><a href="#">利用規約</a></li>
                     <li><a href="#">プライバシーポリシー</a></li>
                 </ul>
