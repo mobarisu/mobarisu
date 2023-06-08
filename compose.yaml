@@ -1,4 +1,4 @@
-version: '3'
+version: '3'  
 
 services:
   react:
@@ -13,6 +13,22 @@ services:
     command: sh -c 'cd react-app && yarn install && yarn start'
     environment:
       - WATCHPACK_POLLING=true
+    tty: true
+
+  node:
+    build:
+      context: ./build/node/
+      dockerfile: Dockerfile
+    container_name: express-server
+    # command: sh -c 'yarn install && yarn start'
+    ports:
+      - "3030:3000"
+    volumes:
+      - ./api:/usr/src/app/api
+    environment:
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - db
     tty: true
 
   ruby:
