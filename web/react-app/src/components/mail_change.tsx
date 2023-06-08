@@ -47,25 +47,25 @@ const MailChange: React.FC = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="mail_change_form">
                         <div className="mail_change">
-                            <label>現在のメールアドレス</label><br />
+                            <label className='mail_change_label'>現在のメールアドレス</label><br />
                             <div className="mail_change_input">
                                 <input type="email" className='Email' value={currentEmail} onChange={e => setCurrentEmail(e.target.value)} required />
                             </div>
                         </div>
                         <div className="mail_change">
-                            <label>新しいメールアドレス</label><br />
+                            <label className='mail_change_label'>新しいメールアドレス</label><br />
                             <div className="mail_change_input">
                                 <input type="email" className='NewEmail' value={newEmail} onChange={e => setNewEmail(e.target.value)} required />
                             </div>
                         </div>
                         <div className="mail_change">
-                            <label>新しいメールアドレス確認</label><br />
+                            <label className='mail_change_label'>新しいメールアドレス確認</label><br />
                             <div className="mail_change_input">
                                 <input type="email" className='NewEmail2' value={confirmEmail} onChange={e => setConfirmEmail(e.target.value)} required />
                             </div>
                         </div>
                         <div className="mail_change">
-                            <label>現在のパスワード</label><br />
+                            <label className='mail_change_label'>現在のパスワード</label><br />
                             <div className="mail_change_input">
                                 <input type="password" className='pass' value={password} onChange={e => setPassword(e.target.value)} required />
                             </div>

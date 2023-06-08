@@ -1,0 +1,140 @@
+/* .details_full{
+    margin-left: 10%;
+    margin-right: 10%;
+} */
+.details_hed{
+    /* text-align: center; */
+    padding-bottom: 0px;
+    margin: 0;
+    display: flex;
+    justify-content:space-around;
+  }
+.dt_bc{
+    position: relative;
+}
+.back_details{
+    position: absolute;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 5%;
+    padding-top: 8px;
+    z-index: 1;
+}
+.de_mj{
+    margin-left: 0px;
+    font-size: 30px;
+}
+
+.deta_img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    left: 0px;
+    right: 0px;
+    object-position: 0% 30%;
+}
+.deta_cot{
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.btn_details{
+    text-align: center;
+}
+.deta_img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: 0% 30%;
+}
+.allergy_size{
+
+    width: 50px;
+    height: 50px;
+}
+.allergy_iti{
+    margin-left: 5px;
+    margin-left: 5px;
+}
+.allergy_font{
+    display: flex;
+}
+.allergy_name{
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.deta_dawn {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* text-align: left; */
+    border: solid 1px;    
+      }
+      .deta_dawn::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: #000;
+        border-right-color: #000;
+        position: absolute;
+        margin-right: 10%;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%) rotate(315deg);
+        transition: transform 0.3s;
+      }
+      
+      .deta_dawn.active::before {
+        transform: translateY(-30%) rotate(135deg);
+      }
+      .radio_tate{
+        display: block;
+      }
+      .sukima{
+        margin-right: 20px;
+      }
+
+
+
+@media screen and (max-width: 960px) {
+    .deta_img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: 0% 30%;
+    }
+    /* .deta_dawn {
+        text-align: left;
+        border: solid 1px;
+        margin: 0 10%;
+        
+          }
+          .deta_dawn::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: #000;
+        border-right-color: #000;
+        position: absolute;
+        margin-right: 10%;
+        right: 30px;
+        top: 90%;
+        transform: translateY(-50%) rotate(135deg);
+        transition: transform 0.3s;
+          }
+          
+          .deta_dawn.active::before {
+            transform: translateY(-30%) rotate(315deg);
+          } */
+}
+
+
+
+

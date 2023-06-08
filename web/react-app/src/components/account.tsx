@@ -72,19 +72,19 @@ const Account: React.FC = () => {
         <form onSubmit={account_Submit}>
           <div className="account_form">
             <div className="account">
-              <label>メールアドレス</label><br />
+              <label className='account_label'>メールアドレス</label><br />
               <div className="account_input">
               <input type="email" className='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
             </div>
             </div>
             <div className="account">
-              <label>パスワード</label><br />
+              <label className='account_label'>パスワード</label><br />
               <div className="account_input">
               <input type="password" className='pass' value={password} onChange={(e) => setPassword(e.target.value)} required />
             </div>
             </div>
             <div className="account">
-              <label>パスワード確認</label><br />
+              <label className='account_label'>パスワード確認</label><br />
               <div className="account_input">
               <input type="password" className='pass2' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
             </div>
