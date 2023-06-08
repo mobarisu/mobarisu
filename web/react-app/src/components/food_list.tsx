@@ -12,6 +12,45 @@ const App: React.FC = () => {
     setSelectedCategory(category);
   };
 
+  const dummyData = [
+    {
+      product_id: 1,
+      category_name: "メイン",
+      product_name: "焦がしネギ焼き鳥丼",
+      product_price: 1200,
+      on_sale: true
+    },
+    {
+      product_id: 2,
+      category_name: "メイン",
+      product_name: "焦がしネギ焼き鳥丼",
+      product_price: 1200,
+      on_sale: true
+    },
+    {
+      product_id: 3,
+      category_name: "サイド",
+      product_name: "ポテトチップス",
+      product_price: 1200,
+      on_sale: true
+    },
+    {
+      product_id: 4,
+      category_name: "ドリンク",
+      product_name: "タピオカミルクティー",
+      product_price: 1200,
+      on_sale: true
+    }
+    ,
+    {
+      product_id: 4,
+      category_name: "ドリンク",
+      product_name: "タピオカ黒糖ミルクティー",
+      product_price: 1200,
+      on_sale: false
+    }
+  ];
+
   return (
     <>
     <head>
@@ -20,7 +59,7 @@ const App: React.FC = () => {
         <title>null</title>
     </head>
     <body>
-        <header>
+        <header className='header_ac_on'>
             <div className="header-logo">
                     <a href="./"><img src={logo} className="logo" alt=''/></a>
             </div>
@@ -30,7 +69,7 @@ const App: React.FC = () => {
         </header>
         <div className="store-image">
             <img src={storeimage} className="store-image" alt=''/>
-            <h1>
+            <h1 className='store-name'>
                 <p>吉野家</p>
             </h1>
                 <p className='store_introduction'>新鮮な食材を使った美味しいすき焼きや丼物をリーズナブルに提供。心地よい雰囲気でおくつろぎください。ご家族や友人との食事に最適です。</p>
