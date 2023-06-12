@@ -92,7 +92,7 @@ select{
 }
 #pop-up:checked + .overlay {
   /* チェックボックスにチェックが入ったら、ポップアップと背景を表示する */
-	display: block;
+	/* display: block; */
 	z-index: 9999;
 	background-color: #00000070;
 	position: fixed;
@@ -103,6 +103,7 @@ select{
 }
 .window {
   /* ポップアップの画面 */
+  display: none;
 	width: 70%;
 	height: auto;
 	background-color: #ffffff;
@@ -206,6 +207,14 @@ select{
 }
 .en{
   margin-bottom: 0;
+}
+
+.option_look{
+  margin-left: 10%;
+}
+.opt_list{
+  font-family: none;
+  font-size: 1rem;
 }
 
 .btn_div{
