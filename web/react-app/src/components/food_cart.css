@@ -1,11 +1,10 @@
 .food_furu{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .hurucart{
     /* text-align: center; */
     border-bottom: 5px solid black;
-    padding-bottom: 10px;
     margin: 5px;
     display: flex;
     justify-content:space-around;

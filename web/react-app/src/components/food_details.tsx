@@ -107,83 +107,92 @@ const FoodDetails: React.FC = () => {
             <img className="deta_img" src={nn} alt="焦がしねぎ焼き鳥丼詳細" />
           </div>
           <div className="food_content">
-            <label htmlFor="name">{ils_name}</label>
+            <label className='details_food_name' htmlFor="name">{ils_name}</label>
             <p className="deta_cot">{explanation}</p>
           </div>
-          <div className="deta_allergy">
-            <label className="ale" htmlFor="ale">
-              アレルギー
-            </label>
-          </div>
-          <div className="allergy_font">
-            {allergies.map((allergy, index) => (
-              <div className="allergy_iti" key={index}>
-                <img className="allergy_size" src={allergy.image} alt="" />
-                <p className="allergy_name">{allergy.name}</p>
-              </div>
-            ))}
+
+          <div className='allergy_full'>
+            <div className="deta_allergy">
+              <label className="ale" htmlFor="ale">
+                アレルギー
+              </label>
+            </div>
+            <div className="allergy_font">
+              {allergies.map((allergy, index) => (
+                <div className="allergy_iti" key={index}>
+                  <img className="allergy_image_size" src={allergy.image} alt="" />
+                  <p className="allergy_name">{allergy.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="deta_option">
-            <label htmlFor="option">オプション</label>
+            <label className='deta_option_name' htmlFor="option">オプション選択</label>
             <div className="option_puru">
-              <div className="option_tenkai">
                 <h2
                   className={`deta_dawn active${activedeta === 0 ? 'active' : ''}`}
                   onClick={() => optionhand(0)}
                 >
                   サイズ: {selectedSize ? selectedSize : 'M'}
                 </h2>
+              </div>
                 {activedeta === 0 && (
                   <div className="ragio_size">
                     {foodsize.map((size) => (
-                      <label className="radio_tate" key={size.id}>
-                        <input
-                          className="sukima"
-                          type="radio"
-                          value={size.size}
-                          checked={selectedSize === size.size}
-                          onChange={handleSizeChange}
-                        />
-                        {size.size} ({size.price >= 0 ? '+' : ''}{size.price})
-                      </label>
+
+                        <label className="radio_tate" key={size.id}>
+                          <div className='ragio_sk'>
+                          <input
+                            className="sukima"
+                            type="radio"
+                            value={size.size}
+                            checked={selectedSize === size.size}
+                            onChange={handleSizeChange}
+                          />
+                          </div>
+                          <div className='price_yoko'>
+                          {size.size}
+                          <div className='right_side'>
+                          {size.price >= 0 ? '+' : ''}{size.price}円
+                          </div>
+                          </div>
+                        </label>
                     ))}
                   </div>
                 )}
+          </div>
+
+          <div className='details_syou'>
+            <p className='maney_deta'>{maney}円</p>
+          </div>
+            {countup.map((item) => (
+              <div className="details_sazi" key={item.id}>
+                <div className="details_fl">
+                  <button className="btn_mai btn_pm1" onClick={() => decrement(item.id)}>
+                    －
+                  </button>
+                  <p className="food_caunt">{item.count}</p>
+                  <button className="btn_pura btn_pm1" onClick={() => increment(item.id)}>
+                    ＋
+                  </button>
+                </div>
               </div>
-            </div>
-          </div>
+            ))}
 
-          <div>
-            <p>{maney}</p>
-          </div>
-
-          {countup.map((item) => (
-  <div className="count_sazi" key={item.id}>
-    <div className="count_fl">
-      <button className="btn_am" onClick={() => decrement(item.id)}>
-        －
-      </button>
-      <p className="food_caunt">{item.count}</p>
-      <button className="btn_pm" onClick={() => increment(item.id)}>
-        ＋
-      </button>
-    </div>
-  </div>
-))}
-
-
-          <div className="nihow">
-            <button className="btn_details" onClick={() => navigate('/food_list')}>
+        <div className='details_space'>
+          <div className="details_btn_full">
+            <button className="details_cart btn_details" onClick={() => navigate('/food_list')}>
               カートに入れる
             </button>
-          </div>
-          <div>
-            <button className="btn_details3" onClick={() => navigate('/food_cart')}>
+            </div>
+            <div className='details_btn_full'>
+            <button className="details_list btn_details" onClick={() => navigate('/food_cart')}>
               注文を続ける
             </button>
+            </div>
           </div>
-          </div>
+        </div>
       </body>
     </>
   );
