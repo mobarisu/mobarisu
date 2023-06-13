@@ -98,7 +98,7 @@ const FoodDetails: React.FC = () => {
         <div className="details_full">
           <div className="details_hed">
             <div className="dt_bc">
-              <h1 className="back_details">⇚</h1>
+              <h1 className="back_details" onClick={() => navigate(-1)}>⇚</h1>
             </div>
             <h1 className="de_mj">商品選択</h1>
           </div>

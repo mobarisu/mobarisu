@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './food_cart.css';
 
@@ -13,9 +13,9 @@ const FoodCart: React.FC = () => {
   const navigate = useNavigate();
 
   const [cartItems, setCartItems] = useState<CartItem[]>([
-    { id: 1, size: 'M', count: 1 , p: 1200},
-    { id: 2, size: 'M', count: 1 , p: 900},
-    { id: 3, size: 'S', count: 1 , p: 1500},
+    { id: 1, size: 'M', count: 1, p: 1200 },
+    { id: 2, size: 'M', count: 1, p: 900 },
+    { id: 3, size: 'S', count: 1, p: 1500 },
   ]);
 
   const increment = (id: number) => {
@@ -51,7 +51,7 @@ const FoodCart: React.FC = () => {
     <div className="food_furu">
       <div className="hurucart">
         <div className='fd_ct'>
-          <h1 className='back_fd'>⇚</h1>
+          <h1 className='back_fd' onClick={() => navigate(-1)}>⇚</h1>
         </div>
         <h1 className='ct_moji'>カート</h1>
         <button className="btn_cart" onClick={() => navigate("/food_list")}>買い物を続ける</button>
@@ -66,7 +66,7 @@ const FoodCart: React.FC = () => {
             </div>
             <div className="food_sazi">
               <label className="food_change">サイズ: {item.size}</label>
-              <button className="food_change" onClick={() => navigate("/food_details")}>変更</button>
+              <button className="food_change" onClick={() => navigate("/food_list")}>変更</button>
             </div>
             <div className="count_sazi">
               <div className='count_fl'>

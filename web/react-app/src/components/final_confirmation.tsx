@@ -25,7 +25,7 @@ const FinalConfirmation: React.FC = () => {
   return (
     <div className="final_confima">
       <div className="final_cart">
-        <h1 className='back_f'>⇚</h1>
+        <h1 className='back_f' onClick={() => navigate(-1)}>⇚</h1>
         </div>
         <h1 className='ct_moji1'>商品注文確認</h1>
    

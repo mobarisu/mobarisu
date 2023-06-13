@@ -1,15 +1,23 @@
-
-.btn_{
-    background-color: #FE724C;
-    font-size: 100%;
-    width: 40%;
-    height: 3rem;
-    border-radius: 22px;
-    color: #fff;
-    padding : 10px 10px; 
+.personal_back_full{
+    display: flex;
+    margin-left: 5%;
 }
+.personal_back{
+    position: relative;
+}
+.personal_back_bt{
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-right: 100%;
+    padding-top: 8px;
+    z-index: 1;
+}
+
 .personal_h1{
     text-align: center;
+    padding-top: 5%;
+    margin-left: 20%;
+    font-size: 20px;
 }
 .personal_name{
     margin-left: 10%;
@@ -58,4 +66,13 @@
 }
 .kiyaku{
     margin-top:10%;
+}
+.btn_{
+    background-color: #FE724C;
+    font-size: 100%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+    padding : 10px 10px; 
 }
