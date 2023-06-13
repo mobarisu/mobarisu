@@ -61,8 +61,13 @@ const PersonalData: React.FC = () => {
         <title>個人情報入力画面</title>
       </head>
 
-      <h1 className='personal_h1'>個人情報入力</h1>
       <body>
+        <div className='personal_back_full'>
+          <div className='personal_back'>
+              <h1 className='personal_back_bt' onClick={() => navigate(-1)}>⇚</h1>
+            </div>
+          <h1 className='personal_h1'>個人情報入力</h1>
+      </div>
         <div className="account_huru">
           <form onSubmit={handleSubmit}>
             <div className="account_kiyaku">
