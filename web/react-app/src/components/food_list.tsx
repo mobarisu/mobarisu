@@ -14,6 +14,7 @@ const App: React.FC = () => {
 
   const dummyData = [
     {
+      store_id: 'AC',
       product_id: 1,
       category_name: "メイン",
       product_name: "焦がしネギ焼き鳥丼",
@@ -21,35 +22,56 @@ const App: React.FC = () => {
       on_sale: true
     },
     {
+      store_id: 'AC',
       product_id: 2,
       category_name: "メイン",
-      product_name: "焦がしネギ焼き鳥丼",
+      product_name: "ネギ焼き鳥丼",
       product_price: 1200,
       on_sale: true
     },
     {
+      store_id: 'AC',
       product_id: 3,
       category_name: "サイド",
       product_name: "ポテトチップス",
-      product_price: 1200,
+      product_price: 500,
       on_sale: true
     },
     {
+      store_id: 'AC',
       product_id: 4,
       category_name: "ドリンク",
       product_name: "タピオカミルクティー",
-      product_price: 1200,
+      product_price: 200,
       on_sale: true
-    }
-    ,
+    },
     {
-      product_id: 4,
+      store_id: 'AC',
+      product_id: 5,
       category_name: "ドリンク",
       product_name: "タピオカ黒糖ミルクティー",
-      product_price: 1200,
+      product_price: 250,
       on_sale: false
+    },
+    {
+      store_id: 'BC',
+      product_id: 6,
+      category_name: "ドリンク",
+      product_name: "ミルクティー",
+      product_price: 200,
+      on_sale: true
+    },
+    {
+      store_id: 'CC',
+      product_id: 7,
+      category_name: "ドリンク",
+      product_name: "アイスコーヒー",
+      product_price: 200,
+      on_sale: true
     }
   ];
+
+  const filteredMenu = dummyData.filter(item => item.store_id === 'AC' && item.category_name === selectedCategory);
 
   return (
     <>
@@ -81,30 +103,15 @@ const App: React.FC = () => {
                     <p>メニュー</p>
                 </h2>
                 <div className="food">
-                    <a href="./food_details"><img src={food} className="food" alt=''/>
+                    {filteredMenu.map(item => (
+                      <a href="./food_details" key={item.product_id}>
+                        <img src={food} className="food" alt=''/>
                         <h2>
-                            <p>焦がしネギ焼き鳥丼</p>
-                            <p>1200円</p>
+                            <p>{item.product_name}</p>
+                            <p>{item.product_price}円</p>
                         </h2>
-                    </a>
-                    <a href="./food_details"><img src={food} className="food" alt=''/>
-                        <h2>
-                            <p>焦がしネギ焼き鳥丼</p>
-                            <p>1200円</p>
-                        </h2>
-                    </a>
-                    <a href="./food_details"><img src={food} className="food" alt=''/>
-                        <h2>
-                            <p>焦がしネギ焼き鳥丼</p>
-                            <p>1200円</p>
-                        </h2>
-                    </a>
-                    <a href="./food_details"><img src={food} className="food" alt=''/>
-                        <h2>
-                            <p>焦がしネギ焼き鳥丼</p>
-                            <p>1200円</p>
-                        </h2>
-                    </a>
+                      </a>
+                    ))}
                 </div>
             </div>
             <div className="food-category">
