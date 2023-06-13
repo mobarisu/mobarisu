@@ -41,34 +41,34 @@ const OrderHistory: React.FC = () => {
       ],
     },
     {
-        selectedDate: '2023/06/05',
-        shopNumber: 'AC',
-        order: 56,
-        orderName: '司',
-        historyMenu: [
-          {
-            menuName: 'ソース',
-            op: 'M',
-            count: 2,
-            menuPrice: 4000,
-            subTotal: 0,
-          },
-          {
-            menuName: 'いも虫を添えて',
-            op: 'L',
-            count: 1,
-            menuPrice: 9000,
-            subTotal: 0,
-          },
-          {
-            menuName: 'サ',
-            op: 'S',
-            count: 3,
-            menuPrice: 15000,
-            subTotal: 0,
-          },
-        ],
-      },
+      selectedDate: '2023/06/05',
+      shopNumber: 'AC',
+      order: 56,
+      orderName: '司',
+      historyMenu: [
+        {
+          menuName: 'ソース',
+          op: 'M',
+          count: 2,
+          menuPrice: 4000,
+          subTotal: 0,
+        },
+        {
+          menuName: 'いも虫を添えて',
+          op: 'L',
+          count: 1,
+          menuPrice: 9000,
+          subTotal: 0,
+        },
+        {
+          menuName: 'サ',
+          op: 'S',
+          count: 3,
+          menuPrice: 15000,
+          subTotal: 0,
+        },
+      ],
+    },
     {
       selectedDate: '2023/06/06',
       shopNumber: 'AC',
@@ -98,13 +98,53 @@ const OrderHistory: React.FC = () => {
         },
       ],
     },
+    {
+      selectedDate: '2023/06/05',
+      shopNumber: 'AC',
+      order: 67,
+      orderName: '司',
+      historyMenu: [
+        {
+          menuName: 'ソース',
+          op: 'M',
+          count: 2,
+          menuPrice: 4000,
+          subTotal: 0,
+        },
+        {
+          menuName: 'いも虫を添えて',
+          op: 'L',
+          count: 1,
+          menuPrice: 9000,
+          subTotal: 0,
+        },
+        {
+          menuName: 'サ',
+          op: 'S',
+          count: 3,
+          menuPrice: 15000,
+          subTotal: 0,
+        },
+      ],
+    },
     // Add more data sets here...
   ];
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
 
   const handleH2Click = (index: number) => {
-    setActiveIndex(index === activeIndex ? null : index);
+    const currentIndexes = [...activeIndexes];
+    const indexPosition = currentIndexes.indexOf(index);
+
+    if (indexPosition !== -1) {
+      // クリックされたインデックスが既にアクティブな場合は削除
+      currentIndexes.splice(indexPosition, 1);
+    } else {
+      // クリックされたインデックスが非アクティブな場合は追加
+      currentIndexes.push(index);
+    }
+
+    setActiveIndexes(currentIndexes);
   };
 
   const calculateTotalPrice = (historyMenu: any[]) => {
@@ -170,20 +210,20 @@ const OrderHistory: React.FC = () => {
         </div>
         <div className="history">
           {selectedDate === '' ? (
-            <p className='order_mess_p'>日付を選択してください。</p>
+            <p className="order_mess_p">日付を選択してください。</p>
           ) : filteredOrderHistoryData.length === 0 ? (
-            <p className='order_mess_p'>選択された日付の履歴はありません。</p>
+            <p className="order_mess_p">選択された日付の履歴はありません。</p>
           ) : (
             filteredOrderHistoryData.map((orderData, index) => (
               <div className="history_nav" key={index}>
                 <div
-                  className={`history_h2 ${activeIndex === index ? 'active' : ''}`}
+                  className={`history_h2 ${activeIndexes.includes(index) ? 'active' : ''}`}
                   onClick={() => handleH2Click(index)}
                 >
                   <h2>{orderData.shopNumber + orderData.order}</h2>
                   <h2 className="history_name">{orderData.orderName}</h2>
                 </div>
-                {activeIndex === index && (
+                {activeIndexes.includes(index) && (
                   <div className="history_div active">
                     <div className="history_menu">{renderHistoryMenu(orderData.historyMenu)}</div>
                     <div className="history_price">

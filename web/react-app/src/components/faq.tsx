@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import './faq.css';
 
 const Faq: React.FC = () => {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
 
     const handleH2Click = (index: number) => {
-        setActiveIndex(index === activeIndex ? null : index);
+        const currentIndexes = [...activeIndexes];
+        const indexPosition = currentIndexes.indexOf(index);
+        
+        if (indexPosition !== -1) {
+            // クリックされたインデックスが既にアクティブな場合、削除する
+            currentIndexes.splice(indexPosition, 1);
+        } else {
+            // クリックされたインデックスが非アクティブな場合、追加する
+            currentIndexes.push(index);
+        }
+
+        setActiveIndexes(currentIndexes);
     };
 
     return (
@@ -14,12 +25,12 @@ const Faq: React.FC = () => {
             <div className="faq">
                 <div className="faq_nav">
                     <h2
-                        className={`faq_h2 ${activeIndex === 0 ? 'active' : ''}`}
+                        className={`faq_h2 ${activeIndexes.includes(0) ? 'active' : ''}`}
                         onClick={() => handleH2Click(0)}
                     >
                         注文について
                     </h2>
-                    {activeIndex === 0 && (
+                    {activeIndexes.includes(0) && (
                         <p className="faq_p active">
                             ・注文のキャンセルについて
                             <br />
@@ -30,12 +41,12 @@ const Faq: React.FC = () => {
                 </div>
                 <div className="faq_nav">
                     <h2
-                        className={`faq_h2 ${activeIndex === 1 ? 'active' : ''}`}
+                        className={`faq_h2 ${activeIndexes.includes(1) ? 'active' : ''}`}
                         onClick={() => handleH2Click(1)}
                     >
                         商品について
                     </h2>
-                    {activeIndex === 1 && (
+                    {activeIndexes.includes(1) && (
                         <p className="faq_p active">
                             ・商品のサイズ変更について
                             <br />
