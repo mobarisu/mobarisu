@@ -31,6 +31,11 @@ const StoreData: React.FC = () => {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileList = event.target.files;
+      const files = event.currentTarget.files;
+      if (!files || files?.length === 0) return;
+      const file = files[0];
+      var filename = document.getElementsByClassName("file_name")[0];
+      filename.textContent = file.name;
     if (fileList && fileList.length > 0) {
       const selectedFile = fileList[0];
       if (selectedFile.size <= 8 * 1024 * 1024) {
@@ -88,12 +93,21 @@ const StoreData: React.FC = () => {
                 <input type="text" value={ownerName} onChange={handleOwnerNameChange} required />
               </div>
             </div>
-            <div className="store_data">
+            {/* <div className="store_data">
               <label className='store_data_label'>店舗写真登録</label><br />
-              <div className="store_input">
+              <div className="store_input store_img1">
+                <label className='store_img_file'>
                 <input type="file" accept="image/*" onChange={handleFileChange} required />
+                写真選択
+                </label>
+
               </div>
-            </div>
+            </div> */}
+            <div className='store_data store_file'>
+          <label htmlFor="img" className='store_data_label'>店舗画像：<p className="file_name">画像が未選択です</p></label>
+          <label htmlFor="img" className='lab_pop1' >商品画像追加</label>
+          <input type="file" id="img" onChange={handleFileChange}/>
+        </div>
             <div className="store_data">
               <label className='store_data_label'>店舗紹介文</label><br />
               <textarea value={storeDescription} onChange={handleStoreDescriptionChange} maxLength={75}></textarea>
