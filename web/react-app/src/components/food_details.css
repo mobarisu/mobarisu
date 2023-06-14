@@ -1,19 +1,33 @@
 .details_hed{
     display: flex;
-    margin-left: 1%;
+    margin-left: 3%;
   }
 .dt_bc{
     position: relative;
+    margin-top: 33px;
 }
 .back_details{
-    margin-top: 10px;
+    position: absolute;
+    /* margin-top: 10px; */
     margin-bottom: 0;
-    margin-right: 100%;
+    /* margin-right: 100%; */
     padding-top: 8px;
     z-index: 1;
+
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateX(25%) rotate(-135deg);
 }
 .de_mj{
-    margin-left: 2%;
+    margin-left: 10%;
     font-size: 30px;
 }
 

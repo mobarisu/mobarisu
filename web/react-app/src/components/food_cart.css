@@ -3,9 +3,9 @@
     margin-right: 5%;
 }
 .hurucart{
-    /* text-align: center; */
     border-bottom: 5px solid black;
     margin: 5px;
+    margin-top: 2%;
     display: flex;
     justify-content:space-around;
   }
@@ -14,11 +14,23 @@
 }
   .back_fd{
     position: absolute;
-    margin-top: 10px;
+    margin-top: 34px;
     margin-bottom: 0;
     margin-left: 5%;
     padding-top: 8px;
     z-index: 1;
+
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateX(25%) rotate(-135deg);
   }
   .ct_moji{
     margin-left: 0px;
@@ -40,9 +52,6 @@
     margin-bottom: 30px;
   }
   .top_line{
-    /* border-bottom: 1px solid black;
-    padding-bottom: 10px;
-    margin: 5px; */
     border-bottom: 1px solid black;
     padding-bottom: 20px;
     padding-left: 10px;
@@ -129,11 +138,30 @@
   margin-right: 10px;
   margin-bottom: 10%;
 }
+.food_change_btn{
+  margin-right: 10px;
+  margin-bottom: 10%;
+
+  box-sizing: border-box;
+/* position: absolute; */
+width: 60px;
+height: 27px;
+/* left: 258px; */
+/* top: 209px; */
+
+background: #FFFFFF;
+border: 1px solid #000000;
+border-radius: 10px;
+}
 .food_money{
   padding-top: 20px;
 }
 /* パソコン画面のCSS */
 @media screen and (min-width: 481px){
+  /* .fd_ct{
+    position: relative;
+    margin-top: 10px;
+} */
   .btn_cart{
     margin-top: 20px;
     background-color: #FE724C;
@@ -143,16 +171,7 @@
     border-radius: 22px;
     color: #fff;
   }
-  .fin{
-    cursor        : pointer; 
-    /* padding       : 10px 10px;  */
-    font-size: 25px;
-    padding-right: 40px;
-    background    : none; 
-    margin-bottom: 20px;
-    border: none;
-    margin-right: 10%;
-  }
+
   .food_sazi{
     display: flex;
     justify-content:space-between;
@@ -163,12 +182,14 @@
   .food_change{
     margin-right: 10%;
     margin-bottom: 10%;
+
+  }
+  .food_change_btn{
+    margin-right: 10%;
+    margin-bottom: 10%;
   }
   .count_fl{
     display: flex;
-    /* justify-content:space-between; */
-    /* margin-top: 10px;
-    padding-left: 10px; */
     margin-left: 10%;
   }
   .food_money{

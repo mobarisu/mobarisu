@@ -62,27 +62,29 @@ const PersonalData: React.FC = () => {
       </head>
 
       <body>
-        <div className='personal_back_full'>
-          <div className='personal_back'>
-              <h1 className='personal_back_bt' onClick={() => navigate(-1)}>⇚</h1>
-            </div>
-          <h1 className='personal_h1'>個人情報入力</h1>
-      </div>
-        <div className="account_huru">
-          <form onSubmit={handleSubmit}>
-            <div className="account_kiyaku">
-              <label className="personal_name">お名前</label>
-              <br />
-              <div className="account_in">
-                <input
-                  type="text"
-                  className="text"
-                  value={name}
-                  onChange={handleNameChange}
-                  required
-                />
+        <div className='personal_full'>
+            <div className='personal_hed'>
+              <div className='personal_back'>
+                  <span className="personal_back_bt" onClick={() => navigate(-1)}></span>
               </div>
+              <h1 className='personal_h1'>個人情報入力</h1>
             </div>
+
+              <div className="account_huru">
+                <form onSubmit={handleSubmit}>
+                  <div className="account_kiyaku">
+                    <label className="personal_name">お名前</label>
+                    <br />
+                    <div className="account_in">
+                      <input
+                        type="text"
+                        className="text"
+                        value={name}
+                        onChange={handleNameChange}
+                        required
+                      />
+                    </div>
+                  </div>
 
             <div className="account_kiyaku">
               <label className="personal_name">電話番号</label>
@@ -281,6 +283,7 @@ const PersonalData: React.FC = () => {
             </div>
           </form>
         </div>
+      </div>
       </body>
     </>
   );

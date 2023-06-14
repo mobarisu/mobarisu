@@ -25,7 +25,8 @@ const FinalConfirmation: React.FC = () => {
   return (
     <div className="final_confima">
       <div className="final_cart">
-        <h1 className='back_f' onClick={() => navigate(-1)}>⇚</h1>
+        {/* <h1 className='back_f' onClick={() => navigate(-1)}>⇚</h1> */}
+        <span className="back_f" onClick={() => navigate(-1)}></span>
         </div>
         <h1 className='ct_moji1'>商品注文確認</h1>
    
@@ -59,18 +60,18 @@ const FinalConfirmation: React.FC = () => {
             <div className='final_sazi'>
             <div className='per_fl'>
               <label>個数 {item.count}</label>
-              <label className='f_c_p'>12000円</label>
+              <label className='f_c_p'>1000円</label>
             </div>
             </div>
           </div>
         ))}
       </div>
       
-      <div className='syoukei'>
+      <div className='final_syoukei'>
         <div className='yohaku'>
           <label className='final_fin'>合計</label>
+          </div>
           <label className='final_gou'>12000円</label>
-        </div>
       </div>
 
       <div>
