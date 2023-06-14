@@ -12,10 +12,13 @@ const StoreFoodList: React.FC = () => {
   const [isStockManagement, setIsStockManagement] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
-
+  const [selectedProductsStore, setSelectedProductsStore] = useState<number[]>([]);
+  
+  /*
   const foodCategoryClick = (category: string) => {
     setSelectedCategory(category);
   };
+  */
 
   const dummyData = [
     {
@@ -52,16 +55,28 @@ const StoreFoodList: React.FC = () => {
     setSelectedProducts(updatedSelectedProducts);
   };
 
-  const toggleStockManagement = () => {
+  const handleCancel = () => {
     if (isStockManagement) {
+      
       setShowMenu(true);
       setIsStockManagement(false);
       setSelectedImage('');
-      setSelectedProducts([]);
+
     } else {
       setShowMenu(false);
       setIsStockManagement(true);
+
+      setSelectedProducts(selectedProductsStore)
     }
+  };
+
+  const handleConfirm = () => {
+    
+    setShowMenu(true);
+    setIsStockManagement(false);
+    setSelectedImage('');
+
+    setSelectedProductsStore(selectedProducts)
   };
 
   const handleImageSelect = (productId: number) => {
@@ -75,15 +90,6 @@ const StoreFoodList: React.FC = () => {
     }
   };
 
-  const handleCancel = () => {
-    toggleStockManagement();
-  };
-
-  const handleConfirm = () => {
-    setShowMenu(true);
-    setIsStockManagement(false);
-    setSelectedImage('');
-  };
 
   return (
     <>
@@ -110,7 +116,7 @@ const StoreFoodList: React.FC = () => {
               {filteredMenu.map(item => (
                 <a key={item.product_id}>
                   {showMenu ? (
-                    <img src={food} className="store_list_menu" alt="" />
+                    <img src={food} className={`store_list_menu ${selectedProductsStore.includes(item.product_id) ? 'img_sold' : 'selected'}`} alt="" />
                   ) : (
                     <div className="store_list_menu_checkbox_wrapper">
                       <input
@@ -118,10 +124,11 @@ const StoreFoodList: React.FC = () => {
                         className="store_list_menu_checkbox"
                         checked={selectedProducts.includes(item.product_id)}
                         onChange={() => handleImageSelect(item.product_id)}
+                        
                       />
                       <img
                         src={selectedImage === item.product_id.toString() ? food : food}
-                        className={`store_list_menu${selectedProducts.includes(item.product_id) ? ' selected' : ''}`}
+                        className={`store_list_menu ${selectedProducts.includes(item.product_id) ? 'img_sold' : 'selected'}`}
                         alt=""
                         onClick={() => handleCheckboxChange(item.product_id)}
                       />
