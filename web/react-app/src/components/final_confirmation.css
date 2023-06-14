@@ -7,10 +7,22 @@
 }
   .back_f{
     position: absolute;
-margin-top: 0;
-padding-bottom: 0;
-margin-left: 5%;
+    margin-top: 20px;
+    padding-bottom: 0;
+    margin-left: 5%;
     z-index: 1;
+
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateX(25%) rotate(-135deg);
   }
   .ptag{
     text-align: center;
@@ -72,11 +84,17 @@ font-size: 20px;
   .final_fin{
     text-align    : center; 
     cursor        : pointer; 
-    padding       : 10px 10px; 
+    padding-left: 60px;
     background    : none; 
     margin-bottom: 20px;
     border: none;
+    
   }
+  .final_gou{
+    font-size: 30px;
+    padding-right: 10%;
+  }
+
   .btn_pm{
     margin-top: 20px;
     background-color: #FE724C;
@@ -87,18 +105,15 @@ font-size: 20px;
     color: #fff;
   }
 
-  .syoukei{
-    border-top: 1px solid black;
+  .final_syoukei{
     display: flex;
-    justify-content:space-around;
-    margin-bottom: 20%;
+    justify-content:space-between;
+    margin-bottom: 10%;
   }
   .yohaku{
-    margin-top: 50px;
+    margin-top: 10px;
   }
-  .final_gou{
-    font-size: 30px;
-  }
+
   .btn_personal{
     margin-top: 20px;
     background-color: #FE724C;
@@ -110,4 +125,5 @@ font-size: 20px;
     cursor: pointer;
     display: block;
     margin: 0 auto;
+    margin-bottom: 10%;
   }
