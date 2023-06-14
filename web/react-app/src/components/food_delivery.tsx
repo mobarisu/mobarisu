@@ -7,7 +7,7 @@ const FoodDelivery: React.FC = () => {
 
   const [orderDeliveryData, setOrderDeliveryData] = useState([
     {
-      id:1,
+      id: 1,
       shopNumber: 'AC',
       order: 53,
       orderName: '田中クレジット真司',
@@ -36,7 +36,7 @@ const FoodDelivery: React.FC = () => {
       showDeleteButton: false,
     },
     {
-      id:2,
+      id: 2,
       shopNumber: 'AC',
       order: 58,
       orderName: '佐藤',
@@ -68,10 +68,14 @@ const FoodDelivery: React.FC = () => {
     // 他のデータセットも追加...
   ]);
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndices, setActiveIndices] = useState<number[]>([]);
 
   const handleH2Click = (index: number) => {
-    setActiveIndex(index === activeIndex ? null : index);
+    if (activeIndices.includes(index)) {
+      setActiveIndices(activeIndices.filter((i) => i !== index));
+    } else {
+      setActiveIndices([...activeIndices, index]);
+    }
   };
 
   const calculateTotalPrice = (deliveryMenu: any[]) => {
@@ -100,8 +104,9 @@ const FoodDelivery: React.FC = () => {
             className={`delivery_sub_btn ${item.completed ? 'completed' : ''}`}
             onClick={() => {
               const updatedData = [...orderDeliveryData];
-              updatedData[dataIndex].deliveryMenu[itemIndex].completed = !updatedData[dataIndex]
-                .deliveryMenu[itemIndex].completed;
+              updatedData[dataIndex].deliveryMenu[itemIndex].completed = !updatedData[dataIndex].deliveryMenu[
+                itemIndex
+              ].completed;
               setOrderDeliveryData(updatedData);
             }}
           >
@@ -115,20 +120,22 @@ const FoodDelivery: React.FC = () => {
     return menuItems;
   };
 
-  const handleDeliveryComplete = () => {
-    if (activeIndex !== null) {
-      const isAllCompleted = orderDeliveryData[activeIndex].deliveryMenu.every(
-        (item) => item.completed
-      );
+  const handleDeliveryComplete = (index: number) => {
+    const isAllCompleted = orderDeliveryData[index].deliveryMenu.every((item) => item.completed);
 
-      if (isAllCompleted) {
-        const updatedData = [...orderDeliveryData];
-        updatedData[activeIndex].showDeleteButton = true;
-        setOrderDeliveryData(updatedData);
-      } else {
-        console.log('すべての商品が完成していません');
-      }
+    if (isAllCompleted) {
+      const updatedData = [...orderDeliveryData];
+      updatedData[index].showDeleteButton = true;
+      setOrderDeliveryData(updatedData);
+    } else {
+      console.log('すべての商品が完成していません');
     }
+  };
+
+  const handleCancel = (index: number) => {
+    const updatedData = [...orderDeliveryData];
+    updatedData[index].showDeleteButton = false;
+    setOrderDeliveryData(updatedData);
   };
 
   return (
@@ -137,13 +144,13 @@ const FoodDelivery: React.FC = () => {
         {orderDeliveryData.map((item, index) => (
           <div className="delivery_nav" key={index}>
             <div
-              className={`delivery_h2 ${activeIndex === index ? 'active' : ''}`}
+              className={`delivery_h2 ${activeIndices.includes(index) ? 'active' : ''}`}
               onClick={() => handleH2Click(index)}
             >
               <h2>{item.shopNumber + item.order}</h2>
               <h2 className="delivery_name">{item.orderName}</h2>
             </div>
-            {activeIndex === index && (
+            {activeIndices.includes(index) && (
               <div className="delivery_div active">
                 <div className={`delivery_menu ${item.showDeleteButton ? 'hidden' : ''}`}>
                   {renderDeliveryMenu(item.deliveryMenu, index)}
@@ -156,7 +163,7 @@ const FoodDelivery: React.FC = () => {
                   {item.showDeleteButton && (
                     <button className={`delivery_cancel_btn ${item.showDeleteButton ? '' : 'hidden'}`}>取消</button>
                   )}
-                  <button className="delivery_btn" onClick={handleDeliveryComplete}>
+                  <button className="delivery_btn" onClick={() => handleDeliveryComplete(index)}>
                     {item.showDeleteButton ? '受け渡し完了' : '商品完成'}
                   </button>
                 </div>
