@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const food_list = require('./food_list');
 const QRCodeGenerator = require('./QRCodeGenerator');
+const authentication = require('./authentication')
 
 // expressアプリを生成する
 const app = express();
