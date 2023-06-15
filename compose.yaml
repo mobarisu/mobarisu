@@ -31,6 +31,8 @@ services:
     depends_on:
       - db
     tty: true
+    env_file:
+      - ./build/node/.env
 
   ruby:
     build:
