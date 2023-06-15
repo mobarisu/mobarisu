@@ -50,12 +50,12 @@
     margin-top: 0;
     margin-bottom: 10px;
     padding-top: 20px;
+    flex-basis:80%;
 }
 
 .food_list_change{
     display: flex;
     justify-content:space-between;
-    flex-basis:20%;
 }
 .change_the_food{
     margin-right: 5%;
@@ -67,7 +67,14 @@
     border-radius: 22px;
     color: #fff;
 }
-.store_food_reset_btn{
+
+.store_food_reset_btn{    
+    position: fixed;
+    top:10%;
+    left: 0;
+    z-index: 10;
+
+    right: 0;
     margin-right: 5%;
     margin-top: 20px;
     background-color: #FE724C;
@@ -76,6 +83,7 @@
     height: 3rem;
     border-radius: 22px;
     color: #fff;
+ 
 }
 .store_list_price{
     margin-top: 0;
@@ -83,6 +91,12 @@
 .button_kanri{
     display: flex;
     justify-content: space-between;
+    list-style: none;
+    font-size: 18px;
+    position: sticky;
+    bottom: 5%;
+    width: 100%;
+    left: 0;
 }
 .store_list_bt{
     margin-top: 20px;
@@ -164,6 +178,7 @@ input[type=checkbox]
     /* text-align: center; */
     font-size: 180%;
     position: absolute;
+    font-weight: bold;
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);

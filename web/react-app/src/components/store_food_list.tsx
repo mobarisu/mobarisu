@@ -113,7 +113,7 @@ const StoreFoodList: React.FC = () => {
     }
   };
   const Storeresetbtn = () =>{
-    //全て外すを押したときの処理
+    setSelectedProducts([]);
   }
 
 
