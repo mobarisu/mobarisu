@@ -25,5 +25,10 @@ app.post('/qrcode', (req, res) => {
     qr.generate().then((src) => res.send(JSON.stringify({'src':src})) );
 });
 
+app.post('/authentication', (req, res) => {
+    const auth = new authentication(req.body.mail, req.body.password);
+    auth.storeLogin().then((results) => res.json(results));
+})
+
 // ポート3000でサーバを立てる
 app.listen(3000, () => console.log('Listening on port 3000'));
