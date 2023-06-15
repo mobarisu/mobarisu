@@ -25,6 +25,7 @@ services:
       - "3030:3000"
     volumes:
       - ./api:/usr/src/app/api
+      - ./build/node/package.json:/usr/src/app/package.json:ro
     environment:
       - WATCHPACK_POLLING=true
     depends_on:
