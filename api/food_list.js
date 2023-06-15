@@ -23,16 +23,6 @@ const connection = require('./connection');
                     };
                     resolve(combinedResults);
             });
-            // Promise.all([executeQuery(query1), executeQuery(query2)])
-            // .then(([result1, result2]) => {
-            //     console.log('foodList:', result1,result2);
-            //     const combinedResults = {
-            //         result1: result1,
-            //         result2: result2
-            //     };
-
-            //     return combinedResults;
-            // });
             
             // クエリ実行
             function executeQuery(query) {
