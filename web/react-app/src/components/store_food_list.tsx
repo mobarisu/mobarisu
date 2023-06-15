@@ -42,7 +42,7 @@ const StoreFoodList: React.FC = () => {
       category_name: "サイド",
       product_name: "ポテトチップス",
       product_price: 500,
-      on_sale: true
+      on_sale: false
     },
     {
       store_id: 'AC',

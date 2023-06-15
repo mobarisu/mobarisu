@@ -2,7 +2,9 @@
     color: #000000;
     margin: 0;
 }
-
+.store-name{
+    margin-left: 10%;
+}
 .store_list_image{
     padding-top: 32px;
 }
@@ -77,6 +79,7 @@
     right: 0;
     margin-right: 5%;
     margin-top: 20px;
+    margin-left: 5%;
     background-color: #FE724C;
     font-size: 60%;
     width: 40%;
