@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const food_list = require('./food_list');
+const QRCodeGenerator = require('./QRCodeGenerator');
 
 // expressアプリを生成する
 const app = express();
@@ -18,5 +19,11 @@ app.post('/food_list',(req,res) =>{
   const list =new food_list(req.body.storeid);
   list.list().then((results) => res.json(results));
 });
+
+app.post('/qrcode', (req, res) => {
+    const qr = new QRCodeGenerator(req.body.url);
+    qr.generate().then((src) => res.send(JSON.stringify({'src':src})) );
+});
+
 // ポート3000でサーバを立てる
 app.listen(3000, () => console.log('Listening on port 3000'));

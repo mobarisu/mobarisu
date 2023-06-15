@@ -89,6 +89,7 @@ const App: React.FC = () => {
                 <a href="./food_cart"><img src={cart} className="cart" alt='カート'/></a>
             </div>
         </header>
+        
         <div className="store-image">
             <img src={storeimage} className="store-image" alt=''/>
             <h1 className='store-name'>

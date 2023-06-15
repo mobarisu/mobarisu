@@ -1,22 +1,31 @@
-.personal_back_full{
-    display: flex;
-    margin-left: 5%;
-}
 .personal_back{
     position: relative;
+    margin-top: 5%;
 }
 .personal_back_bt{
-    margin-top: 10px;
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 10%;
     margin-bottom: 0;
-    margin-right: 100%;
-    padding-top: 8px;
     z-index: 1;
+
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateX(25%) rotate(-135deg);
 }
 
 .personal_h1{
     text-align: center;
-    padding-top: 5%;
     margin-left: 20%;
+    margin-right: 20%;
     font-size: 20px;
 }
 .personal_name{
@@ -40,7 +49,7 @@
     color         : #000000;             
 }
 .account_kiyaku{
-    margin-top: 10%;
+    margin-top: 7%;
 }
 .personal_form{
     margin-top: 5%;

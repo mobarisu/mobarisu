@@ -84,15 +84,25 @@ select{
 	cursor:pointer; /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
 }
 
-#pop-up {
-	display: none; /* label でコントロールするので チェックボックス は非表示に */
+#pop-up, #allergy {
+  /* label でコントロールするので チェックボックス は非表示に */
+	display: none; 
 }
 .overlay {
 	display: none; /* input にチェックが入るまでは非表示に */
 }
 #pop-up:checked + .overlay {
   /* チェックボックスにチェックが入ったら、ポップアップと背景を表示する */
-	/* display: block; */
+	z-index: 9999;
+	background-color: #00000070;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+#allergy:checked + .overlay{
+  /* チェックボックスにチェックが入ったら、ポップアップと背景を表示する */
 	z-index: 9999;
 	background-color: #00000070;
 	position: fixed;
@@ -103,7 +113,6 @@ select{
 }
 .window {
   /* ポップアップの画面 */
-  display: none;
 	width: 70%;
 	height: auto;
 	background-color: #ffffff;
@@ -116,10 +125,49 @@ select{
   flex-flow: column;
   max-height: 70%;
 }
-/* .text {
-	font-size: 18px;
-	margin: 0;
-} */
+.allergy_list{
+  display: table;
+  border-collapse:collapse; /*隣接する要素のborderを共有*/
+  width: 100%;
+  table-layout:fixed; /*中の要素の幅を均等に*/
+}
+.allergy_list .row{
+  display: table-row;
+}
+.allergy_ingredients{
+  display: table-cell;
+  text-align: center;
+  /* display: flex;
+  flex-flow: column; */
+  /* align-items: center;
+  margin: 3px 0;
+  padding-top: 5px; */
+  border: 1px #000000 solid;
+  padding:10px 0;
+}
+.allergy_list .allergy_check{
+  display: none;
+}
+.ingredients{
+  /* アレルギーの画像と名前を囲うlabel */
+  margin-right: 10%;
+}
+.allergy_ingredients img{
+  /* アレルギーの画像 */
+  width: 3rem;
+  height: auto;
+}
+.allergy_look{
+  display: flex;
+  margin: 0 10%;
+  text-align: center;
+  overflow-x: auto;
+}
+.alle_list img{
+  width: 2rem;
+  height: auto;
+  margin-right: 1rem;
+}
 .pop_batu{
   /* ポップアップの右上の×を囲うdivタグ */
   margin-right: 5px;
@@ -147,8 +195,15 @@ select{
 }
 
 .line_area{
-  overflow-y: scroll;
+  max-height: 40vh;
+  overflow-y: auto;
 }
+.area_test{
+  max-height: 40vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .size_batu{
   /* ポップアップのサイズの左にある× */
   vertical-align: baseline;
@@ -159,7 +214,7 @@ select{
 }
 .size_line{
   /* ポップアップの×とサイズと価格をセットにするdivタグ */
-  display: inline-flex;
+  display: flex;
   float: left;
   margin-right: 1rem;
   margin-bottom: 1rem;
