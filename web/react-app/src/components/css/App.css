@@ -93,7 +93,6 @@ select{
 }
 #pop-up:checked + .overlay {
   /* チェックボックスにチェックが入ったら、ポップアップと背景を表示する */
-	/* display: block; */
 	z-index: 9999;
 	background-color: #00000070;
 	position: fixed;
@@ -104,7 +103,6 @@ select{
 }
 #allergy:checked + .overlay{
   /* チェックボックスにチェックが入ったら、ポップアップと背景を表示する */
-	/* display: block; */
 	z-index: 9999;
 	background-color: #00000070;
 	position: fixed;
@@ -115,7 +113,6 @@ select{
 }
 .window {
   /* ポップアップの画面 */
-  /* display: none; */
 	width: 70%;
 	height: auto;
 	background-color: #ffffff;
@@ -127,7 +124,6 @@ select{
   display: flex;
   flex-flow: column;
   max-height: 70%;
-  overflow-y: scroll;
 }
 .allergy_list{
   display: table;
@@ -163,11 +159,9 @@ select{
 }
 .allergy_look{
   display: flex;
-  /* width: 100%; */
   margin: 0 10%;
   text-align: center;
-  overflow-x: scroll;
-  /* word-break: break-all; */
+  overflow-x: auto;
 }
 .alle_list img{
   width: 2rem;
@@ -200,10 +194,16 @@ select{
   padding-right: 20%;
 }
 
-.line_area, .allergy_list{
-  /* アレルギーとサイズの行がたくさんならスクロールしたい */
-  overflow-y: scroll;
+.line_area{
+  max-height: 40vh;
+  overflow-y: auto;
 }
+.area_test{
+  max-height: 40vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .size_batu{
   /* ポップアップのサイズの左にある× */
   vertical-align: baseline;
@@ -214,7 +214,7 @@ select{
 }
 .size_line{
   /* ポップアップの×とサイズと価格をセットにするdivタグ */
-  display: inline-flex;
+  display: flex;
   float: left;
   margin-right: 1rem;
   margin-bottom: 1rem;

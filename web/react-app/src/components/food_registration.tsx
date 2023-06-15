@@ -324,159 +324,161 @@ function FoodRegistration() {
               <div className='pop_batu'>
                 <label className="close" htmlFor="allergy">×</label>
               </div>
-              <div className='allergy_list'>
-                <div className='row'>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="egg" className='allergy_check'/>
-                    <label htmlFor='egg' className='ingredients' onClick={allergyClick}><img src={egg} alt="egg" /></label><br/>
-                    <label htmlFor='egg' className='ingredients' onClick={allergyClick}>たまご</label>
+              <div className='area_test'>
+                <div className='allergy_list'>
+                  <div className='row'>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="egg" className='allergy_check'/>
+                      <label htmlFor='egg' className='ingredients' onClick={allergyClick}><img src={egg} alt="egg" /></label><br/>
+                      <label htmlFor='egg' className='ingredients' onClick={allergyClick}>たまご</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="milk" className='allergy_check'/>
+                      <label htmlFor='milk' className='ingredients' onClick={allergyClick}><img src={milk} alt="milk" /></label><br/>
+                      <label htmlFor='milk' className='ingredients' onClick={allergyClick}>牛乳</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="wheat" className='allergy_check'/>
+                      <label htmlFor='wheat' className='ingredients' onClick={allergyClick}><img src={wheat} alt="wheat" /></label><br/>
+                      <label htmlFor='wheat' className='ingredients' onClick={allergyClick}>小麦</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Shrimp" className='allergy_check'/>
+                      <label htmlFor='Shrimp' className='ingredients' onClick={allergyClick}><img src={Shrimp} alt="Shrimp" /></label><br/>
+                      <label htmlFor='Shrimp' className='ingredients' onClick={allergyClick}>えび</label>
+                    </div>
                   </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="milk" className='allergy_check'/>
-                    <label htmlFor='milk' className='ingredients' onClick={allergyClick}><img src={milk} alt="milk" /></label><br/>
-                    <label htmlFor='milk' className='ingredients' onClick={allergyClick}>牛乳</label>
+                  <div className='row'>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Crab" className='allergy_check'/>
+                      <label htmlFor='Crab' className='ingredients' onClick={allergyClick}><img src={Crab} alt="Crab" /></label><br/>
+                      <label htmlFor='Crab' className='ingredients' onClick={allergyClick}>かに</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Soba" className='allergy_check'/>
+                      <label htmlFor='Soba' className='ingredients' onClick={allergyClick}><img src={Soba} alt="Soba" /></label><br/>
+                      <label htmlFor='Soba' className='ingredients' onClick={allergyClick}>そば</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="peanut" className='allergy_check'/>
+                      <label htmlFor='peanut' className='ingredients' onClick={allergyClick}><img src={peanut} alt="peanut" /></label><br/>
+                      <label htmlFor='peanut' className='ingredients' onClick={allergyClick}>落花生</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Abalone" className='allergy_check'/>
+                      <label htmlFor='Abalone' className='ingredients' onClick={allergyClick}><img src={Abalone} alt="Abalone" /></label><br/>
+                      <label htmlFor='Abalone' className='ingredients' onClick={allergyClick}>あわび</label>
+                    </div>
                   </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="wheat" className='allergy_check'/>
-                    <label htmlFor='wheat' className='ingredients' onClick={allergyClick}><img src={wheat} alt="wheat" /></label><br/>
-                    <label htmlFor='wheat' className='ingredients' onClick={allergyClick}>小麦</label>
+                  <div className='row'>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="squid" className='allergy_check'/>
+                      <label htmlFor='squid' className='ingredients' onClick={allergyClick}><img src={squid} alt="squid" /></label><br/>
+                      <label htmlFor='squid' className='ingredients' onClick={allergyClick}>いか</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="ikura" className='allergy_check'/>
+                      <label htmlFor='ikura' className='ingredients' onClick={allergyClick}><img src={ikura} alt="ikura" /></label><br/>
+                      <label htmlFor='ikura' className='ingredients' onClick={allergyClick}>いくら</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Salmon" className='allergy_check'/>
+                      <label htmlFor='Salmon' className='ingredients' onClick={allergyClick}><img src={Salmon} alt="Salmon" /></label><br/>
+                      <label htmlFor='Salmon' className='ingredients' onClick={allergyClick}>さけ</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="mackerel" className='allergy_check'/>
+                      <label htmlFor='mackerel' className='ingredients' onClick={allergyClick}><img src={mackerel} alt="mackerel" /></label><br/>
+                      <label htmlFor='mackerel' className='ingredients' onClick={allergyClick}>さば</label>
+                    </div>
                   </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Shrimp" className='allergy_check'/>
-                    <label htmlFor='Shrimp' className='ingredients' onClick={allergyClick}><img src={Shrimp} alt="Shrimp" /></label><br/>
-                    <label htmlFor='Shrimp' className='ingredients' onClick={allergyClick}>えび</label>
+                  <div className='row'>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="almond" className='allergy_check'/>
+                      <label htmlFor='almond' className='ingredients' onClick={allergyClick}><img src={almond} alt="almond" /></label><br/>
+                      <label htmlFor='almond' className='ingredients' onClick={allergyClick}>アーモンド</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="orange" className='allergy_check'/>
+                      <label htmlFor='orange' className='ingredients' onClick={allergyClick}><img src={orange} alt="orange" /></label><br/>
+                      <label htmlFor='orange' className='ingredients' onClick={allergyClick}>オレンジ</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="cashew_nuts" className='allergy_check'/>
+                      <label htmlFor='cashew_nuts' className='ingredients' onClick={allergyClick}><img src={cashew_nuts} alt="cashew_nuts" /></label><br/>
+                      <label htmlFor='cashew_nuts' className='ingredients' onClick={allergyClick}>カシューナッツ</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="kiwi" className='allergy_check'/>
+                      <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}><img src={kiwi} alt="kiwi" /></label><br/>
+                      <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}>キウイ</label>
+                    </div>
                   </div>
-                </div>
-                <div className='row'>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Crab" className='allergy_check'/>
-                    <label htmlFor='Crab' className='ingredients' onClick={allergyClick}><img src={Crab} alt="Crab" /></label><br/>
-                    <label htmlFor='Crab' className='ingredients' onClick={allergyClick}>かに</label>
+                  <div className='row'>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="beef" className='allergy_check'/>
+                      <label htmlFor='beef' className='ingredients' onClick={allergyClick}><img src={beef} alt="beef" /></label><br/>
+                      <label htmlFor='beef' className='ingredients' onClick={allergyClick}>牛肉</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="walnut" className='allergy_check'/>
+                      <label htmlFor='walnut' className='ingredients' onClick={allergyClick}><img src={walnut} alt="walnut" /></label><br/>
+                      <label htmlFor='walnut' className='ingredients' onClick={allergyClick}>クルミ</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Gum" className='allergy_check'/>
+                      <label htmlFor='Gum' className='ingredients' onClick={allergyClick}><img src={Gum} alt="Gum" /></label><br/>
+                      <label htmlFor='Gum' className='ingredients' onClick={allergyClick}>ゴマ</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="soy" className='allergy_check'/>
+                      <label htmlFor='soy' className='ingredients' onClick={allergyClick}><img src={soy} alt="soy" /></label><br/>
+                      <label htmlFor='soy' className='ingredients' onClick={allergyClick}>大豆</label>
+                    </div>
                   </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Soba" className='allergy_check'/>
-                    <label htmlFor='Soba' className='ingredients' onClick={allergyClick}><img src={Soba} alt="Soba" /></label><br/>
-                    <label htmlFor='Soba' className='ingredients' onClick={allergyClick}>そば</label>
+                  <div className='row'>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="chicken_meat" className='allergy_check'/>
+                      <label htmlFor='chicken_meat' className='ingredients' onClick={allergyClick}><img src={chicken_meat} alt="chicken_meat" /></label><br/>
+                      <label htmlFor='chicken_meat' className='ingredients' onClick={allergyClick}>鶏肉</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="banana" className='allergy_check'/>
+                      <label htmlFor='banana' className='ingredients' onClick={allergyClick}><img src={banana} alt="banana" /></label><br/>
+                      <label htmlFor='banana' className='ingredients' onClick={allergyClick}>バナナ</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="pork" className='allergy_check'/>
+                      <label htmlFor='pork' className='ingredients' onClick={allergyClick}><img src={pork} alt="pork" /></label><br/>
+                      <label htmlFor='pork' className='ingredients' onClick={allergyClick}>豚肉</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Matsutake" className='allergy_check'/>
+                      <label htmlFor='Matsutake' className='ingredients' onClick={allergyClick}><img src={Matsutake} alt="Matsutake" /></label><br/>
+                      <label htmlFor='Matsutake' className='ingredients' onClick={allergyClick}>まつたけ</label>
+                    </div>
                   </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="peanut" className='allergy_check'/>
-                    <label htmlFor='peanut' className='ingredients' onClick={allergyClick}><img src={peanut} alt="peanut" /></label><br/>
-                    <label htmlFor='peanut' className='ingredients' onClick={allergyClick}>落花生</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Abalone" className='allergy_check'/>
-                    <label htmlFor='Abalone' className='ingredients' onClick={allergyClick}><img src={Abalone} alt="Abalone" /></label><br/>
-                    <label htmlFor='Abalone' className='ingredients' onClick={allergyClick}>あわび</label>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="squid" className='allergy_check'/>
-                    <label htmlFor='squid' className='ingredients' onClick={allergyClick}><img src={squid} alt="squid" /></label><br/>
-                    <label htmlFor='squid' className='ingredients' onClick={allergyClick}>いか</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="ikura" className='allergy_check'/>
-                    <label htmlFor='ikura' className='ingredients' onClick={allergyClick}><img src={ikura} alt="ikura" /></label><br/>
-                    <label htmlFor='ikura' className='ingredients' onClick={allergyClick}>いくら</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Salmon" className='allergy_check'/>
-                    <label htmlFor='Salmon' className='ingredients' onClick={allergyClick}><img src={Salmon} alt="Salmon" /></label><br/>
-                    <label htmlFor='Salmon' className='ingredients' onClick={allergyClick}>さけ</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="mackerel" className='allergy_check'/>
-                    <label htmlFor='mackerel' className='ingredients' onClick={allergyClick}><img src={mackerel} alt="mackerel" /></label><br/>
-                    <label htmlFor='mackerel' className='ingredients' onClick={allergyClick}>さば</label>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="almond" className='allergy_check'/>
-                    <label htmlFor='almond' className='ingredients' onClick={allergyClick}><img src={almond} alt="almond" /></label><br/>
-                    <label htmlFor='almond' className='ingredients' onClick={allergyClick}>アーモンド</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="orange" className='allergy_check'/>
-                    <label htmlFor='orange' className='ingredients' onClick={allergyClick}><img src={orange} alt="orange" /></label><br/>
-                    <label htmlFor='orange' className='ingredients' onClick={allergyClick}>オレンジ</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="cashew_nuts" className='allergy_check'/>
-                    <label htmlFor='cashew_nuts' className='ingredients' onClick={allergyClick}><img src={cashew_nuts} alt="cashew_nuts" /></label><br/>
-                    <label htmlFor='cashew_nuts' className='ingredients' onClick={allergyClick}>カシューナッツ</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="kiwi" className='allergy_check'/>
-                    <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}><img src={kiwi} alt="kiwi" /></label><br/>
-                    <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}>キウイ</label>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="beef" className='allergy_check'/>
-                    <label htmlFor='beef' className='ingredients' onClick={allergyClick}><img src={beef} alt="beef" /></label><br/>
-                    <label htmlFor='beef' className='ingredients' onClick={allergyClick}>牛肉</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="walnut" className='allergy_check'/>
-                    <label htmlFor='walnut' className='ingredients' onClick={allergyClick}><img src={walnut} alt="walnut" /></label><br/>
-                    <label htmlFor='walnut' className='ingredients' onClick={allergyClick}>クルミ</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Gum" className='allergy_check'/>
-                    <label htmlFor='Gum' className='ingredients' onClick={allergyClick}><img src={Gum} alt="Gum" /></label><br/>
-                    <label htmlFor='Gum' className='ingredients' onClick={allergyClick}>ゴマ</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="soy" className='allergy_check'/>
-                    <label htmlFor='soy' className='ingredients' onClick={allergyClick}><img src={soy} alt="soy" /></label><br/>
-                    <label htmlFor='soy' className='ingredients' onClick={allergyClick}>大豆</label>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="chicken_meat" className='allergy_check'/>
-                    <label htmlFor='chicken_meat' className='ingredients' onClick={allergyClick}><img src={chicken_meat} alt="chicken_meat" /></label><br/>
-                    <label htmlFor='chicken_meat' className='ingredients' onClick={allergyClick}>鶏肉</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="banana" className='allergy_check'/>
-                    <label htmlFor='banana' className='ingredients' onClick={allergyClick}><img src={banana} alt="banana" /></label><br/>
-                    <label htmlFor='banana' className='ingredients' onClick={allergyClick}>バナナ</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="pork" className='allergy_check'/>
-                    <label htmlFor='pork' className='ingredients' onClick={allergyClick}><img src={pork} alt="pork" /></label><br/>
-                    <label htmlFor='pork' className='ingredients' onClick={allergyClick}>豚肉</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Matsutake" className='allergy_check'/>
-                    <label htmlFor='Matsutake' className='ingredients' onClick={allergyClick}><img src={Matsutake} alt="Matsutake" /></label><br/>
-                    <label htmlFor='Matsutake' className='ingredients' onClick={allergyClick}>まつたけ</label>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="kiwi" className='allergy_check'/>
-                    <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}><img src={kiwi} alt="kiwi" /></label><br/>
-                    <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}>キウイ</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Peaches" className='allergy_check'/>
-                    <label htmlFor='Peaches' className='ingredients' onClick={allergyClick}><img src={Peaches} alt="Peaches" /></label><br/>
-                    <label htmlFor='Peaches' className='ingredients' onClick={allergyClick}>もも</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="Yamaimo" className='allergy_check'/>
-                    <label htmlFor='Yamaimo' className='ingredients' onClick={allergyClick}><img src={Yamaimo} alt="Yamaimo" /></label><br/>
-                    <label htmlFor='Yamaimo' className='ingredients' onClick={allergyClick}>やまいも</label>
-                  </div>
-                  <div className='allergy_ingredients'>
-                    <input type="checkbox" id="apple" className='allergy_check'/>
-                    <label htmlFor='apple' className='ingredients' onClick={allergyClick}><img src={apple} alt="apple" /></label><br/>
-                    <label htmlFor='apple' className='ingredients' onClick={allergyClick}>りんご</label>
+                  <div className='row'>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="kiwi" className='allergy_check'/>
+                      <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}><img src={kiwi} alt="kiwi" /></label><br/>
+                      <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}>キウイ</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Peaches" className='allergy_check'/>
+                      <label htmlFor='Peaches' className='ingredients' onClick={allergyClick}><img src={Peaches} alt="Peaches" /></label><br/>
+                      <label htmlFor='Peaches' className='ingredients' onClick={allergyClick}>もも</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="Yamaimo" className='allergy_check'/>
+                      <label htmlFor='Yamaimo' className='ingredients' onClick={allergyClick}><img src={Yamaimo} alt="Yamaimo" /></label><br/>
+                      <label htmlFor='Yamaimo' className='ingredients' onClick={allergyClick}>やまいも</label>
+                    </div>
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="apple" className='allergy_check'/>
+                      <label htmlFor='apple' className='ingredients' onClick={allergyClick}><img src={apple} alt="apple" /></label><br/>
+                      <label htmlFor='apple' className='ingredients' onClick={allergyClick}>りんご</label>
+                    </div>
                   </div>
                 </div>
               </div>
