@@ -20,11 +20,12 @@ services:
       context: ./build/node/
       dockerfile: Dockerfile
     container_name: express-server
-    # command: sh -c 'yarn install && yarn start'
+    command: sh -c 'yarn install'
     ports:
       - "3030:3000"
     volumes:
       - ./api:/usr/src/app/api
+      - ./build/node/package.json:/usr/src/app/package.json:ro
     environment:
       - WATCHPACK_POLLING=true
     depends_on:
