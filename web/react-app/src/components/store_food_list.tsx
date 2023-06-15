@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './store_food_list.css';
 import storeimage from "./image/store-image.jpg";
@@ -18,6 +18,18 @@ const StoreFoodList: React.FC = () => {
     setSelectedCategory(category);
   };
   */
+
+  useEffect(() => {
+    
+    const selectedItem: number[] = [];
+
+    dummyData.filter(item => item.store_id === 'AC' && !item.on_sale).forEach( (item) => {
+      selectedItem.push(item.product_id)
+    })
+
+    setSelectedProductsStore(selectedItem)
+
+  },[]);
 
   const dummyData = [
     {
@@ -45,7 +57,7 @@ const StoreFoodList: React.FC = () => {
       on_sale: false
     },
     {
-      store_id: 'AC',
+      store_id: 'AA',
       product_id: 4,
       category_name: "ドリンク",
       product_name: "タピオカミルクティー",
