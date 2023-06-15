@@ -7,7 +7,6 @@ import food from "./image/food.jpg";
 
 const StoreFoodList: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState('メイン');
   const [showMenu, setShowMenu] = useState(true);
   const [isStockManagement, setIsStockManagement] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
@@ -37,10 +36,34 @@ const StoreFoodList: React.FC = () => {
       product_price: 1200,
       on_sale: true
     },
+    {
+      store_id: 'AC',
+      product_id: 3,
+      category_name: "サイド",
+      product_name: "ポテトチップス",
+      product_price: 500,
+      on_sale: true
+    },
+    {
+      store_id: 'AC',
+      product_id: 4,
+      category_name: "ドリンク",
+      product_name: "タピオカミルクティー",
+      product_price: 200,
+      on_sale: true
+    },
+    {
+      store_id: 'AC',
+      product_id: 5,
+      category_name: "ドリンク",
+      product_name: "タピオカ黒糖ミルクティ鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱鬱",
+      product_price: 250,
+      on_sale: false
+    },
     // ...他のダミーデータ
   ];
 
-  const filteredMenu = dummyData.filter(item => item.store_id === 'AC' && item.category_name === selectedCategory);
+  const filteredMenu = dummyData.filter(item => item.store_id === 'AC');
 
   const handleCheckboxChange = (productId: number) => {
     const updatedSelectedProducts = [...selectedProducts];
@@ -89,6 +112,9 @@ const StoreFoodList: React.FC = () => {
       setSelectedImage(productId.toString());
     }
   };
+  const Storeresetbtn = () =>{
+    //全て外すを押したときの処理
+  }
 
 
   return (
@@ -109,15 +135,22 @@ const StoreFoodList: React.FC = () => {
       <div className='food_list_contents'>
         <div className="menu_list">
           <h2>
-            {showMenu && <p>メニュー</p>}
+            {showMenu ? (<p>メニュー</p>):(
+              <div className="store_food_reset">
+              <button className='store_food_reset_btn' onClick={Storeresetbtn}>全て外す</button>
+              </div>
+            )}
           </h2>
           <div className='scl'>
             <div className="store_list_menu">
               {filteredMenu.map(item => (
                 <a key={item.product_id}>
                   {showMenu ? (
+                    <div className="store_img_box">
                     <img src={food} className={`store_list_menu ${selectedProductsStore.includes(item.product_id) ? 'img_sold' : 'selected'}`} alt="" />
-                  ) : (
+                    <p className={`store_img_p ${selectedProductsStore.includes(item.product_id) ? 'img_sold_p_active' : 'img_sold_p'}`}>SOLD　OUT</p>
+                    </div>
+                    ) : (
                     <div className="store_list_menu_checkbox_wrapper">
                       <input
                         type="checkbox"
@@ -126,12 +159,15 @@ const StoreFoodList: React.FC = () => {
                         onChange={() => handleImageSelect(item.product_id)}
                         
                       />
+                      <div className="store_img_box">
                       <img
                         src={selectedImage === item.product_id.toString() ? food : food}
                         className={`store_list_menu ${selectedProducts.includes(item.product_id) ? 'img_sold' : 'selected'}`}
                         alt=""
                         onClick={() => handleCheckboxChange(item.product_id)}
                       />
+                      <p className={`store_img_p ${selectedProducts.includes(item.product_id) ? 'img_sold_p_active' : 'img_sold_p'}`}>SOLD　OUT</p>
+                      </div>
                     </div>
                   )}
                   <h2>
