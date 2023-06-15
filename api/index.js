@@ -1,11 +1,12 @@
 // expressモジュールを読み込む
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const QRCodeGenerator = require('./QRCodeGenerator');
 
 // expressアプリを生成する
 const app = express();
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(bodyParser.json());
 
 // ルート（http://localhost/）にアクセスしてきたときに「Hello」を返す
 app.get('/', (req, res) => res.send('Hello'));
