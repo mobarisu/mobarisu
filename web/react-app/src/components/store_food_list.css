@@ -2,7 +2,9 @@
     color: #000000;
     margin: 0;
 }
-
+.store-name{
+    margin-left: 10%;
+}
 .store_list_image{
     padding-top: 32px;
 }
@@ -46,10 +48,11 @@
     width: 100%;
 }
 .food_list_name{
-    text-align: center;
+    /* text-align: center; */
     margin-top: 0;
     margin-bottom: 10px;
     padding-top: 20px;
+    flex-basis:80%;
 }
 
 .food_list_change{
@@ -60,11 +63,30 @@
     margin-right: 5%;
     margin-top: 20px;
     background-color: #FE724C;
-    font-size: 80%;
+    font-size: 60%;
     width: 20%;
     height: 2rem;
     border-radius: 22px;
     color: #fff;
+}
+
+.store_food_reset_btn{    
+    position: fixed;
+    top:10%;
+    left: 0;
+    z-index: 10;
+
+    right: 0;
+    margin-right: 5%;
+    margin-top: 20px;
+    margin-left: 5%;
+    background-color: #FE724C;
+    font-size: 60%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 22px;
+    color: #fff;
+ 
 }
 .store_list_price{
     margin-top: 0;
@@ -72,6 +94,12 @@
 .button_kanri{
     display: flex;
     justify-content: space-between;
+    list-style: none;
+    font-size: 18px;
+    position: sticky;
+    bottom: 5%;
+    width: 100%;
+    left: 0;
 }
 .store_list_bt{
     margin-top: 20px;
@@ -126,4 +154,38 @@ footer{
 }
 .example2 input{
     display: none;
+}
+
+input[type=checkbox] 
+{
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.img_sold
+{
+    opacity: 0.3;
+}
+.store_img_box{
+   position: relative;
+}
+.img_sold_p_active{
+    /* text-align: center; */
+    font-size: 180%;
+    position: absolute;
+    font-weight: bold;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.img_sold_p{
+  display: none;
 }
