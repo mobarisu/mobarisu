@@ -187,7 +187,6 @@ const OrderHistory: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>注文履歴</title>
       </head>
-      <header>注文履歴</header>
       <body>
         <div className="history_date">
           <select className="history_select" value={selectedDate} onChange={handleDateChange}>
