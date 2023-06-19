@@ -6,6 +6,7 @@ import egg from '../images/01たまご.svg';
 import milk from '../images/02牛乳.svg';
 import rais from '../images/03小麦.svg';
 import ebi from '../images/04えび.svg';
+import {FoodHeader,FoodFooter} from './header_footer';
 
 interface FoodSize {
   id: number;
@@ -94,6 +95,7 @@ const FoodDetails: React.FC = () => {
   return (
     <>
       <title>商品詳細画面</title>
+      <FoodHeader />
       <body>
         <div className="details_full">
           <div className="details_hed">
@@ -194,6 +196,7 @@ const FoodDetails: React.FC = () => {
           </div>
         </div>
       </body>
+      <FoodFooter />
     </>
   );
 };

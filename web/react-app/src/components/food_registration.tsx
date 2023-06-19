@@ -28,6 +28,7 @@ import Matsutake from "./image/25まつたけ.svg";
 import Peaches from "./image/26もも.svg";
 import Yamaimo from "./image/27やまいも.svg";
 import apple from "./image/28りんご.svg";
+import {StoreHeader,StoreFooter} from './header_footer';
 
 function FoodRegistration() {
   const navigate = useNavigate();
@@ -403,9 +404,7 @@ function FoodRegistration() {
   }
   return (
     <div>
-      <header>
-        <h1>商品登録</h1>
-      </header>
+      <StoreHeader /> 
       <main>
         <div className='food_label'>
           <label htmlFor="name" className='lab_name'>商品名</label><br/>
@@ -652,6 +651,7 @@ function FoodRegistration() {
           <input type="submit" onClick={clickSubmit} value={"登録"}/>
         </div>
       </main>
+      <StoreFooter />
     </div>
   );
 }
