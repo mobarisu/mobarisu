@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './faq.css';
-import {FoodHeader,FoodFooter} from './header_footer';
 
 const Faq: React.FC = () => {
     const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
@@ -22,7 +21,6 @@ const Faq: React.FC = () => {
 
     return (
         <>
-        <FoodHeader />
             <h1 className="faq_h1">よくある質問</h1>
             <div className="faq">
                 <div className="faq_nav">
@@ -58,7 +56,6 @@ const Faq: React.FC = () => {
                     )}
                 </div>
             </div>
-            <FoodFooter />
         </>
     );
 };

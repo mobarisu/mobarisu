@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './store_food_list.css';
 import storeimage from "./image/store-image.jpg";
+import logo from "./image/logo.png";
 import food from "./image/food.jpg";
-import {StoreHeader,StoreFooter} from './header_footer';
 
 const StoreFoodList: React.FC = () => {
   const navigate = useNavigate();
@@ -131,7 +131,12 @@ const StoreFoodList: React.FC = () => {
 
   return (
     <>
-      <StoreHeader /> 
+      <header className='header_ac_on'>
+        <div className="header-logo">
+          <a href="./"><img src={logo} className="logo" alt=''/></a>
+        </div>
+      </header>
+
       <div className="store_list_image">
         <img src={storeimage} className="store_food_list_image" alt=''/>
         <h1 className='store-name'>
@@ -207,8 +212,7 @@ const StoreFoodList: React.FC = () => {
           </button>
         </div>
       </div>
-      <StoreFooter />
-      </>
+    </>
   );
 };
 
