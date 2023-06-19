@@ -5,7 +5,7 @@ import logo from "./image/logo.png"
 import cart from "./image/cart.jpeg"
 import food from "./image/food.jpg"
 
-const App: React.FC = () => {
+const FoodList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('メイン');
 
   const foodCategoryClick = (category: string) => {
@@ -156,4 +156,4 @@ const App: React.FC = () => {
   );
 };
  
-export default App;
+export default FoodList;
