@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const food_list = require('./food_list');
 const QRCodeGenerator = require('./QRCodeGenerator');
-const authentication = require('./authentication')
+const Authentication = require('./Authentication');
 
 // expressアプリを生成する
 const app = express();
@@ -26,9 +26,12 @@ app.post('/qrcode', (req, res) => {
     qr.generate().then((src) => res.send(JSON.stringify({'src':src})) );
 });
 
+// curl -X POST -H "Content-Type: application/json" -d '{"mail":"mac@gmail.com","password":"Pass_1234_qwaszx"}' "localhost:3030/authentication"
+// curl -X POST -H "Content-Type: application/json" -d '{"mail":"a@gmail.com","password":"password"}' "localhost:3030/authentication"
 app.post('/authentication', (req, res) => {
-    const auth = new authentication(req.body.mail, req.body.password);
-    auth.storeLogin().then((results) => res.json(results));
+    const auth = new Authentication(req.body.mail, req.body.password);
+    console.log(auth.storeLogin());
+    res.send(JSON.stringify({'result':'success'}));
 })
 
 // ポート3000でサーバを立てる
