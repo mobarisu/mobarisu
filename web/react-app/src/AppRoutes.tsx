@@ -22,7 +22,7 @@ import CurrentMail from './components/current_mail';
 import PassChange from './components/pass_change';
 import FoodDelivery from './components/food_delivery';
 import OrderHistory from './components/order_history';
-import StoreHeader from './components/store_header';
+import {FoodHeader,FoodFooter,StoreFooter, StoreHeader} from './components/header_footer';
 
 
 
@@ -49,6 +49,9 @@ export const router = createBrowserRouter([
   { path: "/pass_change", element: <PassChange /> },
   { path: "/food_delivery", element: <FoodDelivery /> },
   { path: "/order_history", element: <OrderHistory /> },
-  { path: "/store_header", element: <StoreHeader /> }
+  { path: "/header_footer", element: <StoreHeader /> },
+  { path: "/header_footer", element: <FoodHeader /> },
+  { path: "/header_footer", element: <StoreFooter /> },
+  { path: "/header_footer", element: <FoodFooter /> },
 
 ]);

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './store_food_list.css';
 import storeimage from "./image/store-image.jpg";
 import food from "./image/food.jpg";
-import StoreHeader from './store_header';
+import {StoreHeader,StoreFooter} from './header_footer';
 
 const StoreFoodList: React.FC = () => {
   const navigate = useNavigate();
@@ -207,6 +207,7 @@ const StoreFoodList: React.FC = () => {
           </button>
         </div>
       </div>
+      <StoreFooter />
       </>
   );
 };

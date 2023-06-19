@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import './css/App.css';
+import {StoreHeader,StoreFooter} from './header_footer';
 
 function FoodChange() {
   const navigate = useNavigate();
@@ -74,9 +75,7 @@ function FoodChange() {
   }
   return (
     <div>
-      <header>
-        <h1>商品変更</h1>
-      </header>
+     <StoreHeader />
       <main>
         <form action="">
           <div className='food_label'>
@@ -148,7 +147,7 @@ function FoodChange() {
           </div>
         </form>
       </main>
-
+      <StoreFooter />
     </div>
   );
   

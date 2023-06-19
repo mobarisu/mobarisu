@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './personal_data.css';
+import {FoodHeader,FoodFooter} from './header_footer';
 
 
 const PersonalData: React.FC = () => {
@@ -60,7 +61,7 @@ const PersonalData: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>個人情報入力画面</title>
       </head>
-
+      <FoodHeader />
       <body>
         <div className='personal_full'>
             <div className='personal_hed'>
@@ -285,6 +286,7 @@ const PersonalData: React.FC = () => {
         </div>
       </div>
       </body>
+      <FoodFooter />
     </>
   );
 };

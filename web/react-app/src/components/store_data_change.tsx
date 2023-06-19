@@ -1,13 +1,12 @@
 import React from 'react';
 import './css/App.css';
+import {StoreHeader,StoreFooter} from './header_footer';
 
 function StoreDataChange() {
   
   return (
     <div>
-      <header>
-        <h1>店舗情報変更</h1>
-      </header>
+      <StoreHeader />
       <main>
         <form action="">
           <div className='food_label'>
@@ -37,8 +36,9 @@ function StoreDataChange() {
           </div>
         </form>
       </main>
-
+      <StoreFooter />
     </div>
+    
   );
 }
 
