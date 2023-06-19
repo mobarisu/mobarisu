@@ -21,6 +21,7 @@ app.post('/food_list',(req,res) =>{
   list.list().then((results) => res.json(results));
 });
 
+// curl -X POST -H "Content-Type: application/json" -d '{"url":"http://example.com"}' "localhost:3030/qrcode"
 app.post('/qrcode', (req, res) => {
     const qr = new QRCodeGenerator(req.body.url);
     qr.generate().then((src) => res.send(JSON.stringify({'src':src})) );
@@ -30,8 +31,13 @@ app.post('/qrcode', (req, res) => {
 // curl -X POST -H "Content-Type: application/json" -d '{"mail":"a@gmail.com","password":"password"}' "localhost:3030/authentication"
 app.post('/authentication', (req, res) => {
     const auth = new Authentication(req.body.mail, req.body.password);
-    console.log(auth.storeLogin());
-    res.send(JSON.stringify({'result':'success'}));
+    auth.storeLogin().then((results) => {
+      console.log(results);
+      res.send(JSON.stringify({'result':'success'}));
+    });
+
+    // console.log(auth.storeLogin());
+    // res.send(JSON.stringify({'result':'success'}));
 })
 
 // ポート3000でサーバを立てる
