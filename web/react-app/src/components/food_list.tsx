@@ -81,16 +81,7 @@ const App: React.FC = () => {
         <title>null</title>
     </head>
     <body>
-        {/* <header className='header_ac_on'>
-            <div className="header-logo">
-                    <a href="./"><img src={logo} className="logo" alt=''/></a>
-            </div>
-            <div className="header-cart">
-                <a href="./food_cart"><img src={cart} className="cart" alt='カート'/></a>
-            </div>
-        </header> */}
         <FoodHeader />
-        
         <div className="store-image">
             <img src={storeimage} className="store-image" alt=''/>
             <h1 className='store-name'>

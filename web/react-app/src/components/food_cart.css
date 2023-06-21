@@ -4,8 +4,6 @@
 }
 .hurucart{
     border-bottom: 5px solid black;
-    margin: 5px;
-    margin-top: 2%;
     display: flex;
     justify-content:space-around;
   }
@@ -14,7 +12,7 @@
 }
   .back_fd{
     position: absolute;
-    margin-top: 34px;
+    margin-top: 16px;
     margin-bottom: 0;
     margin-left: 5%;
     padding-top: 8px;
@@ -33,11 +31,10 @@
     transform: translateX(25%) rotate(-135deg);
   }
   .ct_moji{
-    margin-left: 0px;
+    margin-top: 3px;
     font-size: 30px;
   }
   .btn_cart{
-    margin-top: 20px;
     background-color: #FE724C;
     font-size: 50%;
     width: 30%;
@@ -143,11 +140,8 @@
   margin-bottom: 10%;
 
   box-sizing: border-box;
-/* position: absolute; */
-width: 60px;
-height: 27px;
-/* left: 258px; */
-/* top: 209px; */
+  width: 60px;
+  height: 27px;
 
 background: #FFFFFF;
 border: 1px solid #000000;
@@ -158,20 +152,6 @@ border-radius: 10px;
 }
 /* パソコン画面のCSS */
 @media screen and (min-width: 481px){
-  /* .fd_ct{
-    position: relative;
-    margin-top: 10px;
-} */
-  .btn_cart{
-    margin-top: 20px;
-    background-color: #FE724C;
-    font-size: 100%;
-    width: 30%;
-    height: 3rem;
-    border-radius: 22px;
-    color: #fff;
-  }
-
   .food_sazi{
     display: flex;
     justify-content:space-between;

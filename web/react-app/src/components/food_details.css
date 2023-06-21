@@ -4,14 +4,11 @@
   }
 .dt_bc{
     position: relative;
-    margin-top: 33px;
+    margin-top: 13px;
 }
 .back_details{
     position: absolute;
-    /* margin-top: 10px; */
     margin-bottom: 0;
-    /* margin-right: 100%; */
-    padding-top: 8px;
     z-index: 1;
 
     display: inline-block;
@@ -29,6 +26,7 @@
 .de_mj{
     margin-left: 10%;
     font-size: 30px;
+    margin-top: 0;
 }
 
 .deta_img{
