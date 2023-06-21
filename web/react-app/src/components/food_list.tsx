@@ -5,7 +5,7 @@ import food from "./image/food.jpg"
 import {FoodHeader,FoodFooter} from './header_footer';
 
 
-const App: React.FC = () => {
+const FoodList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('メイン');
 
   const foodCategoryClick = (category: string) => {
@@ -150,4 +150,4 @@ const App: React.FC = () => {
   );
 };
  
-export default App;
+export default FoodList;

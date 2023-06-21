@@ -129,7 +129,8 @@ p store_introduction{
 
 footer{
     background-color: #E8E8E8;
-    padding: 15px 0px;
+    padding: 15px 0px 15px 7%;
+/*    padding: 15px 0px 15px 60px;*/
 }
 
 .footer-nav a{
@@ -138,34 +139,11 @@ footer{
 
 .footer-nav-item{
     margin: 0px;
-    margin-left: 60px;
+    padding: 0px;
+    list-style: none;  
 }
 
 .copyright{
-    margin: 0px;
-}
-
-.example2{
-    display: flex;
-}
-
-.example2 label{
-    display: block;
-    width: 150px;
-    background: #c8eac3;
-    color: #000;
-    padding: 10px;
-    margin: 10px;
-    box-sizing: border-box;
+    margin: 15px 0px 0px;
     text-align: center;
-    text-decoration: none;
-    border-radius: 30px;
-    cursor: pointer;
-}
-.example2 input:checked+label{
-    background: #1a720d;
-    color: #FFF;
-}
-.example2 input{
-    display: none;
-}
+   }

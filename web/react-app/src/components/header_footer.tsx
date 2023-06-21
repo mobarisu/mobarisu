@@ -35,9 +35,16 @@ export const StoreFooter: React.FC = () =>{
   const navigate = useNavigate();
   return (
     //店側footer
-      <footer>
-        <h1>footer</h1>
-      </footer>
+    <footer>
+      <div className="footer-nav">
+          <ul className='footer-nav-item'>
+              <li><a href="#">よくある質問</a></li>
+              <li><a href="#">利用規約</a></li>
+              <li><a href="#">プライバシーポリシー</a></li>
+          </ul>
+      </div>
+      <p className="copyright">&copy&#058;2023 mobarisu Corp.</p>
+    </footer>
   );
 };
 
@@ -46,7 +53,15 @@ export const FoodFooter: React.FC = () =>{
   return (
     //客側footer
     <footer>
-    <h1>footer</h1>
-  </footer>
+      <div className="footer-nav">
+          <ul className='footer-nav-item'>
+              <li><a href="food_cart">カート</a></li>
+              <li><a href="faq">よくある質問</a></li>
+              <li><a href="#">利用規約</a></li>
+              <li><a href="#">プライバシーポリシー</a></li>
+          </ul>
+      </div>
+      <p className="copyright">&copy&#058;2023 mobarisu Corp.</p>
+    </footer>
   );
 };
