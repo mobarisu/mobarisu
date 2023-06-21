@@ -112,25 +112,6 @@
     color: #fff;
 }
 
-
-footer{
-    background-color: #E8E8E8;
-    padding: 15px 0px;
-}
-
-.footer-nav a{
-    font-size: 17px;
-}
-
-.footer-nav-item{
-    margin: 0px;
-    margin-left: 60px;
-}
-
-.copyright{
-    margin: 0px;
-}
-
 .example2{
     display: flex;
 }

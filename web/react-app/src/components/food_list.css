@@ -134,7 +134,7 @@ p store_introduction{
 
 footer{
     background-color: #E8E8E8;
-    padding: 15px 0px 15px 5%;
+    padding: 15px 0px 15px 7%;
 /*    padding: 15px 0px 15px 60px;*/
 }
 
@@ -144,10 +144,11 @@ footer{
 
 .footer-nav-item{
     margin: 0px;
+    padding: 0px;
+    list-style: none;
 }
 
 .copyright{
-    margin: 15px 0px;
-    margin-right: 10%;
-    text-align: right;
-}
+    margin: 15px 0px 0px;
+    text-align: center;
+   }
