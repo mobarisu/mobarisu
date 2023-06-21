@@ -68,8 +68,6 @@ function FoodRegistration() {
       allergy_Save_List_length = Object.keys(allergy_Save_List).length;
       AllergyListLink();
     }
-    // allergy_Save_Listのバックアップ作成
-    // allergy_Save_List_backup = allergy_Save_List;
 
     close.addEventListener('click',function(){
       checkOnOff(target);
@@ -249,7 +247,6 @@ function FoodRegistration() {
       optline.className="opt_list";
       optline.appendChild(document.createTextNode("サイズ："+ sizekey[j] + "   " +"値段："+ numbervalue[j]+"円"));
       lookarea?.appendChild(optline);
-      // lookarea.innerHTML='<pre class="opt_list">サイズ：'+sizekey[j]+'   '+'値段：'+numbervalue[j]+'</pre>';
     }
     console.log(optionlist);
 
@@ -371,7 +368,6 @@ function FoodRegistration() {
       allergy_Image_All_values = Object.values(allergy_Image_All);
       allergy_Image_All_length = Object.keys(allergy_Image_All).length;
     
-
       // allergy_look内の要素をクリア
       var lookarea = document.getElementsByClassName("allergy_look")[0];
       var area = lookarea.children;
@@ -391,16 +387,16 @@ function FoodRegistration() {
             cloneImg = allergy_Image_All_values[b].cloneNode(true);
             line.className="alle_list";
             line.appendChild(cloneImg);
-            lookarea.appendChild(line);          }
+            lookarea.appendChild(line);
+          }
         }
       }
     }
   }
-
   const clickSubmit = () => {
     // 一番下の登録ボタン
     console.log(values);
-    window.location.href = "/store_food_list";// 画面遷移
+    // window.location.href = "/store_food_list";// 画面遷移
   }
   return (
     <div>
@@ -570,11 +566,11 @@ function FoodRegistration() {
                     </div>
                   </div>
                   <div className='row'>
-                    <div className='allergy_ingredients'>
+                    {/* <div className='allergy_ingredients'>
                       <input type="checkbox" id="kiwi" className='allergy_check'/>
                       <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}><img src={kiwi} alt="kiwi" className='allergy_img' /></label><br/>
                       <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}>キウイ</label>
-                    </div>
+                    </div> */}
                     <div className='allergy_ingredients'>
                       <input type="checkbox" id="Peaches" className='allergy_check'/>
                       <label htmlFor='Peaches' className='ingredients' onClick={allergyClick}><img src={Peaches} alt="Peaches" className='allergy_img' /></label><br/>
