@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './food_delivery.css';
+import {StoreHeader} from './header_footer';
 
 const FoodDelivery: React.FC = () => {
   const navigate = useNavigate();
@@ -140,6 +141,7 @@ const FoodDelivery: React.FC = () => {
 
   return (
     <>
+    <StoreHeader />
       <div className="delivery">
         {orderDeliveryData.map((item, index) => (
           <div className="delivery_nav" key={index}>

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./AppRoutes";
+import egg from "./components/image/02牛乳.svg";
 
 
 const root = ReactDOM.createRoot(

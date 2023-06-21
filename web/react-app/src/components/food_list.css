@@ -43,6 +43,7 @@ p store_introduction{
 	display: flex;
 	position: fixed;
     height: 75px;
+    z-index: 20;
 }
 
 .header-logo img {

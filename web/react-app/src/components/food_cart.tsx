@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './food_cart.css';
+import {FoodHeader,FoodFooter} from './header_footer';
 
 interface CartItem {
   id: number;
@@ -49,6 +50,7 @@ const FoodCart: React.FC = () => {
 
   return (
     <div className="food_furu">
+      <FoodFooter />
       <div className="hurucart">
         <div className='fd_ct'>
           {/* <h1 className='back_fd' onClick={() => navigate(-1)}>⇚</h1> */}
@@ -95,6 +97,7 @@ const FoodCart: React.FC = () => {
       <div>
         <button className='btn_personal' onClick={() => navigate("/personal_data")}>購入手続きへ</button>
       </div>
+      <FoodFooter />
     </div>
   );
 };
