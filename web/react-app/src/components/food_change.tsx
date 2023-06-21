@@ -1,33 +1,34 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import './css/App.css';
-import egg from "./image/01たまご (1).svg";
-import milk from "./image/02牛乳.svg";
-import wheat from "./image/03小麦.svg";
-import Shrimp from "./image/04えび.svg";
-import Crab from "./image/05かに.svg";
-import Soba from "./image/06そば.svg";
-import peanut from "./image/07落花生.svg";
-import Abalone from "./image/08あわび.svg";
-import squid from "./image/09いか.svg";
-import ikura from "./image/10いくら.svg";
-import Salmon from "./image/11さけ.svg";
-import mackerel from "./image/12さば.svg";
-import almond from "./image/14アーモンド.svg";
-import orange from "./image/15オレンジ.svg";
-import cashew_nuts from "./image/16カシューナッツ.svg";
-import kiwi from "./image/17キウイ.svg";
-import beef from "./image/18牛肉.svg";
-import walnut from "./image/19クルミ.svg";
-import Gum from "./image/20ゴマ.svg";
-import soy from "./image/21大豆.svg";
-import chicken_meat from "./image/22鶏肉.svg";
-import banana from "./image/23バナナ.svg";
-import pork from "./image/24豚肉.svg";
-import Matsutake from "./image/25まつたけ.svg";
-import Peaches from "./image/26もも.svg";
-import Yamaimo from "./image/27やまいも.svg";
-import apple from "./image/28りんご.svg";
+import egg from "./image/egg.svg";
+import milk from "./image/milk.svg";
+import wheat from "./image/wheat.svg";
+import Shrimp from "./image/shrimp.svg";
+import Crab from "./image/crab.svg";
+import Soba from "./image/soba.svg";
+import peanut from "./image/peanut.svg";
+import Abalone from "./image/abalone.svg";
+import squid from "./image/squid.svg";
+import ikura from "./image/salmon_roe.svg";
+import Salmon from "./image/salmon.svg";
+import mackerel from "./image/mackerel.svg";
+import gelatine from "./image/gelatine.svg";
+import almond from "./image/almond.svg";
+import orange from "./image/orange.svg";
+import cashew_nuts from "./image/cashew_nuts.svg";
+import kiwi from "./image/kiwi_fruit.svg";
+import beef from "./image/beef.svg";
+import walnut from "./image/walnut.svg";
+import Gum from "./image/sesame.svg";
+import soy from "./image/soy.svg";
+import chicken_meat from "./image/chicken.svg";
+import banana from "./image/banana.svg";
+import pork from "./image/pork.svg";
+import Matsutake from "./image/matsutake.svg";
+import Peaches from "./image/peach.svg";
+import Yamaimo from "./image/yam.svg";
+import apple from "./image/apple.svg";
 import {StoreHeader,StoreFooter} from './header_footer';
 
 function FoodChange() {
@@ -568,11 +569,11 @@ function FoodChange() {
                     </div>
                   </div>
                   <div className='row'>
-                    {/* <div className='allergy_ingredients'>
-                      <input type="checkbox" id="kiwi" className='allergy_check'/>
-                      <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}><img src={kiwi} alt="kiwi" className='allergy_img' /></label><br/>
-                      <label htmlFor='kiwi' className='ingredients' onClick={allergyClick}>キウイ</label>
-                    </div> */}
+                    <div className='allergy_ingredients'>
+                      <input type="checkbox" id="gelatine" className='allergy_check'/>
+                      <label htmlFor='gelatine' className='ingredients' onClick={allergyClick}><img src={gelatine} alt="gelatine" className='allergy_img' /></label><br/>
+                      <label htmlFor='gelatine' className='ingredients' onClick={allergyClick}>ゼラチン</label>
+                    </div>
                     <div className='allergy_ingredients'>
                       <input type="checkbox" id="Peaches" className='allergy_check'/>
                       <label htmlFor='Peaches' className='ingredients' onClick={allergyClick}><img src={Peaches} alt="Peaches" className='allergy_img' /></label><br/>
