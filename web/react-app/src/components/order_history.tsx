@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './order_history.css';
+import {StoreHeader,StoreFooter} from './header_footer';
 
 const OrderHistory: React.FC = () => {
   const navigate = useNavigate();
@@ -187,7 +188,7 @@ const OrderHistory: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>注文履歴</title>
       </head>
-      <header>注文履歴</header>
+      <StoreHeader />
       <body>
         <div className="history_date">
           <select className="history_select" value={selectedDate} onChange={handleDateChange}>
@@ -237,6 +238,7 @@ const OrderHistory: React.FC = () => {
           )}
         </div>
       </body>
+      <StoreFooter />
     </>
   );
 };

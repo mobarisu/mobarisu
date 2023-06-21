@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './final_confirmation.css';
+import {FoodHeader,FoodFooter} from './header_footer';
 
 interface CartItem {
   id: number;
@@ -23,13 +24,18 @@ const FinalConfirmation: React.FC = () => {
    
 
   return (
+    <>
+       <head>
+          <meta charSet="utf-8"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <title>最終注文確認画面</title>
+       </head>
+    <FoodHeader />    
     <div className="final_confima">
       <div className="final_cart">
-        {/* <h1 className='back_f' onClick={() => navigate(-1)}>⇚</h1> */}
         <span className="back_f" onClick={() => navigate(-1)}></span>
         </div>
         <h1 className='ct_moji1'>商品注文確認</h1>
-   
       <div className='tyu'>
         <p className='ptag'>＊商品お受け取り時間が前後する場合がございます</p>
       </div>
@@ -78,6 +84,9 @@ const FinalConfirmation: React.FC = () => {
         <button className='btn_personal' onClick={() => navigate("/order_details")}>購入手続きへ</button>
       </div>
     </div>
+    <FoodFooter />
+  </>
+
   );
 };
 

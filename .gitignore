@@ -1,2 +1,4 @@
 db/
 web/react-app/node_modules
+
+build/node/.env

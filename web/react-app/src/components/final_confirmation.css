@@ -1,13 +1,13 @@
 .final_confima{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .final_cart{
     position: relative;
 }
   .back_f{
     position: absolute;
-    margin-top: 20px;
+    margin-top: 15px;
     padding-bottom: 0;
     margin-left: 5%;
     z-index: 1;
@@ -32,7 +32,8 @@ margin-right: 0px;
 margin-bottom: 30px;
 }
 .ct_moji1{
-  margin-top: 20px;
+  margin-top: 0;
+  margin-bottom: 10%;
   padding-top: 10px;
 text-align: center;
 font-size: 20px;
