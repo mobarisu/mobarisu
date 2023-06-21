@@ -41,7 +41,6 @@ p store_introduction{
 	background-color: white;
     align-items: center;
 	display: flex;
-	position: fixed;
     height: 75px;
     z-index: 20;
 }
@@ -62,17 +61,13 @@ p store_introduction{
     height: 60px;
 }
 
-.store-image{
-    padding-top: 32px;
-}
-
 .store-image p{
     margin: 0px;
 }
 
 .store-image img {
     width: 100%;
-    height: 125px;
+    height: 160px;
     object-fit: cover;
 }
 
