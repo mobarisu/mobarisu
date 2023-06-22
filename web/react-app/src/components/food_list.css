@@ -41,8 +41,11 @@ p store_introduction{
 	background-color: white;
     align-items: center;
 	display: flex;
+    justify-content:space-between;
     height: 75px;
     z-index: 20;
+    position:sticky;
+    top: 0;
 }
 
 .header-logo img {

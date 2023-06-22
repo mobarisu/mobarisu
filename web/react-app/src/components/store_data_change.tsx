@@ -49,6 +49,7 @@ function StoreDataChange() {
     <div>
       <StoreHeader />
       <main>
+        <h1 className='store_h1_size'>商品変更</h1>
         <div className='food_label'>
           <label htmlFor="name" className='lab_name'>店舗名</label><br/>
           <input type="text" id="name" onChange={handleChange('storename')} value={values.storename} required/>
