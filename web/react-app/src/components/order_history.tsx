@@ -16,7 +16,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/05',
       shopNumber: 'AC',
       order: 53,
-      orderName: '田中クレジット真司',
       historyMenu: [
         {
           menuName: 'ぷりぷり赤エビの天ぷら～オニオンソースを添えて～',
@@ -45,7 +44,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/05',
       shopNumber: 'AC',
       order: 56,
-      orderName: '司',
       historyMenu: [
         {
           menuName: 'ソース',
@@ -74,7 +72,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/06',
       shopNumber: 'AC',
       order: 58,
-      orderName: '佐藤',
       historyMenu: [
         {
           menuName: 'チャーハン',
@@ -103,7 +100,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/05',
       shopNumber: 'AC',
       order: 67,
-      orderName: '司',
       historyMenu: [
         {
           menuName: 'ソース',
@@ -223,7 +219,6 @@ const OrderHistory: React.FC = () => {
                   onClick={() => handleH2Click(index)}
                 >
                   <h2>{orderData.shopNumber + orderData.order}</h2>
-                  <h2 className="history_name">{orderData.orderName}</h2>
                 </div>
                 {activeIndexes.includes(index) && (
                   <div className="history_div active">
