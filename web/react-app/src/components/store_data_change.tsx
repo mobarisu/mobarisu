@@ -112,7 +112,7 @@ function StoreDataChange() {
     if(e > max){
       return "max";
     }
-}
+  }
   return (
     <div>
       <StoreHeader />
