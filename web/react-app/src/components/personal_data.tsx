@@ -7,51 +7,8 @@ import {FoodHeader,FoodFooter} from './header_footer';
 const PersonalData: React.FC = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
   
 
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(event.target.checked);
-  };
-
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputName = e.target.value;
-    if (inputName.length <= 128) {
-      setName(inputName);
-    } else {
-      alert('128文字以内で入力してください');
-    }
-  };
-
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputPhone = e.target.value;
-    if (inputPhone.length <= 11) {
-      setPhone(inputPhone);
-    } else {
-      alert('11文字以内で入力してください');
-    }
-  };
-
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    const phoneNumberRegex = /^(090|080|070|060)\d{8}$/;
-    if (!phoneNumberRegex.test(phone)) {
-      alert('電話番号は090、080、070、060から始まる11桁の番号で入力してください。');
-      return;
-    }
-    if (isChecked) {
-      // 名前と電話番号を送信する処理を追加する
-      sendPersonalData(name, phone);
-      navigate('/final_confirmation');
-    }
-  };
-
-  const sendPersonalData = (name: string, phone: string) => {
-    // ここに名前と電話番号の送信処理を追加する（例：APIリクエストなど）
-    console.log('名前:', name);
-    console.log('電話番号:', phone);
-  };
 
   return (
     <>
@@ -63,45 +20,6 @@ const PersonalData: React.FC = () => {
       </head>
       <FoodHeader />
       <body>
-        <div className='personal_full'>
-            <div className='personal_hed'>
-              <div className='personal_back'>
-                  <span className="personal_back_bt" onClick={() => navigate(-1)}></span>
-              </div>
-              <h1 className='personal_h1'>個人情報入力</h1>
-            </div>
-
-              <div className="account_huru">
-                <form onSubmit={handleSubmit}>
-                  <div className="account_kiyaku">
-                    <label className="personal_name">お名前</label>
-                    <br />
-                    <div className="account_in">
-                      <input
-                        type="text"
-                        className="text"
-                        value={name}
-                        onChange={handleNameChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-            <div className="account_kiyaku">
-              <label className="personal_name">電話番号</label>
-              <br />
-
-              <div className="account_in">
-                <input
-                  type="tel"
-                  className="text"
-                  value={phone}
-                  onChange={handlePhoneChange}
-                  required
-                />
-              </div>
-            </div>
-
             <div className="kiyaku">
               <label className="personal_name">利用規約</label>
             </div>
@@ -272,7 +190,6 @@ const PersonalData: React.FC = () => {
         </div>
             <div className="personal_form">
               <div className="personal_check">
-                <input type="checkbox" id="agree" onChange={handleCheckboxChange} />
                 <label htmlFor="agree">利用規約に同意する</label>
               </div>
 
@@ -282,9 +199,7 @@ const PersonalData: React.FC = () => {
                 </button>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
+
       </body>
       <FoodFooter />
     </>

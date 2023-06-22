@@ -10,9 +10,6 @@ interface CartItem {
 }
 
 const FinalConfirmation: React.FC = () => {
-  const name = "アンサー";
-  const phone = "08008080808";
-  const formattedNumber =phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
   const navigate = useNavigate();
 
   const [cartItems, setCartItems] = useState<CartItem[]>([
@@ -40,17 +37,7 @@ const FinalConfirmation: React.FC = () => {
         <p className='ptag'>＊商品お受け取り時間が前後する場合がございます</p>
       </div>
       
-      <div className='person'>
-        <div className='perso_nm'>
-          <label htmlFor="">お名前</label>
-          <p className='left_per'>{name}</p>
-        </div>
 
-        <div className='perso_ph'>
-          <label htmlFor="">電話番号</label>
-          <p className='left_per'>{formattedNumber}</p>
-        </div>
-      </div>
       
       <div className="scl">
         {cartItems.map(item => (
