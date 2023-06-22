@@ -162,8 +162,6 @@ function FoodRegistration() {
     area.append(div);
   }
 
-  // // 連想配列の生成、初期値の設定
-  // var inputList : {name:'',number:0, select: 'main', textarea:''};
   const [values, setValues] = useState({
     name: '',
     number: '',
@@ -230,7 +228,6 @@ function FoodRegistration() {
         break;
       }
     }
-
   }
   const selectValidation = (value: string): void => {
     // console.log(value)
@@ -242,7 +239,6 @@ function FoodRegistration() {
     }else{
       textarea_error_length.style.display = "block";
     }
-
   } 
 
   const inputSize = (e:any) =>{

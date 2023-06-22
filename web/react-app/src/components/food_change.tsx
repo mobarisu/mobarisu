@@ -194,16 +194,52 @@ function FoodChange() {
     }
   }
   const nameValidation = (value: string): void => {
-    // console.log(value)
+    var name_error_none = document.getElementsByClassName("name_error_none")[0] as HTMLInputElement;
+    var name_error_length = document.getElementsByClassName("name_error_length")[0] as HTMLInputElement;
+    if(value.length !== 0){
+      name_error_none.style.display = "none";
+    }else{
+      name_error_none.style.display = "block";
+    }
+    if(value.length < 129){
+      name_error_length.style.display = "none";
+    }else{
+      name_error_length.style.display = "block";
+    }
   }
   const numberValidation = (value: number): void => {
-    // console.log(value)
+    var price_error_none = document.getElementsByClassName("price_error_none")[0] as HTMLInputElement;
+    var price_error_type = document.getElementsByClassName("price_error_type")[0] as HTMLInputElement;
+    price_error_none.style.display = "none";
+    price_error_type.style.display = "none";
+    
+    var priceCK=[];
+    priceCK=String(value).split('');
+    if(priceCK[0] === "0"){
+      price_error_none.style.display = "block";
+    }else{
+      price_error_none.style.display = "none";
+    }
+    var ck;
+    for(var i=0; i<priceCK.length; i++){
+      ck = Number(priceCK[i]);
+      if(!(ck === 0 || ck === 1 || ck === 2 || ck === 3 || ck === 4 || ck === 5 || ck === 6 || ck === 7 || ck === 8 || ck === 9)){
+        console.log('ng');
+        price_error_type.style.display = "block";
+        break;
+      }
+    }
   }
   const selectValidation = (value: string): void => {
     // console.log(value)
   } 
   const textareaValidation = (value: string): void => {
-    // console.log(value)
+    var textarea_error_length = document.getElementsByClassName("textarea_error_length")[0] as HTMLInputElement;
+    if(value.length < 256){
+      textarea_error_length.style.display = "none";
+    }else{
+      textarea_error_length.style.display = "block";
+    }
   } 
 
   const inputSize = (e:any) =>{
@@ -399,7 +435,59 @@ function FoodChange() {
   const clickSubmit = () => {
     // 一番下の登録ボタン
     console.log(values);
-    // window.location.href = "/store_food_list";// 画面遷移
+    var name_error_none = document.getElementsByClassName("name_error_none")[0] as HTMLInputElement;
+    var name_error_length = document.getElementsByClassName("name_error_length")[0] as HTMLInputElement;
+    var name_ck = length_area_check(values["name"].length,1,128);
+    var price_error_none = document.getElementsByClassName("price_error_none")[0] as HTMLInputElement;
+    var price_error_type = document.getElementsByClassName("price_error_type")[0] as HTMLInputElement;
+    var textarea_error_length = document.getElementsByClassName("textarea_error_length")[0] as HTMLInputElement;
+
+    // エラーメッセージ非表示
+    if(name_ck == true){
+      name_error_none.style.display = "none";
+      name_error_length.style.display = "none";
+    }
+    if(values["number"].length >= 0 && (typeof Number(values["number"])) == "number"){
+      price_error_none.style.display = "none";
+      price_error_type.style.display = "none";
+    }
+    if(values["textarea"].length < 256){
+      textarea_error_length.style.display = "none";
+    }
+
+    if(name_ck == true && values["number"].length >= 0 && values["textarea"].length < 256){
+      console.log("ok");
+      // window.location.href = "/store_food_list";// 画面遷移
+    }
+
+    // エラーメッセージ表示
+    if(name_ck == "min"){
+      name_error_none.style.display = "block";
+      name_error_length.style.display = "block";
+    }
+    if(name_ck == "max"){
+      name_error_length.style.display = "block";
+    }
+    if(values["number"].length == 0){
+      price_error_none.style.display = "block";
+    }
+    if((typeof Number(values["number"])) != "number"){
+      price_error_type.style.display = "block";
+    }
+    if(values["textarea"].length >= 256){
+      textarea_error_length.style.display = "block";
+    }
+  }
+  const length_area_check = (e:number,min:number,max:number) =>{
+    if(e >= min && e <= max){
+      return true;
+    }
+    if(e < min){
+      return "min";
+    }
+    if(e > max){
+      return "max";
+    }
   }
   return (
     <div>
@@ -408,11 +496,19 @@ function FoodChange() {
         <h1 className='store_h1_size'>商品変更</h1>
         <div className='food_label'>
           <label htmlFor="name" className='lab_name'>商品名</label><br/>
-        <input type="text" id="name" className="data_in" onChange={handleChange('name')} value={values.name} required/>
+          <input type="text" id="name" className="data_in" onChange={handleChange('name')} value={values.name} required/>
+          <div className='input_error'>
+            <p className='name_error_none'>※必須入力です。</p>
+            <p className='name_error_length'>※文字数が正しくありません。</p>
+          </div>
         </div>
         <div className='food_label'>
           <label htmlFor="number" className='lab_name'>値段</label><br/>
           <input type="number" id="number" className="data_in" onChange={handleChange('number')} value={values.number} required/>
+          <div className='input_error'>
+            <p className='price_error_none'>※必須入力です。</p>
+            <p className='price_error_type'>※数値のみ入力してください。</p>
+          </div>
         </div>
         <div className='food_label'>
           <label htmlFor='kubun' className='lab_name'>区分</label><br/>
@@ -425,6 +521,9 @@ function FoodChange() {
         <div className='food_label'>
           <label htmlFor="foodExplanation" className='lab_name'>説明</label><br/>
           <textarea id="foodExplanation" onChange={handleChange('textarea')} value={values.textarea}/>
+          <div className='input_error'>
+            <p className='textarea_error_length'>※文字数が正しくありません。</p>
+          </div>
         </div>
         <div className='food_label'>
           <label htmlFor="allergy" className='lab_name open'>アレルギー項目</label><br/>
