@@ -19,6 +19,7 @@ const connection = require('./connection');
             // 商品
             const query2 = `SELECT
                                 product_name,
+                                product_path,
                                 product_introduction,
                                 product_price
                             FROM
@@ -29,7 +30,8 @@ const connection = require('./connection');
             // アレルギー
             const query3 = `SELECT
                                 allergies.allergy_id,
-                                allergies.ingredient
+                                allergies.ingredient,
+                                allergies.allergy_path
                             FROM
                                 products_allergies
                             JOIN
