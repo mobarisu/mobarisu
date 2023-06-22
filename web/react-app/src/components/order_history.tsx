@@ -189,7 +189,7 @@ const OrderHistory: React.FC = () => {
         <title>注文履歴</title>
       </head>
       <StoreHeader />
-      <body>
+      {/* <body> */}
         <div className="history_date">
           <select className="history_select" value={selectedDate} onChange={handleDateChange}>
             <option value="">日付を選択</option>
@@ -237,8 +237,8 @@ const OrderHistory: React.FC = () => {
             ))
           )}
         </div>
-      </body>
-      <StoreFooter />
+        <StoreFooter />
+      {/* </body> */}
     </>
   );
 };
