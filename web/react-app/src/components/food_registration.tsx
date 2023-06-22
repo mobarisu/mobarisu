@@ -403,6 +403,7 @@ function FoodRegistration() {
     <div>
       <StoreHeader /> 
       <main>
+        <h1 className='store_h1_size'>商品登録</h1>
         <div className='food_label'>
           <label htmlFor="name" className='lab_name'>商品名</label><br/>
           <input type="text" id="name" className="data_in" onChange={handleChange('name')} value={values.name} required/>

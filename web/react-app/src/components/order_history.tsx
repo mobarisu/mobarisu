@@ -191,6 +191,7 @@ const OrderHistory: React.FC = () => {
       <StoreHeader />
       <body>
         <div className="history_date">
+          <h1 className='store_h1_size'>注文履歴</h1>
           <select className="history_select" value={selectedDate} onChange={handleDateChange}>
             <option value="">日付を選択</option>
             {Array.from({ length: 30 }, (_, index) => {
