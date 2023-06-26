@@ -9,9 +9,10 @@ class Authentication {
     async storeLogin() {
         const QUERY = `SELECT * FROM stores WHERE mail_address = '${this.mail}' AND password = '${this.password}'`;
         try {
+            let isSuccess = false;
             const result = await this.executeQuery(QUERY);
-            console.log(result);
-            return result;
+            result.length > 0 ? isSuccess = true : isSuccess = false;
+            return isSuccess;
         } catch (error) {
             throw error;
         }

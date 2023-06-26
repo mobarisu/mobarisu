@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const food_list = require('./food_list');
 const QRCodeGenerator = require('./QRCodeGenerator');
-const Authentication = require('./Authentication');
+const Authentication = require('./authentication');
 
 // expressアプリを生成する
 const app = express();
@@ -32,8 +32,7 @@ app.post('/qrcode', (req, res) => {
 app.post('/authentication', (req, res) => {
     const auth = new Authentication(req.body.mail, req.body.password);
     auth.storeLogin().then((results) => {
-      console.log(results);
-      res.send(JSON.stringify({'result':'success'}));
+      res.send(JSON.stringify({'result':results}));
     });
 
     // console.log(auth.storeLogin());
