@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './food_list.css';
 import storeimage from "./image/store-image.jpg"
-import logo from "./image/logo.png"
-import cart from "./image/cart.jpeg"
 import food from "./image/food.jpg"
+import {FoodHeader,FoodFooter} from './header_footer';
 
-const App: React.FC = () => {
+
+const FoodList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('メイン');
 
   const foodCategoryClick = (category: string) => {
@@ -78,17 +78,18 @@ const App: React.FC = () => {
     <head>
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>null</title>
+        <title>商品一覧</title>
     </head>
-    <body>
-        <header className='header_ac_on'>
+    {/* <body> */}
+        {/* <header className='header_ac_on'>
             <div className="header-logo">
                     <a href="./"><img src={logo} className="logo" alt=''/></a>
             </div>
             <div className="header-cart">
                 <a href="./food_cart"><img src={cart} className="cart" alt='カート'/></a>
             </div>
-        </header>
+        </header> */}
+        <FoodHeader />
         
         <div className="store-image">
             <img src={storeimage} className="store-image" alt=''/>
@@ -141,7 +142,7 @@ const App: React.FC = () => {
                 </ul>
             </div>
         </div>
-        <footer>
+        {/* <footer>
             <div className="footer-nav">
                 <ul className='footer-nav-item'>
                     <li><a href="food_cart">カート</a></li>
@@ -151,10 +152,11 @@ const App: React.FC = () => {
                 </ul>
             </div>
             <p className="copyright">&copy&#058;2023 mobarisu Corp.</p>
-        </footer>
-    </body>
+        </footer> */}
+        <FoodFooter />
+    {/* </body> */}
     </>
   );
 };
  
-export default App;
+export default FoodList;

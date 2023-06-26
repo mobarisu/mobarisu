@@ -12,6 +12,7 @@ create table stores(
     mail_address varchar(255) NOT NULL,
     phone_number long NOT NULL,
     representative_name varchar(128) NOT NULL,
+    store_path varchar(255) NOT NULL,
     password varchar(255) NOT NULL
 );
 
@@ -34,6 +35,7 @@ create table products(
     product_name varchar(255) NOT NULL,
     product_introduction varchar(255),
     product_price int NOT NULL,
+    product_path varchar(255) NOT NULL,
     on_sale boolean NOT NULL,
     FOREIGN KEY (store_id) REFERENCES stores(store_id),
     FOREIGN KEY (category_id) REFERENCES products_categories(category_id)
@@ -49,7 +51,8 @@ create table products_options(
 
 create table allergies(
     allergy_id int PRIMARY KEY AUTO_INCREMENT,
-    ingredient varchar(64) NOT NULL
+    ingredient varchar(64) NOT NULL,
+    allergy_path varchar(255) NOT NULL
 );
 
 create table products_allergies(
@@ -89,36 +92,36 @@ values
 ('ドリンク');
 
 insert into allergies
-(ingredient)
+(ingredient,allergy_path)
 values
-('卵'),
-('乳'),
-('小麦'),
-('えび'),
-('かに'),
-('そば'),
-('落花生'),
-('アーモンド'),
-('あわび'),
-('いか'),
-('いくら'),
-('オレンジ'),
-('カシューナッツ'),
-('キウイフルーツ'),
-('牛肉'),
-('くるみ'),
-('ごま'),
-('さけ'),
-('さば'),
-('大豆'),
-('鶏肉'),
-('バナナ'),
-('豚肉'),
-('まつたけ'),
-('もも'),
-('やまいも'),
-('りんご'),
-('ゼラチン');
+('卵','/allergie/egg.svg'),
+('乳','/allergie/milk.svg'),
+('小麦','/allergie/wheat.svg'),
+('えび','/allergie/shrimp.svg'),
+('かに','/allergie/crab.svg'),
+('そば','/allergie/soba.svg'),
+('落花生','/allergie/peanut.svg'),
+('アーモンド','/allergie/almond.svg'),
+('あわび','/allergie/abalone.svg'),
+('いか','/allergie/squid.svg'),
+('いくら','/allergie/salmon_roe.svg'),
+('オレンジ','/allergie/orange.svg'),
+('カシューナッツ','/allergie/cashew_nuts.svg'),
+('キウイフルーツ','/allergie/kiwi_fruit.svg'),
+('牛肉','/allergie/beef.svg'),
+('くるみ','/allergie/walnut.svg'),
+('ごま','/allergie/sesame.svg'),
+('さけ','/allergie/salmon.svg'),
+('さば','/allergie/salmon.svg'),
+('大豆','/allergie/soy.svg'),
+('鶏肉','/allergie/chicken.svg'),
+('バナナ','/allergie/banana.svg'),
+('豚肉','/allergie/pork.svg'),
+('まつたけ','/allergie/matsutake.svg'),
+('もも','/allergie/peach.svg'),
+('やまいも','/allergie/yam.svg'),
+('りんご','/allergie/apple.svg'),
+('ゼラチン','/allergie/gelatine.svg');
 
 insert into options
 (option_name,option_price)
@@ -126,29 +129,29 @@ values
 ('サイズなし',0);
 
 insert into stores
-(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+(store_name,store_introduction,mail_address,phone_number,representative_name,store_path,password)
 values ('マクドナルド','世界的なファストフードチェーンで、美味しいハンバーガーやポテトなど幅広いメニューを提供。快適な空間で楽しい食事体験をお届けします。',
-'mac@gmail.com',00012340123,'ドナルドマクドナルド','Pass_1234_qwaszx');
+'mac@gmail.com',00012340123,'ドナルドマクドナルド','/store/1.jpg','Pass_1234_qwaszx');
 
 insert into stores
-(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+(store_name,store_introduction,mail_address,phone_number,representative_name,store_path,password)
 values ('モスバーガー','新鮮な素材で作る美味しいバーガーやサイドメニューを提供。心地よい空間でお楽しみいただけます。ご家族や友人との食事に最適です。',
-'mos@gmail.com',02323450123,'モス','Qwerty_1234_pass');
+'mos@gmail.com',02323450123,'モス','/store/2.jpg','Qwerty_1234_pass');
 
 insert into stores
-(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+(store_name,store_introduction,mail_address,phone_number,representative_name,store_path,password)
 values ('すき家','新鮮な食材を使った美味しいすき焼きや丼物をリーズナブルに提供。心地よい雰囲気でおくつろぎください。ご家族や友人との食事に最適です。',
-'sukiya@gmail.com',02342345123,'スキヤ','Qwaszx_1234_pass');
+'sukiya@gmail.com',02342345123,'スキヤ','/store/3.jpg','Qwaszx_1234_pass');
 
 insert into stores
-(store_name,store_introduction,mail_address,phone_number,representative_name,password)
+(store_name,store_introduction,mail_address,phone_number,representative_name,store_path,password)
 values ('松屋','美味しい牛丼や定食をリーズナブルに提供。忙しい日常に手軽でヘルシーな食事をお届けします。心地よい雰囲気でおくつろぎください。ご来店をお待ちしています！',
-'matuya@gmail.com',09871234098,'マツヤ','QWerasd_10293_pass');
+'matuya@gmail.com',09871234098,'マツヤ','/store/4.jpg','QWerasd_10293_pass');
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (1,1,'炙り醤油風ダブル肉厚ビーフ','2枚重ねた厚みのある100%ビーフのおいしさを、香ばしい炙り醤油風のソースが引き立てる、思わずやみつきになる一品です。',
-550,true);
+550,'/product/1.jpg',true);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -168,9 +171,9 @@ values
 (1,1);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (1,1,'炙り醤油風ベーコントマト肉厚ビーフ','厚みのある100%ビーフとふんだんな野菜に、香ばしい炙り醤油風のソースが決め手の、肉と野菜のバランスが絶妙な一品です。',
-540,true);
+540,'/product/2.jpg',true);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -190,9 +193,9 @@ values
 (2,1);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (1,1,'チキンフィレオ','ボリュームたっぷりのムネ肉を使ったチキンパティで、食べ応えもばっちり。オーロラソースとの相性も抜群のサンドイッチです。',
-380,true);
+380,'/product/3.jpg',true);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -212,9 +215,9 @@ values
 (3,1);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (1,1,'ゆず香るおろしチキンタツタ','国産ゆずなどの柑橘でさっぱり仕上げた角切り大根入りのおろしと、たまり醤油マヨソースが相性抜群のチキンタツタが新登場！',
-460,false);
+460,'/product/4.jpg',false);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -234,9 +237,9 @@ values
 (4,1);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (1,2,'マックフライポテト','外はカリッとゴールデンブラウン。中はホクホクとベイクドポテトのような食感。こだわりぬいた、マクドナルドのベストセラー。',
-330,true);
+330,'/product/5.jpg',true);
 
 insert into options
 (option_name,option_price)
@@ -259,9 +262,9 @@ values
 (5,20);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (1,2,'サイドサラダ','レタス、紫キャベツ、赤と黄色のパプリカを組み合わせた彩り豊かなサラダです。ドレッシングはお好みに合わせてお選びください。',
-300,true);
+300,'/product/6.jpg',true);
 
 insert into products_options
 (product_id,option_id)
@@ -269,9 +272,9 @@ values
 (6,1);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (1,2,'えだまめコーン','栄養バランスを考慮してスイートコーンにえだまめをプラスした、おいしく栄養を摂っていただけるメニューです。',
-250,true);
+250,'/product/7.jpg',true);
 
 insert into products_options
 (product_id,option_id)
@@ -284,9 +287,9 @@ values
 (7,20);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (2,1,'ダブルとびきりチーズ ～北海道産ゴーダチーズ使用～','国産肉（牛・豚合挽き肉）を100％使用したハンバーグに、国産丸大豆醤油を使用したコクと深みのある“和風ソース”をかけました。',
-800,true);
+800,'/product/8.jpg',true);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -303,9 +306,9 @@ values
 (8,27);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (2,1,'グリーンバーガー＜テリヤキ＞ GREEN BURGER TERIYAKI','やさしい甘みのベジタブルバンズと、大豆由来の原料を使用したパティを合わせたバーガーに、別添えのグリーンテリマヨソースをかけながらお召しあがりください。',
-590,true);
+590,'/product/9.jpg',true);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -326,9 +329,9 @@ values
 (9,1);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (2,1,'とびきりトマト＆レタス','国産肉（牛・豚合挽き肉）を100％使用したハンバーグに、モスオリジナルの“和風ソース”をかけました。和風ソースが引き立てた、モスのこだわりがたっぷりつまった一品です。',
-550,true);
+550,'/product/10.jpg',true);
 
 insert into products_allergies
 (product_id,allergy_id)
@@ -350,9 +353,9 @@ values
 (10,1);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (2,3,'アイスコーヒー','甘くなめらかな口当たりが特長で、まろやかな苦みとすっきりとした味わいのアイスコーヒーです。',
-320,true);
+320,'/product/12.jpg',true);
 
 insert into options
 (option_name,option_price)
@@ -369,9 +372,9 @@ values
 (11,7);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (2,3,'ペプシコーラ','炭酸の刺激と独特な味わいが、のどの乾きを癒してくれます。',
-270,true);
+270,'/product/2.jpg',true);
 
 insert into options
 (option_name,option_price)
@@ -388,9 +391,9 @@ values
 (12,10);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (3,1,'トマトチーズ牛丼','トマトソースと濃厚なチーズが調和した洋風な味わいの商品です。マイルドなチーズと絡めてお召し上がりください。',
-580,true);
+580,'/product/13.jpg',false);
 
 insert into options
 (option_name,option_price)
@@ -443,9 +446,9 @@ values
 (13,28);
 
 insert into products
-(store_id,category_id,product_name,product_introduction,product_price,on_sale)
+(store_id,category_id,product_name,product_introduction,product_price,product_path,on_sale)
 values (3,1,'とろ〜り3種のチーズ牛丼','ミックスチーズと、とろ〜りとろけるチーズソースが牛肉とよく絡み、一口食べればチーズのまろやかさが口いっぱいに広がる定番の商品の一つです。',
-580,true);
+580,'/product/14.jpg',true);
 
 insert into options
 (option_name,option_price)

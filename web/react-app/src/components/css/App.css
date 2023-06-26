@@ -45,6 +45,16 @@ input[type="submit"]:hover{
   box-shadow: none;
 }
 
+.input_error{
+  margin:0 10%;
+}
+.input_error >p{
+  display: none;
+  color: #ff0000;
+  font-size: 5px;
+  margin:0;
+}
+
 
 
 .food_label{
@@ -276,4 +286,5 @@ select{
   /* 一番下のボタンのdiv */
   text-align: center;
 }
+
 

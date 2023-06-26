@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './food_delivery.css';
+import {StoreHeader} from './header_footer';
 
 const FoodDelivery: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +11,6 @@ const FoodDelivery: React.FC = () => {
       id: 1,
       shopNumber: 'AC',
       order: 53,
-      orderName: '田中クレジット真司',
       deliveryMenu: [
         {
           menuName: 'ぷりぷり赤エビの天ぷら～オニオンソースを添えて～',
@@ -39,7 +39,6 @@ const FoodDelivery: React.FC = () => {
       id: 2,
       shopNumber: 'AC',
       order: 58,
-      orderName: '佐藤',
       deliveryMenu: [
         {
           menuName: 'チャーハン',
@@ -140,6 +139,7 @@ const FoodDelivery: React.FC = () => {
 
   return (
     <>
+    <StoreHeader />
       <div className="delivery">
         {orderDeliveryData.map((item, index) => (
           <div className="delivery_nav" key={index}>
@@ -148,7 +148,6 @@ const FoodDelivery: React.FC = () => {
               onClick={() => handleH2Click(index)}
             >
               <h2>{item.shopNumber + item.order}</h2>
-              <h2 className="delivery_name">{item.orderName}</h2>
             </div>
             {activeIndices.includes(index) && (
               <div className="delivery_div active">

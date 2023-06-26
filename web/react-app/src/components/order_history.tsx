@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './order_history.css';
+import {StoreHeader,StoreFooter} from './header_footer';
 
 const OrderHistory: React.FC = () => {
   const navigate = useNavigate();
@@ -15,7 +16,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/05',
       shopNumber: 'AC',
       order: 53,
-      orderName: '田中クレジット真司',
       historyMenu: [
         {
           menuName: 'ぷりぷり赤エビの天ぷら～オニオンソースを添えて～',
@@ -44,7 +44,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/05',
       shopNumber: 'AC',
       order: 56,
-      orderName: '司',
       historyMenu: [
         {
           menuName: 'ソース',
@@ -73,7 +72,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/06',
       shopNumber: 'AC',
       order: 58,
-      orderName: '佐藤',
       historyMenu: [
         {
           menuName: 'チャーハン',
@@ -102,7 +100,6 @@ const OrderHistory: React.FC = () => {
       selectedDate: '2023/06/05',
       shopNumber: 'AC',
       order: 67,
-      orderName: '司',
       historyMenu: [
         {
           menuName: 'ソース',
@@ -187,9 +184,10 @@ const OrderHistory: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>注文履歴</title>
       </head>
-      <header>注文履歴</header>
-      <body>
+      <StoreHeader />
+      {/* <body> */}
         <div className="history_date">
+          <h1 className='store_h1_size'>注文履歴</h1>
           <select className="history_select" value={selectedDate} onChange={handleDateChange}>
             <option value="">日付を選択</option>
             {Array.from({ length: 30 }, (_, index) => {
@@ -221,7 +219,6 @@ const OrderHistory: React.FC = () => {
                   onClick={() => handleH2Click(index)}
                 >
                   <h2>{orderData.shopNumber + orderData.order}</h2>
-                  <h2 className="history_name">{orderData.orderName}</h2>
                 </div>
                 {activeIndexes.includes(index) && (
                   <div className="history_div active">
@@ -236,7 +233,8 @@ const OrderHistory: React.FC = () => {
             ))
           )}
         </div>
-      </body>
+        <StoreFooter />
+      {/* </body> */}
     </>
   );
 };
