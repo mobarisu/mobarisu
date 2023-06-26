@@ -7,7 +7,7 @@ class Authentication {
     }
 
     async storeLogin() {
-        const QUERY = `SELECT * FROM stores WHERE mail-address = '${this.mail}' AND password = '${this.password}'`;
+        const QUERY = `SELECT * FROM stores WHERE mail_address = '${this.mail}' AND password = '${this.password}'`;
         try {
             const result = await this.executeQuery(QUERY);
             console.log(result);
