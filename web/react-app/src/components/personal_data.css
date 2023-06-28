@@ -85,3 +85,14 @@
     color: #fff;
     padding : 10px 10px; 
 }
+.line_login{
+    margin-top: 15%;
+    text-align: center;
+}
+.line_img{
+    width: 200px;
+    height: auto;
+}
+.line_p{
+    color: #f00;
+}

@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './personal_data.css';
 import {FoodHeader,FoodFooter} from './header_footer';
+import LINE from "./image/btn_line_login.png";
 
 
 const PersonalData: React.FC = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
-  
+
 
 
   return (
@@ -20,11 +21,22 @@ const PersonalData: React.FC = () => {
       </head>
       <FoodHeader />
       <body>
+        <div className="line_login">
+          <div className="line_p">
+            <p>※LINEでログインをしないと注文できません。</p>
+          </div>
+            <div className="line">
+            <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1661475550&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fpersonal_data&state=PW3(kku/yM~TbXm&scope=profile%20openid&disable_auto_login=true&disable_ios_auto_login=true&bot_prompt=aggressive">
+      <img src={LINE} alt="友だち追加" height="36" className='line_img' />
+    </a>
+            </div>
+            </div>
+
             <div className="kiyaku">
               <label className="personal_name">利用規約</label>
             </div>
             <div className="personal_box">
-          <p className="personal_terms">
+            <p className="personal_terms">
             モバリス利用規約（以下「本規約」といいます。）は、CT4A2班（以下「2班」といいます。）が提供するモバイルオーダーサービス（以下「本サービス」といいます。）の利用に関する条件を、本サービスを利用するお客様（以下「利用者」といいます。）と、2班の間で定めるものです。
             <br />
             第１条　定義
