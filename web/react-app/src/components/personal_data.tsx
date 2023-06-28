@@ -8,7 +8,7 @@ import LINE from "./image/btn_line_login.png";
 const PersonalData: React.FC = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
-  
+
 
 
   return (
@@ -23,10 +23,10 @@ const PersonalData: React.FC = () => {
       <body>
         <div className="line_login">
           <div className="line_p">
-            <p>※友だち追加をしないと注文できません。</p>
+            <p>※LINEでログインをしないと注文できません。</p>
           </div>
             <div className="line">
-            <a href="https://lin.ee/lefIMav">
+            <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1661475550&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fpersonal_data&state=PW3(kku/yM~TbXm&scope=profile%20openid&disable_auto_login=true&disable_ios_auto_login=true&bot_prompt=aggressive">
       <img src={LINE} alt="友だち追加" height="36" className='line_img' />
     </a>
             </div>
