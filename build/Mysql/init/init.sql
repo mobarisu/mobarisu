@@ -3,7 +3,7 @@ USE database;
 create table cash(
     time_cash time,
     mail_address varchar(255),
-    password varchar(255) NOT NULL,
+    password varchar(255) NOT NULL
     PRIMARY KEY(time_cash,mail_address)
 );
 
