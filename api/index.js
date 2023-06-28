@@ -7,6 +7,8 @@ const QRCodeGenerator = require('./QRCodeGenerator');
 const Authentication = require('./authentication');
 const food_details = require('./food_details');
 const mail_duplicate = require('./mail_duplicate');
+const mail_cash = require('./mail_cash');
+
 
 // expressアプリを生成する
 const app = express();
@@ -48,5 +50,11 @@ app.post('/mail_duplicate', (req, res) => {
   duplicate.duplicate().then((results) => res.json(results));
 });
 
+app.post('/mail_cash', (req, res) => {
+  const cash = new mail_cash(req.body.mail, req.body.password);
+  cash.cash().then((results) => {
+    res.send(JSON.stringify({'result':results}));
+  });
+});
 // ポート3000でサーバを立てる
 app.listen(3000, () => console.log('Listening on port 3000'));
