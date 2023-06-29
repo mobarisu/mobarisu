@@ -1,8 +1,10 @@
 USE database;
 
 create table cash(
-    mail_address varchar(255) PRIMARY KEY,
-    password varchar(255) NOT NULL
+    time_cash time,
+    mail_address varchar(255),
+    password varchar(255) NOT NULL,
+    PRIMARY KEY(time_cash,mail_address)
 );
 
 create table stores(
@@ -36,7 +38,7 @@ create table products(
     product_introduction varchar(255),
     product_price int NOT NULL,
     product_path varchar(255) NOT NULL,
-    on_sale boolean NOT NULL,
+    on_sale boolean default true NOT NULL ,
     FOREIGN KEY (store_id) REFERENCES stores(store_id),
     FOREIGN KEY (category_id) REFERENCES products_categories(category_id)
 );
