@@ -4,6 +4,23 @@ import logo from './image/logo.png';
 import cart from "./image/cart.jpeg";
 import './hanbarger.css';
 
+
+export const FoodHeader: React.FC = () =>{
+  
+  const navigate = useNavigate();
+    return (
+      //客側header
+      <header className='header_ac_on'>
+      <div className="header-logo">
+          <a onClick={() => navigate("/food_list")}><img src={logo} className="logo" alt=''/></a>
+      </div>
+      <div className="header-cart">
+          <a onClick={() => navigate("/food_cart")}><img src={cart} className="cart" alt='カート'/></a>
+      </div>
+  </header>
+    );
+};
+
 export const StoreHeader: React.FC = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
@@ -88,21 +105,6 @@ function Modal({ closeModal, handleConfirmLogout }: ModalProps) {
 
 
 
-
-export const FoodHeader: React.FC = () =>{
-  const navigate = useNavigate();
-    return (
-      //客側header
-      <header className='header_ac_on'>
-      <div className="header-logo">
-          <a onClick={() => navigate("/food_list")}><img src={logo} className="logo" alt=''/></a>
-      </div>
-      <div className="header-cart">
-          <a onClick={() => navigate("/food_cart")}><img src={cart} className="cart" alt='カート'/></a>
-      </div>
-  </header>
-    );
-};
 
 export const StoreFooter: React.FC = () =>{
   const navigate = useNavigate();
