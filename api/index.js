@@ -8,6 +8,7 @@ const Authentication = require('./authentication');
 const food_details = require('./food_details');
 const mail_duplicate = require('./mail_duplicate');
 const mail_cash = require('./mail_cash');
+const update_password = require('./update_password');
 
 
 // expressアプリを生成する
@@ -53,6 +54,13 @@ app.post('/mail_duplicate', (req, res) => {
 app.post('/mail_cash', (req, res) => {
   const cash = new mail_cash(req.body.mail, req.body.password);
   cash.cash().then((results) => {
+    res.send(JSON.stringify({'result':results}));
+  });
+});
+
+app.post('/update_password', (req, res) => {
+  const update = new update_password(req.body.store_id, req.body.password);
+  update.updatePassword().then((results) => {
     res.send(JSON.stringify({'result':results}));
   });
 });
