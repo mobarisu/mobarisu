@@ -9,45 +9,59 @@ interface CartItem {
   p: number;
 }
 
+const saveCartToLocalStorage = (cartItems: CartItem[]) => {
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+};
+
+const getCartFromLocalStorage = (): CartItem[] => {
+  const cartItemsString = localStorage.getItem('cartItems');
+  if (cartItemsString) {
+    return JSON.parse(cartItemsString);
+  }
+  return [];
+};
+
 const FoodCart: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(getCartFromLocalStorage());
   const [detailsFoodName, setDetailsFoodName] = useState<string>('');
-
 
   useEffect(() => {
     const data = new URLSearchParams(location.search);
-
+  
     const foodName = data.get('ils_name');
     setDetailsFoodName(foodName || '');
-
+  
     const selectedSize = data.get('size');
     const countup = JSON.parse(data.get('count') || '[{"count": 0}]');
-    const maney = parseInt(data.get('maney') || '0');  
-
-    const updatedItems = cartItems.map(item => {
+    const maney = parseInt(data.get('maney') || '0');
+  
+    let updatedItems = cartItems.map(item => {
       if (item.id === cartItems.length + 1) {
         return { ...item, count: countup.length > 0 ? countup[0].count : 0 };
       }
       return item;
     });
 
+if (updatedItems.every(item => item.id !== cartItems.length + 1)) {
+    updatedItems.push({
+      id: cartItems.length + 1,
+      size: selectedSize || '',
+      count: countup.length > 0 ? countup[0].count : 0,
+      p: maney,
+    });
+  }
 
-  if (cartItems.length === 0) {
-    // カートが空の場合にのみ更新を行う
-    const updatedItems = [
-      {
-        id: 1,
-        size: selectedSize || '',
-        count: countup.length > 0 ? countup[0].count : 0,
-        p: maney,
-      },
-    ];
+  if (JSON.stringify(cartItems) !== JSON.stringify(updatedItems)) {
     setCartItems(updatedItems);
   }
 }, [location.search]);
+
+useEffect(() => {
+  saveCartToLocalStorage(cartItems);
+}, [cartItems, saveCartToLocalStorage]);
 
   const increment = (id: number) => {
     const updatedItems = cartItems.map(item => {
@@ -81,13 +95,15 @@ const FoodCart: React.FC = () => {
   return (
     <div className="food_furu">
       <div className="hurucart">
-        <div className='fd_ct'>
+        <div className="fd_ct">
           <span className="back_fd" onClick={() => navigate(-1)}></span>
         </div>
-        <h1 className='ct_moji'>カート</h1>
-        <button className="btn_cart" onClick={() => navigate("/food_list")}>買い物を続ける</button>
+        <h1 className="ct_moji">カート</h1>
+        <button className="btn_cart" onClick={() => navigate("/food_list")}>
+          買い物を続ける
+        </button>
       </div>
-      {detailsFoodName && ( // detailsFoodNameが空でない場合にのみ表示
+      {detailsFoodName && (
         <div className="scl">
           {cartItems.map(item => (
             <div className="top_line" key={item.id}>

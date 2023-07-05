@@ -1,25 +1,42 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import logo from './image/logo.png';
 import cart from "./image/cart.jpeg";
 import './hanbarger.css';
+import FoodList from '../components/food_list';
+import FoodDetails from '../components/food_details';
+// import FoodCart from '../components/food_cart';
 
-
-export const FoodHeader: React.FC = () =>{
-  
+export const FoodHeader: React.FC = () => {
   const navigate = useNavigate();
-    return (
-      //客側header
-      <header className='header_ac_on'>
+
+  return (
+    //客側header
+    <header className='header_ac_on'>
       <div className="header-logo">
-          <a onClick={() => navigate("/food_list")}><img src={logo} className="logo" alt=''/></a>
+        <a onClick={() => navigate("/food_list")}><img src={logo} className="logo" alt='' /></a>
       </div>
       <div className="header-cart">
-          <a onClick={() => navigate("/food_cart")}><img src={cart} className="cart" alt='カート'/></a>
+        <a onClick={() => navigate("/food_cart")}><img src={cart} className="cart" alt='カート' /></a>
       </div>
-  </header>
-    );
+    </header>
+  );
 };
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <FoodHeader /> {/* 追加: ヘッダーコンポーネントを表示 */}
+      <Routes>
+        <Route path="/food_list" element={<FoodList />} />
+        <Route path="/food_details" element={<FoodDetails />} />
+        {/* <Route path="/food_cart" element={<FoodCart />} /> */}
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
 
 export const StoreHeader: React.FC = () => {
   const navigate = useNavigate();
