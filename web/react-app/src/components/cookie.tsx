@@ -1,4 +1,4 @@
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 
 function Cookie() {
     const [cookies, setCookie, removeCookie] = useCookies(['storeCookie']);//--init

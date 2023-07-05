@@ -69,7 +69,7 @@ const OrderDetails: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>注文完了</title>
       </head>
-      <body className="order_body">
+     
         <div className="order_head">
           <header className="order_header"><button className='order_button' onClick={() => navigate('/food_list')}>✕</button></header>
           <h1 className="order_h1">注文完了しました</h1>
@@ -84,9 +84,8 @@ const OrderDetails: React.FC = () => {
           <h2 className="order_title">注文内容</h2>
           <div className="order_border"></div>
           <div className="order_menu">{renderOrderMenu()}</div>
-          <div className="order_border"></div>
+          <div className="order_border order_border_bt"></div>
         </div>
-      </body>
       <footer className="order_footer">
         <div className="price">
           <p className="order_price_title">合計</p>
