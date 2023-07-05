@@ -57,5 +57,12 @@ app.post('/mail_cash', (req, res) => {
   });
 });
 
+app.post('/store_info', (req, res) => {
+  const auth = new store_info(req.body.store_id);
+  auth.storeLogin().then((results) => {
+    res.send(JSON.stringify({'result':results}));
+  });
+});
+
 // ポート3000でサーバを立てる
 app.listen(3000, () => console.log('Listening on port 3000'));
