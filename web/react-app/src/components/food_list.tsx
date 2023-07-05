@@ -5,6 +5,8 @@ import food from "./image/food.jpg"
 import {FoodHeader,FoodFooter} from './header_footer';
 
 
+// {"url":'https://localhost'}
+
 const FoodList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('メイン');
 
