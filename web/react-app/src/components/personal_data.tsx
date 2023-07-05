@@ -4,13 +4,32 @@ import './personal_data.css';
 import { FoodHeader, FoodFooter } from './header_footer';
 import LINE from "./image/btn_line_login.png";
 
-
 const PersonalData: React.FC = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
 
-
-
+  var btn_disa:Array<boolean>=[true];//確認画面へボタンのdisabledのtrue,falseを保持する
+  window.onload = function(){
+    // ページ読み込み時に実行したい処理
+    var submit_btn = document.getElementById("submit-btn") as HTMLInputElement;
+    submit_btn.disabled = btn_disa[0];//最初は初期値のtrueを入れて、クリック不可にする
+  }
+  const ck_Click = ()=>{
+    var ckbox = document.getElementById("agree") as HTMLInputElement;
+    var ck = ckbox.checked;
+    var submit_btn = document.getElementById("submit-btn") as HTMLInputElement;
+    if(ck === true){
+      btn_disa[0] = false;
+      submit_btn.disabled = btn_disa[0];
+    }else{
+      btn_disa[0] = true;
+      submit_btn.disabled = btn_disa[0];
+    }
+  };
+  const btn_click = ()=>{
+    console.log("クリックされました。");
+  };
+  
   return (
     <>
       <FoodHeader />
@@ -195,11 +214,12 @@ const PersonalData: React.FC = () => {
         </div>
         <div className="personal_form">
           <div className="personal_check">
+            <input type="checkbox" id="agree" onClick={ck_Click}/>
             <label htmlFor="agree">利用規約に同意する</label>
           </div>
 
           <div className="btn_kk">
-            <button type="submit" className="btn_" id="submit-btn" disabled={!isChecked}>
+            <button type="submit" className="btn_" id="submit-btn" onClick={btn_click}>
               確認画面へ
             </button>
           </div>
