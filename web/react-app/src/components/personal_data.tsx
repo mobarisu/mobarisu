@@ -4,29 +4,41 @@ import './personal_data.css';
 import { FoodHeader, FoodFooter } from './header_footer';
 import LINE from "./image/btn_line_login.png";
 
-
 const PersonalData: React.FC = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
 
-
-
+  var btn_disa:Array<boolean>=[true];//確認画面へボタンのdisabledのtrue,falseを保持する
+  window.onload = function(){
+    // ページ読み込み時に実行したい処理
+    var submit_btn = document.getElementById("submit-btn") as HTMLInputElement;
+    submit_btn.disabled = btn_disa[0];//最初は初期値のtrueを入れて、クリック不可にする
+  }
+  const ck_Click = ()=>{
+    var ckbox = document.getElementById("agree") as HTMLInputElement;
+    var ck = ckbox.checked;
+    var submit_btn = document.getElementById("submit-btn") as HTMLInputElement;
+    if(ck === true){
+      btn_disa[0] = false;
+      submit_btn.disabled = btn_disa[0];
+    }else{
+      btn_disa[0] = true;
+      submit_btn.disabled = btn_disa[0];
+    }
+  };
+  const btn_click = ()=>{
+    console.log("クリックされました。");
+  };
+  
   return (
     <>
-      <head>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>個人情報入力画面</title>
-      </head>
       <FoodHeader />
-      <body>
         <div className="line_login">
           <div className="line_p">
             <p>※LINEでログインをしないと注文できません。</p>
           </div>
           <div className="line">
-            <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1661475550&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fpersonal_data&state=PW3(kku/yM~TbXm&bot_prompt=aggressive&scope=profile%20openid&disable_auto_login=true&disable_ios_auto_login=true">
+            <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1661475550&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fpersonal_data&state=PW3kuyMTbXm&bot_prompt=aggressive&scope=profile%20openid&disable_auto_login=true&disable_ios_auto_login=true">
               <img src={LINE} alt="友だち追加" height="36" className='line_img' />
             </a>
           </div>
@@ -202,17 +214,18 @@ const PersonalData: React.FC = () => {
         </div>
         <div className="personal_form">
           <div className="personal_check">
+            <input type="checkbox" id="agree" onClick={ck_Click}/>
             <label htmlFor="agree">利用規約に同意する</label>
           </div>
 
           <div className="btn_kk">
-            <button type="submit" className="btn_" id="submit-btn" disabled={!isChecked}>
+            <button type="submit" className="btn_" id="submit-btn" onClick={btn_click}>
               確認画面へ
             </button>
           </div>
         </div>
 
-      </body>
+
       <FoodFooter />
     </>
   );
