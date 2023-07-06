@@ -24,6 +24,7 @@ import FoodDelivery from './components/food_delivery';
 import OrderHistory from './components/order_history';
 import {FoodHeader,FoodFooter,StoreFooter, StoreHeader} from './components/header_footer';
 import Cookie from './components/cookie';
+import Test from './components/test';
 
 
 export const router = createBrowserRouter([
@@ -54,4 +55,6 @@ export const router = createBrowserRouter([
   { path: "/header_footer", element: <StoreFooter /> },
   { path: "/header_footer", element: <FoodFooter /> },
   { path: "/cookie", element: <Cookie /> },
+  { path: "/test", element: <Test /> },
+
 ]);
