@@ -455,6 +455,7 @@ function FoodRegistration() {
 
     if(name_ck == true && values["number"].length >= 0 && values["textarea"].length < 256){
       console.log("ok");
+      navigate("/store_food_list")
       // window.location.href = "/store_food_list";// 画面遷移
     }
 

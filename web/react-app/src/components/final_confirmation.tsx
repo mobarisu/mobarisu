@@ -68,7 +68,7 @@ const FinalConfirmation: React.FC = () => {
       </div>
 
       <div>
-        <button className='btn_personal' onClick={() => navigate("/order_details")}>購入手続きへ</button>
+        <button className='btn_personal' onClick={() => navigate("/order_details")}>購入</button>
       </div>
     </div>
     <FoodFooter />

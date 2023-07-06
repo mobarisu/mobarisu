@@ -28,6 +28,7 @@ const PersonalData: React.FC = () => {
   };
   const btn_click = ()=>{
     console.log("クリックされました。");
+    navigate("/final_confirmation");
   };
   
   return (

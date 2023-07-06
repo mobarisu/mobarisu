@@ -19,7 +19,7 @@ const StoreLogin: React.FC = () => {
     event.preventDefault();
 
     const storedEmail = "example@denpa.jp"; // 登録されているメールアドレス
-    const storedPassword = "password123"; // 登録されているパスワード
+    const storedPassword = "Password123@"; // 登録されているパスワード
 
     if (email === storedEmail && password === storedPassword) {
       navigate("/store_food_list"); // ログイン成功時の遷移先URL

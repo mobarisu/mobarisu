@@ -42,17 +42,20 @@
   border: solid 1px;
   margin: 0 10%;
 }
+.order_border_bt{
+  margin-bottom: 5%;
+}
 .price{
   display: flex;
   justify-content:space-between;
-  padding: 5% 10%;
-  margin-top: 10%;
+  padding: 0 5%;
 }
 .order_price_title{
   font-size: 30px;
 }
 .order_price{
   font-size: 32px;
+  padding-right: 5%;
 }
 .order_menu_price{
   display: flex;

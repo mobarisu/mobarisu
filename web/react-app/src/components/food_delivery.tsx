@@ -126,6 +126,7 @@ const FoodDelivery: React.FC = () => {
       const updatedData = [...orderDeliveryData];
       updatedData[index].showDeleteButton = true;
       setOrderDeliveryData(updatedData);
+
     } else {
       console.log('すべての商品が完成していません');
     }
