@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './personal_data.css';
 import { FoodHeader, FoodFooter } from './header_footer';
@@ -7,50 +7,56 @@ import LINE from "./image/btn_line_login.png";
 const PersonalData: React.FC = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
+  const [isLineAuthenticated, setIsLineAuthenticated] = useState(false);
 
-  var btn_disa:Array<boolean>=[true];//確認画面へボタンのdisabledのtrue,falseを保持する
-  window.onload = function(){
-    // ページ読み込み時に実行したい処理
-    var submit_btn = document.getElementById("submit-btn") as HTMLInputElement;
-    submit_btn.disabled = btn_disa[0];//最初は初期値のtrueを入れて、クリック不可にする
-  }
-  const ck_Click = ()=>{
+  useEffect(() => {
+    handleLineAuthentication();
+  }, []);
+
+  const ck_Click = () => {
     var ckbox = document.getElementById("agree") as HTMLInputElement;
     var ck = ckbox.checked;
-    var submit_btn = document.getElementById("submit-btn") as HTMLInputElement;
-    if(ck === true){
-      btn_disa[0] = false;
-      submit_btn.disabled = btn_disa[0];
-    }else{
-      btn_disa[0] = true;
-      submit_btn.disabled = btn_disa[0];
+    setIsChecked(ck);
+  };
+
+  const handleLineAuthentication = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+
+    if (code) {
+      setIsLineAuthenticated(true);
     }
   };
-  const btn_click = ()=>{
-    console.log("クリックされました。");
-    navigate("/final_confirmation");
+
+  const btn_click = () => {
+    if (isChecked && isLineAuthenticated) {
+      console.log("クリックされました。");
+      navigate("/final_confirmation");
+    } else {
+      console.log("チェックとLINE認証が必要です。");
+    }
   };
-  
+
   return (
     <>
       <FoodHeader />
-        <div className="line_login">
-          <div className="line_p">
-            <p>※LINEでログインをしないと注文できません。</p>
-          </div>
-          <div className="line">
-            <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1661475550&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fpersonal_data&state=PW3kuyMTbXm&bot_prompt=aggressive&scope=profile%20openid&disable_auto_login=true&disable_ios_auto_login=true">
-              <img src={LINE} alt="友だち追加" height="36" className='line_img' />
-            </a>
-          </div>
+      <div className="line_login">
+        <div className="line_p">
+          <p>※LINEでログインをしないと注文できません。</p>
         </div>
+        <div className="line">
+          <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1661475550&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fpersonal_data&state=PW3kuyMTbXm&bot_prompt=aggressive&scope=profile%20openid&disable_auto_login=true&disable_ios_auto_login=true">
+            <img src={LINE} alt="友だち追加" height="36" className="line_img" />
+          </a>
+        </div>
+      </div>
 
-        <div className="kiyaku">
-          <label className="personal_name">利用規約</label>
-        </div>
-        <div className="personal_box">
-          <p className="personal_terms">
-            モバリス利用規約（以下「本規約」といいます。）は、CT4A2班（以下「2班」といいます。）が提供するモバイルオーダーサービス（以下「本サービス」といいます。）の利用に関する条件を、本サービスを利用するお客様（以下「利用者」といいます。）と、2班の間で定めるものです。
+      <div className="kiyaku">
+        <label className="personal_name">利用規約</label>
+      </div>
+      <div className="personal_box">
+        <p className="personal_terms">
+        モバリス利用規約（以下「本規約」といいます。）は、CT4A2班（以下「2班」といいます。）が提供するモバイルオーダーサービス（以下「本サービス」といいます。）の利用に関する条件を、本サービスを利用するお客様（以下「利用者」といいます。）と、2班の間で定めるものです。
             <br />
             第１条　定義
             <br />
@@ -211,21 +217,20 @@ const PersonalData: React.FC = () => {
             2．本サービスに起因または関連する一切の紛争は､訴額に応じて、東京簡易裁判所または東京地方裁判所を第一審の専属的合意管轄裁判所とします｡
             <br />
             最終更新日：2023年04月27日
-          </p>
-        </div>
-        <div className="personal_form">
-          <div className="personal_check">
-            <input type="checkbox" id="agree" onClick={ck_Click}/>
-            <label htmlFor="agree">利用規約に同意する</label>
-          </div>
-
-          <div className="btn_kk">
-            <button type="submit" className="btn_" id="submit-btn" onClick={btn_click}>
-              確認画面へ
-            </button>
-          </div>
+        </p>
+      </div>
+      <div className="personal_form">
+        <div className="personal_check">
+          <input type="checkbox" id="agree" onClick={ck_Click} />
+          <label htmlFor="agree">利用規約に同意する</label>
         </div>
 
+        <div className="btn_kk">
+          <button type="submit" className="btn_" id="submit-btn" onClick={btn_click}>
+            確認画面へ
+          </button>
+        </div>
+      </div>
 
       <FoodFooter />
     </>
