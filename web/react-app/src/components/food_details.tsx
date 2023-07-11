@@ -144,6 +144,32 @@ const FoodDetails: React.FC = () => {
     navigate(`/food_list?${searchParams.toString()}`);
   };
 
+  const handleSubmit2 = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const searchParams = new URLSearchParams();
+    searchParams.set('size', selectedSize ? selectedSize : 'M');
+    searchParams.set('food_name', ils_name);
+    searchParams.set('price', price.toString());
+    searchParams.set('count', JSON.stringify(countup));
+
+    const cartItems = getCartFromLocalStorage();
+    const updatedCartItems = [
+      ...cartItems,
+      {
+        id: cartItems.length + 1,
+        size: selectedSize ? selectedSize : 'M',
+        count: countup[0].count,
+        p: maney,
+        foodName: ils_name,
+      },
+    ];
+
+    saveCartToLocalStorage(updatedCartItems);
+
+    navigate(`/food_cart?${searchParams.toString()}`);
+  };
+
   return (
     <>
       <head>
@@ -230,7 +256,7 @@ const FoodDetails: React.FC = () => {
               </button>
             </div>
             <div className="details_btn_full">
-              <button className="details_list btn_details" onClick={handleSubmit}>
+              <button className="details_list btn_details" onClick={handleSubmit2}>
                 注文をする
               </button>
             </div>
