@@ -1,3 +1,5 @@
+// food_cart.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './food_cart.css';
@@ -7,6 +9,7 @@ interface CartItem {
   size: string;
   count: number;
   p: number;
+  foodName: string;
 }
 
 const saveCartToLocalStorage = (cartItems: CartItem[]) => {
@@ -30,62 +33,53 @@ const FoodCart: React.FC = () => {
 
   useEffect(() => {
     const data = new URLSearchParams(location.search);
-  
-    const foodName = data.get('ils_name');
+    const foodName = data.get('food_name');
     setDetailsFoodName(foodName || '');
-  
+
     const selectedSize = data.get('size');
     const countup = JSON.parse(data.get('count') || '[{"count": 0}]');
     const maney = parseInt(data.get('maney') || '0');
-  
-    let updatedItems = cartItems.map(item => {
+
+    let updatedItems = cartItems.map((item) => {
       if (item.id === cartItems.length + 1) {
         return { ...item, count: countup.length > 0 ? countup[0].count : 0 };
       }
       return item;
     });
 
-if (updatedItems.every(item => item.id !== cartItems.length + 1)) {
-    updatedItems.push({
-      id: cartItems.length + 1,
-      size: selectedSize || '',
-      count: countup.length > 0 ? countup[0].count : 0,
-      p: maney,
-    });
-  }
 
-  if (JSON.stringify(cartItems) !== JSON.stringify(updatedItems)) {
-    setCartItems(updatedItems);
-  }
-}, [location.search]);
-
-useEffect(() => {
-  saveCartToLocalStorage(cartItems);
-}, [cartItems, saveCartToLocalStorage]);
+    if (JSON.stringify(cartItems) !== JSON.stringify(updatedItems)) {
+      setCartItems(updatedItems);
+      saveCartToLocalStorage(updatedItems);
+    }
+  }, [location.search]);
 
   const increment = (id: number) => {
-    const updatedItems = cartItems.map(item => {
+    const updatedItems = cartItems.map((item) => {
       if (item.id === id && item.count < 20) {
         return { ...item, count: item.count + 1 };
       }
       return item;
     });
     setCartItems(updatedItems);
+    saveCartToLocalStorage(updatedItems);
   };
 
   const decrement = (id: number) => {
-    const updatedItems = cartItems.map(item => {
+    const updatedItems = cartItems.map((item) => {
       if (item.id === id && item.count > 0) {
         return { ...item, count: item.count - 1 };
       }
       return item;
     });
     setCartItems(updatedItems);
+    saveCartToLocalStorage(updatedItems);
   };
 
   const removeItem = (id: number) => {
-    const updatedItems = cartItems.filter(item => item.id !== id);
+    const updatedItems = cartItems.filter((item) => item.id !== id);
     setCartItems(updatedItems);
+    saveCartToLocalStorage(updatedItems);
   };
 
   const calculateTotal = (): number => {
@@ -103,12 +97,12 @@ useEffect(() => {
           買い物を続ける
         </button>
       </div>
-      {detailsFoodName && (
+      {cartItems.length > 0 ? (
         <div className="scl">
-          {cartItems.map(item => (
+          {cartItems.map((item) => (
             <div className="top_line" key={item.id}>
               <div className="food_sazi">
-                <h2>{detailsFoodName}</h2>
+                <h2>{item.foodName}</h2>
                 <button className="fin" onClick={() => removeItem(item.id)}>
                   ×
                 </button>
@@ -134,6 +128,8 @@ useEffect(() => {
             </div>
           ))}
         </div>
+      ) : (
+        <p className="empty-cart-message">カートに商品がありません。</p>
       )}
       <div className="syoukei">
         <div className="yohaku">
