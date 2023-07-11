@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import logo from './image/logo.png';
 import cart from "./image/cart.jpeg";
 import './hanbarger.css';
 
 
-export const FoodHeader: React.FC = () =>{
-  
+
+export const FoodHeader: React.FC = () => {
   const navigate = useNavigate();
-    return (
-      //客側header
-      <header className='header_ac_on'>
+
+  const handleCartClick = () => {
+    navigate('/food_cart',{replace:true});
+  };
+  return (
+    <header className='header_ac_on'>
       <div className="header-logo">
-          <a onClick={() => navigate("/food_list")}><img src={logo} className="logo" alt=''/></a>
+        <a onClick={() => navigate("/food_list")}><img src={logo} className="logo" alt='' /></a>
       </div>
       <div className="header-cart">
-          <a onClick={() => navigate("/food_cart")}><img src={cart} className="cart" alt='カート'/></a>
+        <a onClick={handleCartClick}><img src={cart} className="cart" alt='カート' /></a>
       </div>
-  </header>
-    );
+    </header>
+  );
 };
+
 
 export const StoreHeader: React.FC = () => {
   const navigate = useNavigate();

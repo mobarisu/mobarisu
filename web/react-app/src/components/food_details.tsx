@@ -1,3 +1,5 @@
+// food_details.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './food_details.css';
@@ -6,9 +8,7 @@ import egg from '../images/01たまご.svg';
 import milk from '../images/02牛乳.svg';
 import rais from '../images/03小麦.svg';
 import ebi from '../images/04えび.svg';
-import {FoodHeader,FoodFooter} from './header_footer';
-
-
+import { FoodHeader, FoodFooter } from './header_footer';
 
 interface FoodSize {
   id: number;
@@ -20,6 +20,25 @@ interface Count {
   id: number;
   count: number;
 }
+interface CartItem {
+  id: number;
+  size: string;
+  count: number;
+  p: number;
+  foodName: string;
+}
+
+const saveCartToLocalStorage = (cartItems: CartItem[]) => {
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+};
+
+const getCartFromLocalStorage = (): CartItem[] => {
+  const cartItemsString = localStorage.getItem('cartItems');
+  if (cartItemsString) {
+    return JSON.parse(cartItemsString);
+  }
+  return [];
+};
 
 const FoodDetails: React.FC = () => {
   const navigate = useNavigate();
@@ -84,7 +103,7 @@ const FoodDetails: React.FC = () => {
     const selectedSizeObject = foodsize.find((size) => size.size === selectedSize);
 
     if (selectedSizeObject) {
-      let newManey = 1000; // 初期値に戻す
+      let newManey = 1000;
       if (selectedSizeObject.price > 0) {
         newManey += selectedSizeObject.price;
       } else if (selectedSizeObject.price < 0) {
@@ -104,21 +123,60 @@ const FoodDetails: React.FC = () => {
 
     const searchParams = new URLSearchParams();
     searchParams.set('size', selectedSize ? selectedSize : 'M');
-    searchParams.set('ils_name', ils_name);
-    searchParams.set('maney', maney.toString());
+    searchParams.set('food_name', ils_name);
+    searchParams.set('price', price.toString());
     searchParams.set('count', JSON.stringify(countup));
+
+    const cartItems = getCartFromLocalStorage();
+    const updatedCartItems = [
+      ...cartItems,
+      {
+        id: cartItems.length + 1,
+        size: selectedSize ? selectedSize : 'M',
+        count: countup[0].count,
+        p: maney,
+        foodName: ils_name,
+      },
+    ];
+
+    saveCartToLocalStorage(updatedCartItems);
+
+    navigate(`/food_list?${searchParams.toString()}`);
+  };
+
+  const handleSubmit2 = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const searchParams = new URLSearchParams();
+    searchParams.set('size', selectedSize ? selectedSize : 'M');
+    searchParams.set('food_name', ils_name);
+    searchParams.set('price', price.toString());
+    searchParams.set('count', JSON.stringify(countup));
+
+    const cartItems = getCartFromLocalStorage();
+    const updatedCartItems = [
+      ...cartItems,
+      {
+        id: cartItems.length + 1,
+        size: selectedSize ? selectedSize : 'M',
+        count: countup[0].count,
+        p: maney,
+        foodName: ils_name,
+      },
+    ];
+
+    saveCartToLocalStorage(updatedCartItems);
 
     navigate(`/food_cart?${searchParams.toString()}`);
   };
 
-
   return (
     <>
-         <head>
-        <meta charSet="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>商品詳細画面</title>
-    </head>
+      </head>
       <FoodHeader />
       <body>
         <div className="details_full">
@@ -159,7 +217,7 @@ const FoodDetails: React.FC = () => {
                         value={size.size}
                         checked={selectedSize === size.size}
                         onChange={handleSizeChange}
-                      />
+                     />
                     </div>
                     <div className="price_yoko">
                       {size.size}
@@ -191,22 +249,21 @@ const FoodDetails: React.FC = () => {
             </div>
           ))}
 
-            <div className='details_space'>
-          <div className="details_btn_full">
-            <button className="details_cart btn_details" onClick={handleSubmit}>
-              カートに入れる
-            </button>
+          <div className="details_space">
+            <div className="details_btn_full">
+              <button className="details_cart btn_details" onClick={handleSubmit}>
+                カートに入れる
+              </button>
             </div>
-            <div className='details_btn_full'>
-            <button className="details_list btn_details" onClick={handleSubmit}>
-              注文をする
-            </button>
+            <div className="details_btn_full">
+              <button className="details_list btn_details" onClick={handleSubmit2}>
+                注文をする
+              </button>
             </div>
           </div>
         </div>
         <FoodFooter />
       </body>
-      
     </>
   );
 };
