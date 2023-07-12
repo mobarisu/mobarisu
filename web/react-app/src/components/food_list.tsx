@@ -13,6 +13,7 @@ import {FoodHeader,FoodFooter} from './header_footer';
 const FoodList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('メイン');
   const navigate = useNavigate();
+  const location = useLocation();
 
   const foodCategoryClick = (category: string) => {
     setSelectedCategory(category);
@@ -147,8 +148,8 @@ const FoodList: React.FC = () => {
 
   const filteredMenu = dummyData.filter(item => item.store_id === 'AC' && item.category_name === selectedCategory);
 
-  const DetailsSubmit = () => {
-    navigate("/food_details")
+  const DetailsSubmit = (item: any) => {
+    navigate("/food_details", { state: { item } });
   };
 
   return (
@@ -175,13 +176,13 @@ const FoodList: React.FC = () => {
                 </h2>
                 <div className="food">
                     {filteredMenu.map(item => (
-                      <a onClick={DetailsSubmit} key={item.product_id}>
-                        <img src={food} className="food" alt=''/>
-                        <h2>
-                            <p>{item.product_name}</p>
-                            <p>{item.product_price}円</p>
-                        </h2>
-                      </a>
+                      <a onClick={() => DetailsSubmit(item)} key={item.product_id}>
+                      <img src={food} className="food" alt='' />
+                      <h2>
+                        <p>{item.product_name}</p>
+                        <p>{item.product_price}円</p>
+                      </h2>
+                    </a>
                     ))}
                 </div>
             </div>

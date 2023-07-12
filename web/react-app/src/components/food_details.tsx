@@ -1,5 +1,3 @@
-// food_details.tsx
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './food_details.css';
@@ -20,6 +18,7 @@ interface Count {
   id: number;
   count: number;
 }
+
 interface CartItem {
   id: number;
   size: string;
@@ -53,13 +52,12 @@ const FoodDetails: React.FC = () => {
   };
 
   useEffect(() => {
-    const data = new URLSearchParams(location.search);
-    const foodName = data.get('food_name');
-    const price = parseInt(data.get('price') || '0');
-
-    setFoodName(foodName || '');
-    setPrice(price);
-  }, []);
+    const item = location.state && location.state.item;
+    if (item) {
+      setFoodName(item.product_name);
+      setPrice(item.product_price);
+    }
+  }, [location.state]);
 
   const [allergies] = useState([
     { name: 'たまご', image: egg },
@@ -96,34 +94,31 @@ const FoodDetails: React.FC = () => {
     setCount(updatecount);
   };
 
-  const [maney, setManey] = useState<number>(1000);
-
   const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedSize = event.target.value;
     const selectedSizeObject = foodsize.find((size) => size.size === selectedSize);
 
     if (selectedSizeObject) {
-      let newManey = 1000;
-      if (selectedSizeObject.price > 0) {
-        newManey += selectedSizeObject.price;
-      } else if (selectedSizeObject.price < 0) {
-        newManey -= Math.abs(selectedSizeObject.price);
+
+      let newPrice = price;
+      if(selectedSizeObject.price > 0){
+        newPrice += selectedSizeObject.price;
+      }else if(selectedSizeObject.price < 0){
+        newPrice -= Math.abs(selectedSizeObject.price);
       }
-      setManey(newManey);
+
+      setPrice(newPrice);
     }
 
     setSelectedSize(selectedSize);
   };
-
-  const ils_name = '焦がしねぎ焼き鳥丼';
-  const explanation = '香ばしく焼き上げた鶏肉に、たっぷりのねぎと濃厚なタレが絡み合う一品です。';
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
     const searchParams = new URLSearchParams();
     searchParams.set('size', selectedSize ? selectedSize : 'M');
-    searchParams.set('food_name', ils_name);
+    searchParams.set('food_name', foodName || '');
     searchParams.set('price', price.toString());
     searchParams.set('count', JSON.stringify(countup));
 
@@ -134,8 +129,8 @@ const FoodDetails: React.FC = () => {
         id: cartItems.length + 1,
         size: selectedSize ? selectedSize : 'M',
         count: countup[0].count,
-        p: maney,
-        foodName: ils_name,
+        p: price,
+        foodName: foodName || '',
       },
     ];
 
@@ -149,7 +144,7 @@ const FoodDetails: React.FC = () => {
 
     const searchParams = new URLSearchParams();
     searchParams.set('size', selectedSize ? selectedSize : 'M');
-    searchParams.set('food_name', ils_name);
+    searchParams.set('food_name', foodName || '');
     searchParams.set('price', price.toString());
     searchParams.set('count', JSON.stringify(countup));
 
@@ -160,8 +155,8 @@ const FoodDetails: React.FC = () => {
         id: cartItems.length + 1,
         size: selectedSize ? selectedSize : 'M',
         count: countup[0].count,
-        p: maney,
-        foodName: ils_name,
+        p: price,
+        foodName: foodName || '',
       },
     ];
 
@@ -192,9 +187,9 @@ const FoodDetails: React.FC = () => {
           </div>
           <div className="food_content">
             <label className="details_food_name" htmlFor="name">
-              {ils_name}
+              {foodName}
             </label>
-            <p className="deta_cot">{explanation}</p>
+            <p className="deta_cot">香ばしく焼き上げた鶏肉に、たっぷりのねぎと濃厚なタレが絡み合う一品です。</p>
           </div>
 
           <div className="deta_option">
@@ -217,7 +212,7 @@ const FoodDetails: React.FC = () => {
                         value={size.size}
                         checked={selectedSize === size.size}
                         onChange={handleSizeChange}
-                     />
+                      />
                     </div>
                     <div className="price_yoko">
                       {size.size}
@@ -233,7 +228,7 @@ const FoodDetails: React.FC = () => {
           </div>
 
           <div className="details_syou">
-            <p className="maney_deta">{maney}円</p>
+            <p className="maney_deta">{price}円</p>
           </div>
           {countup.map((item) => (
             <div className="details_sazi" key={item.id}>
