@@ -87,6 +87,7 @@ const FoodCart: React.FC = () => {
     return cartItems.reduce((total, item) => total + item.count * item.p, 0);
   };
 
+
   return (
     <>
       <head>
@@ -105,6 +106,7 @@ const FoodCart: React.FC = () => {
             買い物を続ける
           </button>
         </div>
+
         {cartItems.length > 0 ? (
           <div className="scl">
             {cartItems.map((item) => (
