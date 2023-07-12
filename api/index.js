@@ -61,7 +61,7 @@ app.post('/mail_cash', (req, res) => {
 app.post('/store_info', (req, res) => {
   const auth = new store_info(req.body.store_id);
   auth.storeLogin().then((results) => {
-    res.send(JSON.stringify({'result':results}));
+    res.send(JSON.stringify(results));
   });
 });
 
