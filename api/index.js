@@ -8,6 +8,7 @@ const Authentication = require('./authentication');
 const food_details = require('./food_details');
 const mail_duplicate = require('./mail_duplicate');
 const mail_cash = require('./mail_cash');
+const store_info = require('./store_info');
 
 
 // expressアプリを生成する
