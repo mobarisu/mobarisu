@@ -12,6 +12,7 @@
         "nodemon": "^2.0.20",
         "aws-sdk": "^2.127.0",
         "qrcode": "1.5.3",
+        "nodemailer": "6.9.3",
         "mysql": "*"
     }
   }
