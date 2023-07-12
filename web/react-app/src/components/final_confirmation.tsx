@@ -33,6 +33,10 @@ const FinalConfirmation: React.FC = () => {
     setCartItems(updatedItems);
     localStorage.setItem('cartItems', JSON.stringify(updatedItems));
   };
+  const handlePurchase = () => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    navigate('/order_details');
+  };
 
   return (
     <>
@@ -81,9 +85,7 @@ const FinalConfirmation: React.FC = () => {
         </div>
 
         <div>
-          <button className="btn_personal" onClick={() => navigate('/order_details')}>
-            購入
-          </button>
+          <button className="btn_personal" onClick={handlePurchase}>購入</button>
         </div>
       </div>
       <FoodFooter />
