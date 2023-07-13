@@ -56,6 +56,7 @@ const FoodDetails: React.FC = () => {
     if (item) {
       setFoodName(item.product_name);
       setPrice(item.product_price);
+      setmaney(item.product_price);
     }
   }, [location.state]);
 
@@ -94,6 +95,8 @@ const FoodDetails: React.FC = () => {
     setCount(updatecount);
   };
 
+  const [maney, setmaney] = useState(price);
+
   const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedSize = event.target.value;
     const selectedSizeObject = foodsize.find((size) => size.size === selectedSize);
@@ -107,7 +110,7 @@ const FoodDetails: React.FC = () => {
         newPrice -= Math.abs(selectedSizeObject.price);
       }
 
-      setPrice(newPrice);
+      setmaney(newPrice);
     }
 
     setSelectedSize(selectedSize);
@@ -129,7 +132,7 @@ const FoodDetails: React.FC = () => {
         id: cartItems.length + 1,
         size: selectedSize ? selectedSize : 'M',
         count: countup[0].count,
-        p: price,
+        p: maney,
         foodName: foodName || '',
       },
     ];
@@ -155,7 +158,7 @@ const FoodDetails: React.FC = () => {
         id: cartItems.length + 1,
         size: selectedSize ? selectedSize : 'M',
         count: countup[0].count,
-        p: price,
+        p: maney,
         foodName: foodName || '',
       },
     ];
@@ -228,7 +231,7 @@ const FoodDetails: React.FC = () => {
           </div>
 
           <div className="details_syou">
-            <p className="maney_deta">{price}円</p>
+            <p className="maney_deta">{maney}円</p>
           </div>
           {countup.map((item) => (
             <div className="details_sazi" key={item.id}>
